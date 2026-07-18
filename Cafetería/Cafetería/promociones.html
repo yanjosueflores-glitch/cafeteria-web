@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="js/carrito.js"></script>
+    <title>Promociones - Cafetería Mis Cielos</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+
+</head>
+
+<body>
+
+ <header>
+
+    <h1>Cafetería Mis Cielos</h1>
+
+    <nav>
+
+        <ul class="menu">
+
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html">Nuestros Productos</a></li>
+            <li><a href="reservas.html">Reservas</a></li>
+            <li><a href="promociones.html">Promociones</a></li>
+            <li><a href="comentarios.html">Comentarios</a></li>
+
+        </ul>
+
+    </nav>
+
+ </header>
+
+ <section class="promociones">
+
+    <h2>Promociones Especiales</h2>
+
+    <div class="contenedor-promociones">
+
+        <div class="promo">
+
+            <img src="img/combo1.png" alt="Promoción">
+
+            <h3>Combo Desayuno</h3>
+
+            <p>
+                Café + Croissant
+            </p>
+
+            <div class="cantidad-box">
+            <label for="cantidad1">Cantidad</label>
+
+            <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    id="promo1">
+            </div>
+
+            <h4>S/ 12.90</h4>
+
+            <button onclick="agregarPedido(this, 'Combo Desayuno',12.9, 'promo1')">
+                Agregar al Pedido
+            </button>
+
+        </div>
+
+        <div class="promo">
+
+            <img src="img/combo2.png" alt="Promoción">
+
+            <h3>Dúo Cappuccino</h3>
+
+            <p>
+                2 Cappuccinos por precio especial
+            </p>
+
+            <div class="cantidad-box">
+            <label for="cantidad2">Cantidad</label>
+
+            <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    id="promo2">
+            </div>
+
+            <h4>S/ 18.00</h4>
+
+            <button onclick="agregarPedido(this, 'Dúo Cappuccino',18, 'promo2')">
+                Agregar al Pedido
+            </button>
+
+        </div>
+
+        <div class="promo">
+
+            <img src="img/combo3.png" alt="Promoción">
+
+            <h3>Hora Express Max</h3>
+
+            <p>
+                20% de descuento en cafés
+            </p>
+
+            <div class="cantidad-box">
+            <label for="cantidad3">Cantidad</label>
+
+            <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    id="promo3">
+            </div>
+
+            <h4>20% OFF</h4>
+
+            <button onclick="agregarPedido(this, 'Hora Express Max',20, 'promo3')">
+                Agregar al Pedido
+            </button>
+
+        </div>
+
+        <div class="promo">
+
+            <img src="img/combo4.png" alt="Promoción">
+
+            <h3>Combo Familiar</h3>
+
+            <p>
+                4 bebidas + 4 postres
+            </p>
+
+            <div class="cantidad-box">
+            <label for="cantidad4">Cantidad</label>
+
+            <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    id="promo4">
+            </div>
+
+            <h4>S/ 45.00</h4>
+
+            <button onclick="agregarPedido(this, 'Combo Familiar',45, 'promo4')">
+                Agregar al Pedido
+            </button>
+
+        </div>
+
+        <div class="promo">
+
+            <img src="img/combo5.png" alt="Promoción">
+
+            <h3>Brownie Lovers</h3>
+
+            <p>
+                Brownie + Latte
+            </p>
+
+            <div class="cantidad-box">
+            <label for="cantidad5">Cantidad</label>
+
+            <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    id="promo5">
+            </div>
+
+            <h4>S/ 15.00</h4>
+
+            <button onclick="agregarPedido(this, 'Brownie Lovers',15, 'promo5')">
+                Agregar al Pedido
+            </button>
+        </div>
+
+        <div class="promo">
+
+            <img src="img/combo6.png" alt="Promoción">
+
+            <h3>Promo Universitaria</h3>
+
+            <p>
+                Presenta carnet y obtén descuento
+            </p>
+
+            <div class="cantidad-box">
+            <label for="cantidad6">Cantidad</label>
+
+            <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    id="promo6">
+            </div>
+
+            <h4>15% OFF</h4>
+
+            <button onclick="agregarPedido(this, 'Promo Universitaria',15, 'promo6')">
+                Agregar al Pedido
+            </button>
+
+        </div>
+
+    </div>
+
+ </section>
+
+ <section class="pedido">
+
+    <h2>Resumen del Pedido</h2>
+
+    <div id="listaPedido"></div>
+
+     <h3 id="cantidadProductos">
+    Paquetes Combo Agregados: 0
+    </h3>
+
+    <h3 id="totalPedido">
+
+        Total: S/ 0.00
+
+    </h3>
+
+ </section>
+
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas - Cafetería Mis Cielos</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <header>
+        <h1>Cafetería Mis Cielos</h1>
+
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="menu.html">Nuestros Productos</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
+                <li><a href="promociones.html">Promociones</a></li>
+                <li><a href="comentarios.html">Comentarios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="formulario">
+        <h2>Reserva tu Mesa</h2>
+
+        <form id="formReserva">
+            <label>Nombre Completo</label>
+            <input type="text" id="nombre" required>
+
+            <label>Correo Electrónico</label>
+            <input type="email" id="correo" required>
+
+            <label>Teléfono</label>
+            <input type="tel" id="teléfono" required>
+
+            <label>Fecha de Reserva</label>
+            <input type="date" id="fecha" required>
+
+            <label>Hora</label>
+            <input type="time" id="hora" required>
+
+            <label>Cantidad de Personas</label>
+            <input type="number" id="personas" min="1" max="20" required>
+
+            <label>Observaciones</label>
+
+            <textarea rows="5"></textarea>
+
+            <button type="submit">
+                Reservar Mesa
+            </button>
+        </form>
+
+        <h2>Reservas Registradas</h2>
+
+        <table id="tablaReservas">
+
+        <thead>
+
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Personas</th>
+            </tr>
+
+         </thead>
+
+    <tbody>
+
+    </tbody>
+
+</table>
+
+<div id="mensajeReserva"></div>
+    </section>
+<script>
+
+document.getElementById("formReserva")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let nombre =
+    document.getElementById("nombre").value;
+
+    let correo =
+    document.getElementById("correo").value;
+
+    let fecha =
+    document.getElementById("fecha").value;
+
+    let hora =
+    document.getElementById("hora").value;
+
+    let personas =
+    document.getElementById("personas").value;
+
+    let fila = `
+        <tr>
+            <td>${nombre}</td>
+            <td>${correo}</td>
+            <td>${fecha}</td>
+            <td>${hora}</td>
+            <td>${personas}</td>
+        </tr>
+    `;
+
+    document.querySelector(
+        "#tablaReservas tbody"
+    ).innerHTML += fila;
+
+    console.log(nombre);
+    console.log(correo);
+    console.log(fecha);
+    console.log(hora);
+    console.log(personas);
+
+    this.reset();
+
+});
+
+</script>
+</body>
+</html>

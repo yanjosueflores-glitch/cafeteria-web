@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Comentarios</title>
+
+<link rel="stylesheet"
+href="css/estilos.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Cafetería Mis Cielos</h1>
+
+<nav>
+
+<ul class="menu">
+
+<li><a href="index.html">Inicio</a></li>
+
+<li><a href="menu.html">Menú</a></li>
+
+<li><a href="reservas.html">Reservas</a></li>
+
+<li><a href="promociones.html">Promociones</a></li>
+
+<li><a href="comentarios.html">Comentarios</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="formulario">
+
+<h2>Déjanos tu Opinión</h2>
+
+<form id="formComentario">
+
+<label>Nombre</label>
+
+<input
+type="text"
+id="nombreComentario"
+required>
+
+<label>Calificación</label>
+
+<select id="calificacion">
+
+<option>⭐</option>
+<option>⭐⭐</option>
+<option>⭐⭐⭐</option>
+<option>⭐⭐⭐⭐</option>
+<option selected>⭐⭐⭐⭐⭐</option>
+
+</select>
+
+<label>Comentario</label>
+
+<textarea
+id="textoComentario"
+rows="5"
+required>
+</textarea>
+
+<button type="submit">
+
+Publicar Comentario
+
+</button>
+
+</form>
+
+</section>
+
+<section class="comentarios">
+
+<h2>Opiniones de Clientes</h2>
+
+<div id="listaComentarios">
+
+</div>
+
+</section>
+
+<script>
+
+document
+.getElementById("formComentario")
+.addEventListener(
+"submit",
+function(e){
+
+e.preventDefault();
+
+let nombre =
+document.getElementById(
+"nombreComentario"
+).value;
+
+let estrellas =
+document.getElementById(
+"calificacion"
+).value;
+
+let comentario =
+document.getElementById(
+"textoComentario"
+).value;
+
+let fecha =
+new Date()
+.toLocaleDateString();
+
+let bloque =
+`
+<div class="comentario">
+
+<h3>${nombre}</h3>
+
+<p>${estrellas}</p>
+
+<p>${comentario}</p>
+
+<small>${fecha}</small>
+
+</div>
+`;
+
+document.getElementById(
+"listaComentarios"
+).innerHTML += bloque;
+
+this.reset();
+
+});
+
+</script>
+
+</body>
+
+</html>
