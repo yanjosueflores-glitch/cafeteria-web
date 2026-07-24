@@ -7,21 +7,36 @@
 body{
     font-family:Arial, Helvetica, sans-serif;
     background:rgba(203, 184,184,0.5);
-    background-image: url(../img/fondo.jpg);
+    background-image: url(/img/fondo.jpg);
 
 }
 
 header{
-    background:#6b3a2d;
+    background:#0c0401;
     color: rgb(242, 233, 233);
     padding: 20px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
 }
+
+.logo-header {
+  width: 180px; 
+  height: auto; 
+  object-fit: contain; 
+}
+
+
 
 .menu{
     list-style: none;
     display: flex;
     gap: 25px;
     margin-top: 15px;
+    
+    
+    
 }
 
 .menu a{
@@ -465,4 +480,91 @@ td{
 
     margin-bottom:10px;
 
+}
+
+footer{
+    background-color: #0c0401;
+    
+    
+}
+
+
+
+
+.footer-contenedor{
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px
+
+
+    
+}
+
+.footer-redes sociales{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-info,
+.footer-contacto,
+.footer-horario,
+.footer-redes {
+  flex: 1;
+  min-width: 200px;
+}
+ 
+.footer-info img {
+  height: 80px;
+  margin-bottom: 12px;
+}
+ 
+.footer-info p {
+  color: why;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+ 
+footer h4 {
+  color: why;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+ 
+footer p {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: why;
+}
+ 
+.footer-redes a {
+  display: inline-block;
+  
+  text-decoration: none;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+  color: inherit;
+}
+ 
+.footer-redes a:hover {
+  color: #8c7258;
+}
+ 
+footer hr {
+  border: none;
+  border-top: 1px solid #5F605B;
+  margin: 30px auto 15px;
+  max-width: 1100px;
+}
+ 
+.copyright {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #A9A196;
+  margin-top: 10px;
 }
