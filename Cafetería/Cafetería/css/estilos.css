@@ -7,8 +7,10 @@
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background-image: url(../img/banner.jpg);
     background-attachment: fixed;
+    background:rgba(203, 184,184,0.5);
+    background-image: url(../img/banner.img.jpg);
+    background-size: cover;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
