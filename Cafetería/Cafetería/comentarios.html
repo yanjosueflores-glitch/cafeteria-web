@@ -96,55 +96,53 @@ Publicar Comentario
 
 <script>
 
+let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
+
+function mostrarComentarios() {
+  let lista = document.getElementById("listaComentarios");
+  lista.innerHTML = "";
+
+  comentarios.forEach(function(c) {
+    let bloque = `
+      <div class="comentario">
+        <h3>${c.nombre}</h3>
+        <p>${c.estrellas}</p>
+        <p>${c.comentario}</p>
+        <small>${c.fecha}</small>
+      </div>
+    `;
+    lista.innerHTML += bloque;
+  });
+}
+
 document
-.getElementById("formComentario")
-.addEventListener(
-"submit",
-function(e){
+  .getElementById("formComentario")
+  .addEventListener("submit", function(e) {
 
-e.preventDefault();
+    e.preventDefault();
 
-let nombre =
-document.getElementById(
-"nombreComentario"
-).value;
+    let nombre = document.getElementById("nombreComentario").value;
+    let estrellas = document.getElementById("calificacion").value;
+    let comentario = document.getElementById("textoComentario").value;
+    let fecha = new Date().toLocaleDateString();
 
-let estrellas =
-document.getElementById(
-"calificacion"
-).value;
+    let nuevoComentario = {
+      nombre: nombre,
+      estrellas: estrellas,
+      comentario: comentario,
+      fecha: fecha
+    };
 
-let comentario =
-document.getElementById(
-"textoComentario"
-).value;
+    comentarios.push(nuevoComentario);
 
-let fecha =
-new Date()
-.toLocaleDateString();
+    localStorage.setItem("comentarios", JSON.stringify(comentarios));
 
-let bloque =
-`
-<div class="comentario">
+    mostrarComentarios();
 
-<h3>${nombre}</h3>
+    this.reset();
+  });
 
-<p>${estrellas}</p>
-
-<p>${comentario}</p>
-
-<small>${fecha}</small>
-
-</div>
-`;
-
-document.getElementById(
-"listaComentarios"
-).innerHTML += bloque;
-
-this.reset();
-
-});
+mostrarComentarios();
 
 </script>
 
