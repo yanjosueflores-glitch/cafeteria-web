@@ -276,15 +276,49 @@ footer{
     margin:auto;
     padding:40px 0;
 }
-
+/* Estilo para el titulo nuestro menu */
 .productos h2{
-    text-align:center;
-    margin-bottom:40px;font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
-  font-weight: bold;
-  text-align: center;
-  letter-spacing: 8px;
+  margin-bottom:30px;
+  font-family:Georgia, 'Times New Roman', Times, serif; 
+  color: #40221c;
+  font-size: 36px;
+  font-weight:700;
+  letter-spacing: 5px;
+}
+.producto {
+  /* Borde de 3px de grosor, estilo sólido y color dorado/amarillo oro */
+  border: 4px solid #cfad3c; 
+  
+  /* Mantiene las esquinas redondeadas */
+  border-radius: 15px; 
+  
+  /* (Opcional) Sombra suave dorada alrededor para darle un toque brillante */
+ box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); 
+  
+  /* Asegura que la imagen interna respete los bordes redondeados */
+  overflow: hidden; 
+  
+  /* Transición suave por si quieres que cambie al pasar el mouse */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+/* Efecto hover opcional: brilla un poco más al pasar el cursor */
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.7);
+}
+/* Aplicar el fondo únicamente al contenedor de productos (sección Carta) */
+.productos {
+  /* Imagen de fondo de madera */
+  background-image: url('../img/logo4.avif'); /* Asegúrate de poner el nombre/ruta correcta de la imagen */
+  
+  /* Ajustes para que la imagen se vea perfecta */
+  background-size: cover;          
+  background-position: center;     
+  background-repeat: no-repeat;   
+  padding: 40px 20px;
+  width: 100%;
+  min-height: 100vh;               
 }
 
 
@@ -301,11 +335,11 @@ footer{
     box-shadow: 0 3px 8px rgba(53, 181, 15, 0.2);
     
 }
-
+  /* Estilo para el contenedor de carta */
 .contenedor-productos{
     display:flex;
     flex-wrap:wrap;
-    gap:25px;
+    gap:30px;
     justify-content:center;
     
 }
@@ -313,9 +347,9 @@ footer{
 .producto{
     width:300px;
     background: linear-gradient(
-    180deg, 
-    rgba(255, 248, 240, 0.75) 0%, 
-    rgba(150, 85, 21, 0.85) 100%
+    200deg, 
+    rgba(228, 226, 223, 0.75) 0%, 
+    rgba(140, 90, 39, 0.85) 100%
     );
     border-radius:10px;
     overflow:hidden;
@@ -331,7 +365,7 @@ footer{
 
 .producto:hover {
     transform: scale(1.05);
-    box-shadow: 0px 15px 30px 10px rgba(133, 84, 21, 0.35);
+    box-shadow: 0px 15px 30px 10px rgba(152, 106, 49, 0.35);
 }
 
 .producto img{
@@ -369,19 +403,19 @@ footer{
     padding:10px 20px;
     border:none;
     background:#5d4037;
-    color:white;
+    color:rgb(255, 249, 249);
     border-radius:5px;
     cursor:pointer;
 }
-
+/*el botton de agrgar pedido cambia de color al pasar el mouse por encima*/
 .producto button:hover{
-    background:#3e2723;
+    background:#3a2615;
 }
 
 .pedido{
     width:90%;
     margin:50px auto;
-    background:white;
+    background:rgb(111, 21, 21);
     padding:30px;
     border-radius:10px;
     box-shadow:0px 0px 10px rgba(0,0,0,0.15);
