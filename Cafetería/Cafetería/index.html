@@ -36,19 +36,19 @@
             <div class="ruleban">
 
                 <div class="rulebanimg">
-                    <img src="Cafetería/Cafetería/img2/imgb1.png" alt="">
+                    <img src="img2/imgb1.png" alt="">
                 </div>
 
                 <div class="rulebanimg">
-                    <img src="Cafetería/Cafetería/img2/imgb2.png" alt="">
+                    <img src="img2/imgb2.png" alt="">
                 </div>
 
                 <div class="rulebanimg">
-                    <img src="Cafetería/Cafetería/img2/imgb3.png" alt="">
+                    <img src="img2/imgb3.png" alt="">
                 </div>
 
                 <div class="rulebanimg">
-                    <img src="Cafetería/Cafetería/img2/imgb4.png" alt="">
+                    <img src="img2/imgb4.png" alt="">
                 </div>
 
             </div>
@@ -187,10 +187,8 @@
 
 </footer>
 
-</body>
-
 <script>
- 
+    
     const logo = document.querySelector('header > a img');
 
     if (logo) {
@@ -212,9 +210,9 @@
         });
     }
 
-    const slides=document.querySelector(".ruleban");
-    const slide=document.querySelectorAll(".rulebanimg");
-    const dots=document.querySelectorAll(".area");
+    const ruleban=document.querySelector(".ruleban");
+    const rulebanimg=document.querySelectorAll(".rulebanimg");
+    const imgban=document.querySelectorAll(".area");
 
     let index=0;
 
@@ -242,16 +240,19 @@
         mostrarRulebanimg(index-1);
     }
 
-    dots.forEach((dot,i)=>{
-        dot.onclick=()=>{
+    imgban.forEach((area,i)=>{
+        area.onclick=()=>{
             mostrarRulebanimg(i);
         }
     });
 
     setInterval(()=>{
         mostrarRulebanimg(index+1);
-    },4000);
+    },11000);
 
 </script>
+
+</body>
+
 
 </html>
