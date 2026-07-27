@@ -6,17 +6,9 @@
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background-attachment: fixed;
-    background:rgba(203, 184,184,0.5);
-    background-image: url(/img/fondo.jpg);
-
-    background-image: url(../img/banner.img.jpg);
-    background-size: cover;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 80px 20px;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
 
@@ -206,7 +198,7 @@ footer{
 
   
   background: linear-gradient(180deg, #d4af37 0%, #a46f18 100%);
-
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
   
@@ -630,4 +622,14 @@ footer hr {
   font-size: 0.8rem;
   color: #A9A196;
   margin-top: 10px;
+}
+
+
+.fondoReserva{
+    background-image: url(../img/fondoReserva.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
 }
