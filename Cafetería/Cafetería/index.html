@@ -39,15 +39,15 @@
                     <img src="Cafetería/Cafetería/img2/imgb1.png" alt="">
                 </div>
 
-                <div class="slide">
+                <div class="rulebanimg">
                     <img src="Cafetería/Cafetería/img2/imgb2.png" alt="">
                 </div>
 
-                <div class="slide">
+                <div class="rulebanimg">
                     <img src="Cafetería/Cafetería/img2/imgb3.png" alt="">
                 </div>
 
-                <div class="slide">
+                <div class="rulebanimg">
                     <img src="Cafetería/Cafetería/img2/imgb4.png" alt="">
                 </div>
 
@@ -176,11 +176,6 @@
             <a href="#">Instagram</a><br>
             <a href="#">TikTok</a>
 
-
-
-                
-
-
         </div>
 
     </div>
@@ -196,26 +191,34 @@
 
 <script>
  
-  const logo = document.querySelector('header > a img');
+    const logo = document.querySelector('header > a img');
 
-  if (logo) {
-    logo.addEventListener('click', (e) => {
+    if (logo) {
+        logo.addEventListener('click', (e) => {
+        
+        e.preventDefault(); 
+
+        
+        logo.classList.remove('prendido');
+        void logo.offsetWidth; 
+
+        
+        logo.classList.add('prendido');
+        });
+
     
-      e.preventDefault(); 
+        logo.addEventListener('animationend', () => {
+        logo.classList.remove('prendido');
+        });
+    }
 
-      
-      logo.classList.remove('prendido');
-      void logo.offsetWidth; 
+    const slides=document.querySelector(".ruleban");
+    const slide=document.querySelectorAll(".rulebanimg");
+    const dots=document.querySelectorAll(".area");
 
-      
-      logo.classList.add('prendido');
-    });
+    let index=0;
 
-   
-    logo.addEventListener('animationend', () => {
-      logo.classList.remove('prendido');
-    });
-  }
+    
 </script>
 
 </html>
