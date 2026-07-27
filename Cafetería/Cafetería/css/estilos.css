@@ -606,25 +606,25 @@ td{
 
 .comentarios{
 
-    width:90%;
+    width: 90%;
 
-    margin:auto;
+    margin:aut;
 
-    padding:40px 0;
+    padding:40px ;
 
 }
 
 .comentario{
 
-    background:white;
+    background:rgb(252, 252, 252);
 
-    padding:20px;
+    padding:15px;
 
     margin-bottom:20px;
 
     border-radius:10px;
 
-    box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+    box-shadow:0px 0px 10px rgba(26, 2, 2, 0.1);
 
 }
 
