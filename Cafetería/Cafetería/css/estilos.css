@@ -571,7 +571,7 @@ footer{
 .pedido{
     width:90%;
     margin:50px auto;
-    background:rgb(111, 21, 21);
+    background:rgb(222, 198, 198);
     padding:30px;
     border-radius:10px;
     box-shadow:0px 0px 10px rgba(0,0,0,0.15);
@@ -585,7 +585,7 @@ footer{
     display:flex;
     justify-content:space-between;
     padding:10px;
-    border-bottom:1px solid #ddd;
+    border-bottom:1px solid #f6c6c6;
 }
 
 .promociones{
