@@ -218,7 +218,40 @@
 
     let index=0;
 
-    
+    function mostrarRulebanimg(i){
+
+        if(i>=rulebanimg.length){
+            index=0;
+        }else if(i<0){
+            index=rulebanimg.length-1;
+        }else{
+            index=i;
+        }
+
+        ruleban.style.transform=`translateX(-${index*100}%)`;
+
+        imgban.forEach(area=>area.classList.remove("active"));
+        imgban[index].classList.add("active");
+    }
+
+    document.querySelector(".luego").onclick=()=>{
+        mostrarRulebanimg(index+1);
+    }
+
+    document.querySelector(".antes").onclick=()=>{
+        mostrarRulebanimg(index-1);
+    }
+
+    dots.forEach((dot,i)=>{
+        dot.onclick=()=>{
+            mostrarRulebanimg(i);
+        }
+    });
+
+    setInterval(()=>{
+        mostrarRulebanimg(index+1);
+    },4000);
+
 </script>
 
 </html>
