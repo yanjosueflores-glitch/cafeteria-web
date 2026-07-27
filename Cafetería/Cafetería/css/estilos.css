@@ -6,13 +6,9 @@
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background-attachment: fixed;
-    background:rgba(203, 184,184,0.5);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 30px 10px;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
 
@@ -359,12 +355,19 @@ footer{
 
 .formulario{
     width: 80%;
-    max-width: 800px;
+    max-width: 850px;
     margin: 50px auto;
-    background: rgb(255, 254, 254);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.30);
+    border-radius: 20px;
+
+    padding: 40px;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.30);
 }
 
 .formulario h2{
@@ -378,32 +381,32 @@ footer{
     flex-direction: column;
 }
 
-.formulario label{
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
 
-.formulario input,
-.formulario textarea{
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
 .formulario button{
-    margin-top: 25px;
-    padding:15px;
-    background: #4e342e;
-    color:white;
-    border:none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    background: #5d4037;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: .3s;
 }
 
 .formulario button:hover{
-    background: #6d4c41;
+    background: #7a5448;
+    transform: translateY(-2px);
+}
+
+
+
+.form-floating label{
+    margin: 0 !important;
+    font-weight: normal !important;
+}
+
+.form-floating input,
+.form-floating textarea,
+.form-floating select{
+    padding: 1rem 0.75rem !important;
 }
 
 .btn{
@@ -438,8 +441,10 @@ footer{
   /* Borde de 3px de grosor, estilo sólido y color dorado/amarillo oro */
   border: 4px solid #cfad3c; 
   
-  /* Mantiene las esquinas redondeadas */
-  border-radius: 15px; 
+  background: linear-gradient(180deg, #d4af37 0%, #a46f18 100%);
+  
+  
+
   
   /* (Opcional) Sombra suave dorada alrededor para darle un toque brillante */
  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); 
@@ -870,4 +875,14 @@ footer hr {
   font-size: 0.8rem;
   color: #A9A196;
   margin-top: 10px;
+}
+
+
+.fondoReserva{
+    background-image: url(../img/fondoReserva.jpg);
+    background-size: cover;
+    background-position: 30% top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
 }

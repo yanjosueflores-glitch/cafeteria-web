@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estacion Cafe"</title>
     <link rel="stylesheet" href="css/estilos.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -139,9 +141,9 @@
 
             <h4>Síguenos</h4>
 
-            <a href="#">Facebook</a><br>
-            <a href="#">Instagram</a><br>
-            <a href="#">TikTok</a>
+            <a href="#"><i class="bi bi-facebook"></i></a><br>
+            <a href="#"><i class="bi bi-instagram"></i></a><br>
+            <a href="#"><i class="bi bi-tiktok"></i></a>
 
         </div>
 
@@ -156,26 +158,30 @@
 
 <script>
     
+    // Asegura que el código corra cuando la página esté lista
+document.addEventListener('DOMContentLoaded', () => {
     const logo = document.querySelector('header > a img');
 
     if (logo) {
-        logo.addEventListener('click', (e) => {
-        
-        e.preventDefault(); 
-
-        
+        // Remueve por seguridad si ya existía
         logo.classList.remove('prendido');
-        void logo.offsetWidth; 
-
         
+        // Truco del offsetWidth para reiniciar el flujo de la animación
+        void logo.offsetWidth;
+
+        // Añade la clase que activa el parpadeo inmediatamente
         logo.classList.add('prendido');
-        });
 
-    
+        // Limpia la clase al terminar la animación (opcional)
         logo.addEventListener('animationend', () => {
-        logo.classList.remove('prendido');
-        });
+            // Nota: Si quieres que el logo se quede encendido permanentemente 
+            // al final, te sugiero NO remover la clase aquí, a menos que 
+            // tu CSS ya lo maneje de otra forma.
+            logo.classList.remove('prendido');
+        }, { once: true }); // 'once' evita que se acumulen listeners
     }
+});
+
 
     const ruleban=document.querySelector(".ruleban");
     const rulebanimg=document.querySelectorAll(".rulebanimg");
