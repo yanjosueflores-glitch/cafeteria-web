@@ -308,7 +308,7 @@ footer{
     max-width: 850px;
     margin: 50px auto;
 
-    background: rgba(255, 255, 255, 0.01);
+    background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
