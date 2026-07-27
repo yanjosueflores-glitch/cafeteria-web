@@ -3,149 +3,199 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-<title>Comentarios</title>
+    <title>Comentarios</title>
 
-<link rel="stylesheet"
-href="css/estilos.css">
+    <link rel="stylesheet"
+    href="css/estilos.css">
 
 </head>
 
 <body>
 
-<header>
+    <header>
 
-<h1>Cafetería Mis Cielos</h1>
+        <a href="index.html"> <img src="img/logo.png" alt="Logo de la cafetería"></a>
 
-<nav>
+        <nav>
+            <ul class="menu">
+                
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="menu.html">Carta</a></li>
+                <li><a href="promociones.html">Promociones</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
+                <li><a href="comentarios.html">Comentarios</a></li>
+            </ul>
 
-<ul class="menu">
+        </nav>
 
-<li><a href="index.html">Inicio</a></li>
+    </header>
 
-<li><a href="menu.html">Menú</a></li>
+    <section class="formulario">
 
-<li><a href="reservas.html">Reservas</a></li>
+                <h2>Déjanos tu Opinión</h2>
 
-<li><a href="promociones.html">Promociones</a></li>
+        <form id="formComentario">
 
-<li><a href="comentarios.html">Comentarios</a></li>
+           <label>Nombre</label>
 
-</ul>
+          <input
+            type="text"
+            id="nombreComentario"
+            required>
 
-</nav>
+          <label>Calificación</label>
 
-</header>
+            <select id="calificacion">
 
-<section class="formulario">
+                <option>⭐</option>
+                <option>⭐⭐</option>
+                <option>⭐⭐⭐</option>
+                <option>⭐⭐⭐⭐</option>
+                <option selected>⭐⭐⭐⭐⭐</option>
 
-<h2>Déjanos tu Opinión</h2>
+            </select>
 
-<form id="formComentario">
+            <label>Comentario</label>
 
-<label>Nombre</label>
+            <textarea
+            id="textoComentario"
+            rows="5"
+            required>
+            </textarea>
 
-<input
-type="text"
-id="nombreComentario"
-required>
+            <button type="submit">
 
-<label>Calificación</label>
+             Publicar Comentario
 
-<select id="calificacion">
+            </button>
 
-<option>⭐</option>
-<option>⭐⭐</option>
-<option>⭐⭐⭐</option>
-<option>⭐⭐⭐⭐</option>
-<option selected>⭐⭐⭐⭐⭐</option>
+        </form>
 
-</select>
+    </section>
 
-<label>Comentario</label>
+    <section class="comentarios">
 
-<textarea
-id="textoComentario"
-rows="5"
-required>
-</textarea>
+        <h2>Opiniones de Clientes</h2>
 
-<button type="submit">
+        <div id="listaComentarios">
 
-Publicar Comentario
+        </div>
 
-</button>
+    </section>
 
-</form>
+        <script>
+          let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
 
-</section>
+          function mostrarComentarios() {
+          let lista = document.getElementById("listaComentarios");
+          lista.innerHTML = "";
 
-<section class="comentarios">
+          comentarios.forEach(function(c) {
+            let bloque = `
+              <div class="comentario">
+                <h3>${c.nombre}</h3>
+                <p>${c.estrellas}</p>
+                <p>${c.comentario}</p>
+                <small>${c.fecha}</small>
+              </div>
+            `;
+            lista.innerHTML += bloque;
+          });
+        }
 
-<h2>Opiniones de Clientes</h2>
+          document.getElementById("formComentario").addEventListener("submit", function(e) {
+          e.preventDefault();
 
-<div id="listaComentarios">
+          let nombre = document.getElementById("nombreComentario").value;
+          let estrellas = document.getElementById("calificacion").value;
+          let comentario = document.getElementById("textoComentario").value;
+          let fecha = new Date().toLocaleDateString();
 
-</div>
+          // Creamos un objeto con los datos del comentario
+          let nuevoComentario = {
+            nombre: nombre,
+            estrellas: estrellas,
+            comentario: comentario,
+            fecha: fecha
+          };
 
-</section>
+          // Lo agregamos al array
+          comentarios.push(nuevoComentario);
 
-<script>
+          // Guardamos el array actualizado en localStorage
+          localStorage.setItem("comentarios", JSON.stringify(comentarios));
 
-let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
+          // Volvemos a dibujar todos los comentarios
+          mostrarComentarios();
 
-function mostrarComentarios() {
-  let lista = document.getElementById("listaComentarios");
-  lista.innerHTML = "";
+          this.reset();
+        });
 
-  comentarios.forEach(function(c) {
-    let bloque = `
-      <div class="comentario">
-        <h3>${c.nombre}</h3>
-        <p>${c.estrellas}</p>
-        <p>${c.comentario}</p>
-        <small>${c.fecha}</small>
-      </div>
-    `;
-    lista.innerHTML += bloque;
-  });
-}
+        mostrarComentarios();
+            
+        </script>
 
-document
-  .getElementById("formComentario")
-  .addEventListener("submit", function(e) {
+        <footer>
 
-    e.preventDefault();
+    <div class="footer-contenedor">
 
-    let nombre = document.getElementById("nombreComentario").value;
-    let estrellas = document.getElementById("calificacion").value;
-    let comentario = document.getElementById("textoComentario").value;
-    let fecha = new Date().toLocaleDateString();
+        <div class="footer-info">
 
-    let nuevoComentario = {
-      nombre: nombre,
-      estrellas: estrellas,
-      comentario: comentario,
-      fecha: fecha
-    };
+            <a href="index.html"> <img src="img/logo.png" alt="Logo de la cafetería"></a>
 
-    comentarios.push(nuevoComentario);
+            <p> Café artesanal con un ambiente acogedor.</p>
 
-    localStorage.setItem("comentarios", JSON.stringify(comentarios));
+        </div>
 
-    mostrarComentarios();
+        <div class="footer-contacto">
 
-    this.reset();
-  });
+            <h4>Contacto</h4>
 
-mostrarComentarios();
+            <p> Lima, Perú</p>
+            <p> +51 999 999 999</p>
+            <p> contacto@estacioncafe.com</p>
 
-</script>
+        </div>
+
+        <div class="footer-horario">
+
+            <h4>Horario</h4>
+
+            <p>Lunes - Viernes: 8:00 am - 9:00 pm</p>
+            <p>Sábado - Domingo: 9:00 am - 10:00 pm</p>
+
+        </div>
+
+        <div class="footer-redes">
+
+            <h4>Síguenos</h4>
+
+            <a href="">Facebook</a><br>
+            <a href="#">Instagram</a><br>
+            <a href="#">TikTok</a>
+
+
+
+                
+
+
+        </div>
+
+    </div>
+
+    <hr>
+    <p class="copyright">
+        © 2026 Estación Café. Todos los derechos reservados.
+    </p>
+
+</footer>
 
 </body>
+
 
 </html>
