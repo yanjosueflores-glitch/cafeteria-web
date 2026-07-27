@@ -89,57 +89,55 @@
     </section>
 
         <script>
+          let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
 
-            document
-            .getElementById("formComentario")
-            .addEventListener(
-            "submit",
-            function(e){
+          function mostrarComentarios() {
+          let lista = document.getElementById("listaComentarios");
+          lista.innerHTML = "";
 
-            e.preventDefault();
-
-            let nombre =
-            document.getElementById(
-            "nombreComentario"
-            ).value;
-
-            let estrellas =
-            document.getElementById(
-            "calificacion"
-            ).value;
-
-            let comentario =
-            document.getElementById(
-            "textoComentario"
-            ).value;
-
-            let fecha =
-            new Date()
-            .toLocaleDateString();
-
-            let bloque =
-            `
-            <div class="comentario">
-
-            <h3>${nombre}</h3>
-
-            <p>${estrellas}</p>
-
-            <p>${comentario}</p>
-
-            <small>${fecha}</small>
-
-            </div>
+          comentarios.forEach(function(c) {
+            let bloque = `
+              <div class="comentario">
+                <h3>${c.nombre}</h3>
+                <p>${c.estrellas}</p>
+                <p>${c.comentario}</p>
+                <small>${c.fecha}</small>
+              </div>
             `;
+            lista.innerHTML += bloque;
+          });
+        }
 
-            document.getElementById(
-            "listaComentarios"
-            ).innerHTML += bloque;
+          document.getElementById("formComentario").addEventListener("submit", function(e) {
+          e.preventDefault();
 
-            this.reset();
+          let nombre = document.getElementById("nombreComentario").value;
+          let estrellas = document.getElementById("calificacion").value;
+          let comentario = document.getElementById("textoComentario").value;
+          let fecha = new Date().toLocaleDateString();
 
-            });
+          // Creamos un objeto con los datos del comentario
+          let nuevoComentario = {
+            nombre: nombre,
+            estrellas: estrellas,
+            comentario: comentario,
+            fecha: fecha
+          };
 
+          // Lo agregamos al array
+          comentarios.push(nuevoComentario);
+
+          // Guardamos el array actualizado en localStorage
+          localStorage.setItem("comentarios", JSON.stringify(comentarios));
+
+          // Volvemos a dibujar todos los comentarios
+          mostrarComentarios();
+
+          this.reset();
+        });
+
+        mostrarComentarios();
+            
         </script>
 
         <footer>
@@ -198,6 +196,5 @@
 </footer>
 
 </body>
-
 
 </html>
