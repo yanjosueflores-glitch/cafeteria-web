@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Estación Café</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <header>
+
+        <a href="index.html"> <img src="img/logo.png" alt="Logo de la cafetería"></a>
+
+        <nav>
+            <ul class="menu">
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="menu.html">Carta</a></li>
+                <li><a href="promociones.html">Promociones</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
+                <li><a href="comentarios.html">Comentarios</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <section class="nosotros">
+
+        <h2>Nuestra Historia</h2>
+
+        <p>
+            Estación Café nació con la idea de crear un espacio donde el buen café se combine con un ambiente
+            acogedor y cercano. Desde nuestros inicios, nos hemos dedicado a seleccionar los mejores granos y a
+            preparar cada bebida con dedicación, buscando que cada visita se sienta como una pausa reconfortante
+            en el día de nuestros clientes.
+        </p>
+
+        <p>
+            Con el paso del tiempo, hemos crecido gracias a la confianza de quienes nos visitan, manteniendo siempre
+            la misma pasión por el buen servicio y la calidad que nos caracteriza desde el primer día.
+        </p>
+
+    </section>
+
+    <section class="servicios">
+
+        <h2>Misión y Visión</h2>
+
+        <div class="tarjetas">
+
+            <div class="tarjeta">
+
+                <h3>Misión</h3>
+
+                <p>
+                    Ofrecer experiencias memorables a través de café de calidad y un servicio cálido, creando un
+                    espacio donde nuestros clientes se sientan siempre bienvenidos.
+                </p>
+
+            </div>
+
+            <div class="tarjeta">
+
+                <h3>Visión</h3>
+
+                <p>
+                    Ser reconocidos como la cafetería de preferencia en la comunidad, destacando por nuestra
+                    calidez, calidad e innovación constante.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <div class="footer-contenedor">
+
+            <div class="footer-info">
+
+                <a href="index.html"> <img src="img/logo.png" alt="Logo de la cafetería"></a>
+
+                <p> Café artesanal con un ambiente acogedor.</p>
+
+            </div>
+
+            <div class="footer-contacto">
+
+                <h4>Contacto</h4>
+
+                <p> Lima, Perú</p>
+                <p> +51 999 999 999</p>
+                <p> contacto@estacioncafe.com</p>
+
+            </div>
+
+            <div class="footer-horario">
+
+                <h4>Horario</h4>
+
+                <p>Lunes - Viernes: 8:00 am - 9:00 pm</p>
+                <p>Sábado - Domingo: 9:00 am - 10:00 pm</p>
+
+            </div>
+
+            <div class="footer-redes">
+
+                <h4>Síguenos</h4>
+
+                <a href="#">Facebook</a><br>
+                <a href="#">Instagram</a><br>
+                <a href="#">TikTok</a>
+
+            </div>
+
+        </div>
+
+        <hr>
+        <p class="copyright">
+            © 2026 Estación Café. Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+</body>
+
+<script>
+
+    const logo = document.querySelector('header > a img');
+
+    if (logo) {
+        logo.addEventListener('click', (e) => {
+
+            e.preventDefault();
+
+            logo.classList.remove('prendido');
+            void logo.offsetWidth;
+
+            logo.classList.add('prendido');
+        });
+
+        logo.addEventListener('animationend', () => {
+            logo.classList.remove('prendido');
+        });
+    }
+
+</script>
+
+</html>

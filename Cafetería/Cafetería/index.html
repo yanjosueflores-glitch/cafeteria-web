@@ -33,7 +33,7 @@
 
     <section class="banner">
 
-        <!--Imagen del Banner-->
+      
 
         <img src="img/banner.jpg.png" alt="Banner del sitio web">
 
@@ -169,5 +169,29 @@
 </footer>
 
 </body>
+
+<script>
+ 
+  const logo = document.querySelector('header > a img');
+
+  if (logo) {
+    logo.addEventListener('click', (e) => {
+    
+      e.preventDefault(); 
+
+      
+      logo.classList.remove('prendido');
+      void logo.offsetWidth; 
+
+      
+      logo.classList.add('prendido');
+    });
+
+   
+    logo.addEventListener('animationend', () => {
+      logo.classList.remove('prendido');
+    });
+  }
+</script>
 
 </html>

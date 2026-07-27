@@ -14,7 +14,7 @@ body{
 
 header{
     background:#0c0401;
-    color: rgb(242, 233, 233);
+    color: rgb(77, 6, 6);
     padding: 20px 50px;
     display: flex;
     align-items: center;
@@ -30,15 +30,100 @@ header{
 }
 
 
+header > a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+header > a img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+  
+  transition: transform 0.4s ease, filter 0.4s ease; 
+}
+
+header > a:hover img {
+  transform: scale(1.18);
+}
+
+header > a img.prendido {
+ 
+  animation: parpadeo-lento 15s ease-in-out forwards;
+}
+
+@keyframes parpadeo-lento {
+  0% {
+    
+    filter: drop-shadow(0 0 6px #ffee55) 
+            drop-shadow(0 0 18px #ffcc00) 
+            drop-shadow(0 0 35px rgba(255, 204, 0, 0.85));
+  }
+  10%, 30%, 50%, 70%, 90% {
+    
+    filter: drop-shadow(0 0 2px #ffee55) 
+            drop-shadow(0 0 8px rgba(255, 204, 0, 0.4));
+  }
+  20%, 40%, 60%, 80% {
+    
+    filter: drop-shadow(0 0 6px #ffee55) 
+            drop-shadow(0 0 18px #ffcc00) 
+            drop-shadow(0 0 35px rgba(255, 204, 0, 0.85));
+  }
+  100% {
+    
+    filter: drop-shadow(0 0 0px transparent);
+  }
+}
+
 
 .menu{
     list-style: none;
     display: flex;
     gap: 30px;
     margin-top: 15px;
-    
-    
-    
+}
+
+.menu li a {
+  position: relative;
+  color: #f1f1f1;                 
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  display: inline-block;
+  letter-spacing: 0.5px;            
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+.menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #b39229, #f3e5ab); 
+  border-radius: 2px;
+  
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+.menu li a:hover {
+  color: #ae902d;                   
+  transform: translateY(-2px);     
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.4); 
+}
+
+.menu li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.6); 
 }
 
 .menu a{
@@ -121,12 +206,19 @@ footer{
 
 .formulario{
     width: 80%;
-    max-width: 800px;
+    max-width: 850px;
     margin: 50px auto;
-    background: rgb(255, 254, 254);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.30);
+    border-radius: 20px;
+
+    padding: 40px;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.30);
 }
 
 .formulario h2{
@@ -140,32 +232,32 @@ footer{
     flex-direction: column;
 }
 
-.formulario label{
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
 
-.formulario input,
-.formulario textarea{
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
 .formulario button{
-    margin-top: 25px;
-    padding:15px;
-    background: #4e342e;
-    color:white;
-    border:none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    background: #5d4037;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: .3s;
 }
 
 .formulario button:hover{
-    background: #6d4c41;
+    background: #7a5448;
+    transform: translateY(-2px);
+}
+
+
+
+.form-floating label{
+    margin: 0 !important;
+    font-weight: normal !important;
+}
+
+.form-floating input,
+.form-floating textarea,
+.form-floating select{
+    padding: 1rem 0.75rem !important;
 }
 
 .btn{
@@ -187,26 +279,58 @@ footer{
     margin:auto;
     padding:40px 0;
 }
-
+/* Estilo para el titulo nuestro menu */
 .productos h2{
-    text-align:center;
-    margin-bottom:40px;font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
-  font-weight: bold;
-  text-align: center;
-  letter-spacing: 8px;
-
+  margin-bottom:30px;
+  font-family:Georgia, 'Times New Roman', Times, serif; 
+  color: #40221c;
+  font-size: 36px;
+  font-weight:700;
+  letter-spacing: 5px;
+}
+.producto {
+  /* Borde de 3px de grosor, estilo sólido y color dorado/amarillo oro */
+  border: 4px solid #cfad3c; 
   
   background: linear-gradient(180deg, #d4af37 0%, #a46f18 100%);
-  -webkit-background-clip: text;
+  
   -webkit-text-fill-color: transparent;
 
   
-  filter: drop-shadow(0px 1px 1px rgba(255, 255, 255, 0.8));
+  /* (Opcional) Sombra suave dorada alrededor para darle un toque brillante */
+ box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); 
+  
+  /* Asegura que la imagen interna respete los bordes redondeados */
+  overflow: hidden; 
+  
+  /* Transición suave por si quieres que cambie al pasar el mouse */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Efecto hover opcional: brilla un poco más al pasar el cursor */
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.7);
+}
+/* Aplicar el fondo únicamente al contenedor de productos (sección Carta) */
+.productos {
+  /* Imagen de fondo de madera */
+  background-image: url('../img/logo4.avif'); /* Asegúrate de poner el nombre/ruta correcta de tu imagen */
+  
+  /* Ajustes para que la imagen se vea perfecta */
+  background-size: cover;          /* Cubre todo el área del contenedor */
+  background-position: center;     /* Centra la imagen de madera */
+  background-repeat: no-repeat;    /* Evita que se repita */
+  
+  /* Opcional: Espaciado interno para que las tarjetas no peguen a los bordes */
+  padding: 40px 20px;
+  width: 100%;
+  min-height: 100vh;               
+}
+
+
 .productos h3{
-    background:#6b4943;
+    background:#40221c;
     color: #ffffff;
     display: block;
     margin: 0 auto ;
@@ -218,11 +342,11 @@ footer{
     box-shadow: 0 3px 8px rgba(53, 181, 15, 0.2);
     
 }
-
+  /* Estilo para el contenedor de carta */
 .contenedor-productos{
     display:flex;
     flex-wrap:wrap;
-    gap:25px;
+    gap:30px;
     justify-content:center;
     
 }
@@ -230,9 +354,9 @@ footer{
 .producto{
     width:300px;
     background: linear-gradient(
-    180deg, 
-    rgba(255, 248, 240, 0.75) 0%, 
-    rgba(211, 173, 134, 0.85) 100%
+    200deg, 
+    rgba(228, 226, 223, 0.75) 0%, 
+    rgba(140, 90, 39, 0.85) 100%
     );
     border-radius:10px;
     overflow:hidden;
@@ -243,32 +367,12 @@ footer{
   border-radius: 16px;       
   overflow: hidden;          
 
-  
-
-  box-shadow: 
-
-
-    
-    inset 2px 2px 0px 0px rgba(255, 240, 200, 0.9), 
-    
-    inset -2px -2px 0px 0px rgba(160, 110, 50, 0.8),
-
-    
-    0px 0px 0px 1px #dcc36a, 
-    
-    
-    0px 10px 30px -5px rgba(100, 70, 30, 0.25);
-
-    border: 2px solid #d4af37;
-    transition: transform 3.3s ease, box-shadow 9.3s ease;
-    cursor: pointer;
-
     
 }
 
 .producto:hover {
     transform: scale(1.05);
-    box-shadow: 0px 15px 30px 10px rgba(100, 70, 30, 0.35);
+    box-shadow: 0px 15px 30px 10px rgba(152, 106, 49, 0.35);
 }
 
 .producto img{
@@ -306,19 +410,19 @@ footer{
     padding:10px 20px;
     border:none;
     background:#5d4037;
-    color:white;
+    color:rgb(255, 249, 249);
     border-radius:5px;
     cursor:pointer;
 }
-
+/*el botton de agrgar pedido cambia de color al pasar el mouse por encima*/
 .producto button:hover{
-    background:#3e2723;
+    background:#3a2615;
 }
 
 .pedido{
     width:90%;
     margin:50px auto;
-    background:white;
+    background:rgb(111, 21, 21);
     padding:30px;
     border-radius:10px;
     box-shadow:0px 0px 10px rgba(0,0,0,0.15);
@@ -507,25 +611,25 @@ td{
 
 .comentarios{
 
-    width:90%;
+    width: 90%;
 
-    margin:auto;
+    margin:aut;
 
-    padding:40px 0;
+    padding:40px ;
 
 }
 
 .comentario{
 
-    background:white;
+    background:rgb(252, 252, 252);
 
-    padding:20px;
+    padding:15px;
 
     margin-bottom:20px;
 
     border-radius:10px;
 
-    box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+    box-shadow:0px 0px 10px rgba(26, 2, 2, 0.1);
 
 }
 
@@ -628,7 +732,7 @@ footer hr {
 .fondoReserva{
     background-image: url(../img/fondoReserva.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: 30% top;
     background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100vh;
