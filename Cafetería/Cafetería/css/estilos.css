@@ -6,13 +6,9 @@
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background-attachment: fixed;
-    background:rgba(203, 184,184,0.5);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 30px 10px;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
 
@@ -138,6 +134,88 @@ header > a img.prendido {
 
 .banner{
     position: relative;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin:40px 0;
+}
+
+.ruleta {
+    width: 90%;
+    max-width: 1600px; /* Ancho máximo ajustado */
+    height: 550px;    /* Altura fija para la ruleta */
+    margin: 0 auto;
+    position: relative; /* Mantiene flechas y puntos dentro */
+    overflow: hidden;   /* Oculta las imágenes de los lados */
+    border-radius: 20px; /* Bordes redondeados elegantes */
+}
+
+.ruleban{
+    display:flex;
+    width:100%;
+    height:100%;
+    transition:transform .6s ease;
+}
+
+.rulebanimg {
+    min-width: 100%; /* Forzar ancho completo */
+    width: 100%;     /* Ocupa el 100% del contenedor visible */
+    flex-shrink: 0;  /* CLAVE: Evita que las fotos se encojan para entrar juntas */
+    height: 100%;
+}
+
+.rulebanimg img {
+    width: 120%;
+    height: 110%;
+    object-fit: cover;
+    display: block;
+}
+
+.antes,
+.luego{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    color:white;
+    font-size:55px;
+    cursor:pointer;
+    user-select:none;
+    padding:10px;
+    transition:.3s;
+}
+
+.antes{
+    left:20px;
+}
+
+.luego{
+    right:20px;
+}
+
+.imgban {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.area{
+    width:14px;
+    height:14px;
+    background:white;
+    border-radius:50%;
+    opacity:.5;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.area.active{
+    width:35px;
+    border-radius:20px;
+    opacity:1;
 }
 
 .banner img{
@@ -165,40 +243,57 @@ header > a img.prendido {
     font-size: 18px;
 }
 
-.nosotros{
-    padding: 50px;
-    background: white;
-}
-
-.nosotros h2{
-    margin-bottom: 20px;
-}
-
-.nosotros p{
-    margin: bottom 15px;
-    line-height: 1.8;
-}
-
 .servicios{
     padding: 50px;
 }
 
-.tarjetas{
-    display:flex;
-    gap:20px;
+.tarjetas {
+    display: flex;
+    gap: 20px;
 }
 
-.tarjeta{
-    background: white;
-    flex:1;
-    padding: 25px;
-    border-radius: 10px;
+/* Modificamos .tarjeta para que sirva para la nueva tarjeta-imagen */
+.tarjeta {
+    flex: 1;
+    height: 220px;              /* Le damos altura fija para la imagen */
+    border-radius: 10px;        /* Mantenemos tu border-radius original */
     box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;           /* Corta la imagen para que respete las esquinas redondeadas */
+    display: block;             /* Necesario si .tarjeta ahora es un enlace <a> */
+    border: 2px solid transparent; /* Marco invisible para evitar saltos */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.tarjeta h3{
-    margin-bottom: 15px;
-    color:#4e342e;
+/* Imagen dentro de la tarjeta */
+.tarjeta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Texto flotante con tu color #4e342e o blanco sobre la imagen */
+.tarjeta h3 {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo claro para que resalte */
+    color: #4e342e;             /* Tu color de texto original */
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 1rem;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* EFECTO HOVER: Aumento y borde amarillo */
+.tarjeta:hover {
+    transform: scale(1.04);
+    border-color: #f1c40f;      /* Borde amarillo delgado */
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
 }
 
 footer{
@@ -210,12 +305,19 @@ footer{
 
 .formulario{
     width: 80%;
-    max-width: 800px;
+    max-width: 850px;
     margin: 50px auto;
-    background: rgb(255, 254, 254);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.30);
+    border-radius: 20px;
+
+    padding: 40px;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.30);
 }
 
 .formulario h2{
@@ -229,32 +331,32 @@ footer{
     flex-direction: column;
 }
 
-.formulario label{
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
 
-.formulario input,
-.formulario textarea{
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
 .formulario button{
-    margin-top: 25px;
-    padding:15px;
-    background: #4e342e;
-    color:white;
-    border:none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    background: #5d4037;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: .3s;
 }
 
 .formulario button:hover{
-    background: #6d4c41;
+    background: #7a5448;
+    transform: translateY(-2px);
+}
+
+
+
+.form-floating label{
+    margin: 0 !important;
+    font-weight: normal !important;
+}
+
+.form-floating input,
+.form-floating textarea,
+.form-floating select{
+    padding: 1rem 0.75rem !important;
 }
 
 .btn{
@@ -289,8 +391,10 @@ footer{
   /* Borde de 3px de grosor, estilo sólido y color dorado/amarillo oro */
   border: 4px solid #cfad3c; 
   
-  /* Mantiene las esquinas redondeadas */
-  border-radius: 15px; 
+  background: linear-gradient(180deg, #d4af37 0%, #a46f18 100%);
+  
+  
+
   
   /* (Opcional) Sombra suave dorada alrededor para darle un toque brillante */
  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); 
@@ -721,4 +825,14 @@ footer hr {
   font-size: 0.8rem;
   color: #A9A196;
   margin-top: 10px;
+}
+
+
+.fondoReserva{
+    background-image: url(../img/fondoReserva.jpg);
+    background-size: cover;
+    background-position: 30% top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
 }
