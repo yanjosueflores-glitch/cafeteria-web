@@ -23,14 +23,14 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+    margin-top: -40px;
     padding: 30px 50px;
 }
 
-.logo-header {
-  width: 180px; 
-  height: auto; 
-  object-fit: contain; 
+.logo-header{
+    width:180px;
+    height:auto;
+    object-fit:contain;
 }
 
 
@@ -86,7 +86,7 @@ header > a img.prendido {
     list-style: none;
     display: flex;
     gap: 30px;
-    margin-top: 15px;
+    margin-top: -20px;
 }
 
 .menu li a {
@@ -141,17 +141,62 @@ header > a img.prendido {
     width:100%;
     display:flex;
     justify-content:center;
-    margin:40px 0;
+    margin:20px 0;
+}
+
+.textoBanners{
+    position:absolute;
+    top:50%;
+    left:8%;
+    transform:translateY(-50%);
+    z-index:20;
+    color:white;
+    max-width:500px;
+    margin-top: -80px;
+}
+
+.textoBanners h3{
+    font-size:60px;
+    color:#e0ba6f;
+    margin:0;
+    font-family: 'constantia', 'palatino linotype';
+}
+
+.textoBanners h1{
+    font-size:85px;
+    margin:10px 0;
+    line-height:1;
+}
+
+.textoBanners p{
+    color:rgb(249, 247, 247);
+    font-size:20px;
+    line-height:1.5;
+    max-width:500px;
+    font-family: 'calibri', 'arial black';
+}
+
+.ruleta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.45) 35%, rgba(0, 0, 0, 0) 70%);
+    z-index: 5;
+    pointer-events: none;
 }
 
 .ruleta {
-    width: 90%;
-    max-width: 1600px; /* Ancho máximo ajustado */
-    height: 550px;    /* Altura fija para la ruleta */
+    width: 300%;
+    max-width: 2000px; /* Ancho máximo ajustado */
+    height: 600px;    /* Altura fija para la ruleta */
     margin: 0 auto;
     position: relative; /* Mantiene flechas y puntos dentro */
     overflow: hidden;   /* Oculta las imágenes de los lados */
-    border-radius: 20px; /* Bordes redondeados elegantes */
+    border-radius: 0px; /* Bordes redondeados elegantes */
+    margin-top: -30px
 }
 
 .ruleban{
@@ -166,13 +211,15 @@ header > a img.prendido {
     width: 100%;     /* Ocupa el 100% del contenedor visible */
     flex-shrink: 0;  /* CLAVE: Evita que las fotos se encojan para entrar juntas */
     height: 100%;
+    border-radius: 0;
 }
 
 .rulebanimg img {
-    width: 120%;
-    height: 110%;
+    width: 180%;
+    height: 180%;
     object-fit: cover;
     display: block;
+    border-radius: 0;
 }
 
 .antes,
@@ -186,6 +233,7 @@ header > a img.prendido {
     user-select:none;
     padding:10px;
     transition:.3s;
+    z-index: 25
 }
 
 .antes{
@@ -203,14 +251,15 @@ header > a img.prendido {
     display: flex;
     justify-content: center;
     gap: 10px;
-    z-index: 10;
+    z-index: 25;
+    border-radius: 0;
 }
 
 .area{
     width:14px;
     height:14px;
     background:white;
-    border-radius:50%;
+    border-radius: 0;
     opacity:.5;
     cursor:pointer;
     transition:.3s;
@@ -218,7 +267,7 @@ header > a img.prendido {
 
 .area.active{
     width:35px;
-    border-radius:20px;
+    border-radius:0;
     opacity:1;
 }
 
@@ -234,7 +283,7 @@ header > a img.prendido {
     left: 40%;
     transform: translateY(-50%);
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 0px;
     color:rgb(235, 228, 228);
 }
 
@@ -249,6 +298,7 @@ header > a img.prendido {
 
 .servicios{
     padding: 50px;
+    margin-top: -50px;
 }
 
 .tarjetas {
