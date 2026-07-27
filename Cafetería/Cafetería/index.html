@@ -33,83 +33,64 @@
 
     <section class="banner">
 
-      
+        <div class="ruleta">
 
-        <img src="img/banner.jpg.png" alt="Banner del sitio web">
+            <div class="ruleban">
 
-    
+                <div class="rulebanimg">
+                    <img src="img2/imgban5.png" alt="">
+                </div>
 
-    </section>
+                <div class="rulebanimg">
+                    <img src="img2/imgban6.png" alt="">
+                </div>
 
-    <section class="nosotros">
+                <div class="rulebanimg">
+                    <img src="img2/imgban7.png" alt="">
+                </div>
 
-        <h2>¿Quiénes Somos?</h2>
-
-        <p>
-
-            Cafetería Mis Cielos es un establecimiento que se orienta en brindar una experiencia placentera a través de ofrecer productos que satisfagan a los demás, en principal, cafés y postres es en donde más se especializa.
-
-        </p>
-     hola
-        <p>
-
-            A través del sitio web, nos permitira ofrece una mejor experiencia que sea más cómoda para nuestros clientes estando disfrutando desde la comodidad de sus casas.
-            
-        </p>
-
-    </section>
-
-    <section class="servicios">
-
-        <h2>Nuestros Servicios</h2>
-
-        <div class="tarjetas">
-
-            <div class="tarjeta">
-
-                <h3>Reservas</h3>
-
-                <p>
-                    Reserva mesas de manera rápida y sencilla.
-                </p>
-
-                 <a href="reservas.html" class="btn">
-                    Realizar reserva
-                </a>
+                <div class="rulebanimg">
+                    <img src="img2/imgban8.png" alt="">
+                </div>
 
             </div>
 
-            <div class="tarjeta">
+            <div class="antes">&#10094;</div>
+            <div class="luego">&#10095;</div>
 
-                <h3>Promociones</h3>
-
-                <p>
-                    Consulta ofertas y descuentos disponibles.
-                </p>
-
-                 <a href="promociones.html" class="btn">
-                    Ver promociones
-                </a>
-
-            </div>
-
-            <div class="tarjeta">
-
-                <h3>Opiniones</h3>
-
-                <p>
-                    Comparte tu experiencia con nosotros.
-                </p>
-
-                <a href="comentarios.html" class="btn">
-                    Dejar Opinión
-                </a>
-
-            </div>
+            <div class="imgban">
+                <span class="area active"></span>
+                <span class="area"></span>
+                <span class="area"></span>
+                <span class="area"></span>
+        </div>
 
         </div>
 
     </section>
+
+    <section class="servicios">
+        <h2>Nuestros Servicios</h2>
+
+        <div class="tarjetas">
+
+            <a href="reservas.html" class="tarjeta">
+                <img src="img2/Reservas.png" alt="Reservas">
+                <h3>Reservas</h3>
+            </a>
+
+            <a href="promociones.html" class="tarjeta">
+                <img src="img2/Promociones.png" alt="Promociones">
+                <h3>Promociones</h3>
+            </a>
+
+            <a href="comentarios.html" class="tarjeta">
+                <img src="img2/Comentarios.png" alt="Comentarios">
+                <h3>Comentarios</h3>
+            </a>
+
+        </div>
+</section>
 
 <footer>
 
@@ -150,11 +131,6 @@
             <a href="#"><i class="bi bi-instagram"></i></a><br>
             <a href="#"><i class="bi bi-tiktok"></i></a>
 
-
-
-                
-
-
         </div>
 
     </div>
@@ -166,30 +142,76 @@
 
 </footer>
 
+<script>
+    
+    // Asegura que el código corra cuando la página esté lista
+document.addEventListener('DOMContentLoaded', () => {
+    const logo = document.querySelector('header > a img');
+
+    if (logo) {
+        // Remueve por seguridad si ya existía
+        logo.classList.remove('prendido');
+        
+        // Truco del offsetWidth para reiniciar el flujo de la animación
+        void logo.offsetWidth;
+
+        // Añade la clase que activa el parpadeo inmediatamente
+        logo.classList.add('prendido');
+
+        // Limpia la clase al terminar la animación (opcional)
+        logo.addEventListener('animationend', () => {
+            // Nota: Si quieres que el logo se quede encendido permanentemente 
+            // al final, te sugiero NO remover la clase aquí, a menos que 
+            // tu CSS ya lo maneje de otra forma.
+            logo.classList.remove('prendido');
+        }, { once: true }); // 'once' evita que se acumulen listeners
+    }
+});
+
+
+    const ruleban=document.querySelector(".ruleban");
+    const rulebanimg=document.querySelectorAll(".rulebanimg");
+    const imgban=document.querySelectorAll(".area");
+
+    let index=0;
+
+    function mostrarRulebanimg(i){
+
+        if(i>=rulebanimg.length){
+            index=0;
+        }else if(i<0){
+            index=rulebanimg.length-1;
+        }else{
+            index=i;
+        }
+
+        ruleban.style.transform=`translateX(-${index*100}%)`;
+
+        imgban.forEach(area=>area.classList.remove("active"));
+        imgban[index].classList.add("active");
+    }
+
+    document.querySelector(".luego").onclick=()=>{
+        mostrarRulebanimg(index+1);
+    }
+
+    document.querySelector(".antes").onclick=()=>{
+        mostrarRulebanimg(index-1);
+    }
+
+    imgban.forEach((area,i)=>{
+        area.onclick=()=>{
+            mostrarRulebanimg(i);
+        }
+    });
+
+    setInterval(()=>{
+        mostrarRulebanimg(index+1);
+    },16000);
+
+</script>
+
 </body>
 
-<script>
- 
-  const logo = document.querySelector('header > a img');
-
-  if (logo) {
-    logo.addEventListener('click', (e) => {
-    
-      e.preventDefault(); 
-
-      
-      logo.classList.remove('prendido');
-      void logo.offsetWidth; 
-
-      
-      logo.classList.add('prendido');
-    });
-
-   
-    logo.addEventListener('animationend', () => {
-      logo.classList.remove('prendido');
-    });
-  }
-</script>
 
 </html>
