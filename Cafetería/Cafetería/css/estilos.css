@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Karla:wght@400;500&display=swap');
 *{
     margin:0;
     padding:0;
@@ -8,27 +9,30 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eef4ed;
+    
     text-align: center;
 }
 
 header{
-    background:#0c0401;
-    color: rgb(77, 6, 6);
-    padding: 20px 50px;
+    background-color: #262a10;
+    position: relative;
+    padding: 5px 40px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     
-    padding: 30px 50px;
 }
 
 .logo-header {
-  width: 180px; 
+  width: 170px; 
   height: auto; 
   object-fit: contain; 
 }
 
+h2, h4{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2rem;
+}
 
 header > a {
   display: inline-block;
@@ -77,17 +81,25 @@ header > a img.prendido {
   }
 }
 
+nav{
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%);
+}
+
 
 .menu{
     list-style: none;
     display: flex;
-    gap: 30px;
+    justify-content: center;
+    gap: 40px;
     margin-top: 15px;
+    font-family: "Barlow", sans-serif;
 }
 
 .menu li a {
   position: relative;
-  color: #f1f1f1;                 
+  color: #fefae0;                 
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
@@ -126,11 +138,7 @@ header > a img.prendido {
   box-shadow: 0 2px 8px rgba(212, 175, 55, 0.6); 
 }
 
-.menu a{
-    color: rgb(206, 179, 179);
-    text-decoration: none;
-    font-weight: bold;
-}
+
 
 .banner{
     position: relative;
@@ -304,15 +312,15 @@ footer{
 }
 
 .formulario{
-    width: 80%;
-    max-width: 850px;
+    width: 50%;
+    max-width: 700px;
     margin: 50px auto;
 
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.077);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
-    border: 1px solid rgba(255,255,255,0.30);
+    
     border-radius: 20px;
 
     padding: 40px;
@@ -323,7 +331,7 @@ footer{
 .formulario h2{
     text-align: center;
     margin-bottom: 25px;
-    color:#4e342e;
+    color:#1b1210;
 }
 
 .formulario form{
@@ -741,7 +749,7 @@ td{
 }
 
 footer{
-    background-color: #0c0401;
+    background-color: #262a10;
     
     
 }
@@ -761,10 +769,13 @@ footer{
     
 }
 
-.footer-redes sociales{
+.footer-redes {
     display: flex;
-    flex-direction: column;
+        justify-content: center;
+    gap: 20px;
 }
+
+
 
 .footer-info,
 .footer-contacto,
@@ -775,18 +786,20 @@ footer{
 }
  
 .footer-info img {
-  height: 80px;
-  margin-bottom: 12px;
+  height: 100px;
+  margin-bottom: 10px;
 }
  
 .footer-info p {
-  color: why;
+  color: #ebb48dfe;
   font-size: 0.9rem;
   line-height: 1.5;
+  text-align: center;
+  
 }
  
 footer h4 {
-  color: why;
+  color:#ebb48dfe ;
   margin-bottom: 12px;
   font-size: 1rem;
   letter-spacing: 1px;
@@ -796,7 +809,8 @@ footer h4 {
 footer p {
   font-size: 0.9rem;
   margin-bottom: 6px;
-  color: why;
+  color: #fefae0;
+  
 }
  
 .footer-redes a {
