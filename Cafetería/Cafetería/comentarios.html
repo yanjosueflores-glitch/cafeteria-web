@@ -13,7 +13,8 @@
     <link rel="stylesheet"
     href="css/estilos.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 </head>
 
 <body>
@@ -90,56 +91,79 @@
     </section>
 
         <script>
-          let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
 
-          function mostrarComentarios() {
-          let lista = document.getElementById("listaComentarios");
-          lista.innerHTML = "";
+    // Configuración de tu proyecto Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyDwFpW_mjXwUquo7YftNUIfI__f-bL492I",
+        authDomain: "estacion-cafe.firebaseapp.com",
+        databaseURL: "https://estacion-cafe-default-rtdb.firebaseio.com",
+        projectId: "estacion-cafe",
+        storageBucket: "estacion-cafe.firebasestorage.app",
+        messagingSenderId: "892634658481",
+        appId: "1:892634658481:web:bda27aa5c3b78668cfd490"
+    };
 
-          comentarios.forEach(function(c) {
+    // Inicializamos Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Referencia a la "carpeta" de comentarios dentro de la base de datos
+    const refComentarios = db.ref("comentarios");
+
+    // Función que dibuja todos los comentarios en pantalla
+    function mostrarComentarios(comentarios) {
+        let lista = document.getElementById("listaComentarios");
+        lista.innerHTML = "";
+
+        comentarios.forEach(function(c) {
             let bloque = `
-              <div class="comentario">
-                <h3>${c.nombre}</h3>
-                <p>${c.estrellas}</p>
-                <p>${c.comentario}</p>
-                <small>${c.fecha}</small>
-              </div>
+                <div class="comentario">
+                    <h3>${c.nombre}</h3>
+                    <p>${c.estrellas}</p>
+                    <p>${c.comentario}</p>
+                    <small>${c.fecha}</small>
+                </div>
             `;
             lista.innerHTML += bloque;
-          });
+        });
+    }
+
+    // Escuchamos cambios en tiempo real: cada vez que alguien agrega
+    // un comentario (tú o cualquier visitante), esto se ejecuta automáticamente
+    refComentarios.on("value", function(snapshot) {
+        let datos = snapshot.val();
+        let comentarios = [];
+
+        if (datos) {
+            comentarios = Object.values(datos);
         }
 
-          document.getElementById("formComentario").addEventListener("submit", function(e) {
-          e.preventDefault();
+        mostrarComentarios(comentarios);
+    });
 
-          let nombre = document.getElementById("nombreComentario").value;
-          let estrellas = document.getElementById("calificacion").value;
-          let comentario = document.getElementById("textoComentario").value;
-          let fecha = new Date().toLocaleDateString();
+    // Evento del formulario
+    document.getElementById("formComentario").addEventListener("submit", function(e) {
+        e.preventDefault();
 
-          // Creamos un objeto con los datos del comentario
-          let nuevoComentario = {
+        let nombre = document.getElementById("nombreComentario").value;
+        let estrellas = document.getElementById("calificacion").value;
+        let comentario = document.getElementById("textoComentario").value;
+        let fecha = new Date().toLocaleDateString();
+
+        let nuevoComentario = {
             nombre: nombre,
             estrellas: estrellas,
             comentario: comentario,
             fecha: fecha
-          };
+        };
 
-          // Lo agregamos al array
-          comentarios.push(nuevoComentario);
+        // Guardamos el comentario en Firebase (no en localStorage)
+        refComentarios.push(nuevoComentario);
 
-          // Guardamos el array actualizado en localStorage
-          localStorage.setItem("comentarios", JSON.stringify(comentarios));
+        this.reset();
+    });
 
-          // Volvemos a dibujar todos los comentarios
-          mostrarComentarios();
-
-          this.reset();
-        });
-
-        mostrarComentarios();
-            
-        </script>
+</script>
 
         <footer>
 
