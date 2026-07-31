@@ -8,56 +8,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/estilos.css">
 </head>
-    <style>
-
-        .nosotros {
-            background: white;
-            text-align: center;
-            padding: 50px 80px;
-        }
-
-        .nosotros h2 {
-            font-size: 38px;
-            color: #2b160a;
-            margin-bottom: 20px;
-        }
-
-        .nosotros p {
-            max-width: 1000px;
-            margin: 20px auto;
-            line-height: 1.8;
-            font-size: 18px;
-        }
-
-        .tarjeta-nosotros {
-            position: static;
-            height: auto;
-        }
-
-        .tarjeta-nosotros img {
-            height: 220px;
-        }
-
-        .tarjeta-nosotros h3 {
-            position: static;
-            background: none;
-            color: #4e342e;
-            transform: none;
-            padding: 20px 0 10px;
-            font-size: 1.3rem;
-            margin: 0;
-        }
-
-        .tarjeta-nosotros p {
-            position: static;
-            padding: 0 25px 25px;
-            line-height: 1.6;
-            color: #333;
-            font-size: 1rem;
-            margin: 0;
-        }
-
-    </style>
 
 </head>
 <body>
@@ -159,25 +109,7 @@
         </p>
 
     </footer>
-
-    <script>
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const logo = document.querySelector('header > a img');
-
-            if (logo) {
-                logo.classList.remove('prendido');
-                void logo.offsetWidth;
-                logo.classList.add('prendido');
-
-                logo.addEventListener('animationend', () => {
-                    logo.classList.remove('prendido');
-                }, { once: true });
-            }
-        });
-
-    </script>
-
+ <script src="js/nosotros.js"></script>
 </body>
 
 </html>
