@@ -902,3 +902,51 @@ footer hr {
     background-attachment: fixed;
     min-height: 100vh;
 }
+
+/*estilos del  apratado sobre nosotros*/
+  .nosotros {
+            background: white;
+            text-align: center;
+            padding: 50px 80px;
+        }
+
+        .nosotros h2 {
+            font-size: 38px;
+            color: #2b160a;
+            margin-bottom: 20px;
+        }
+
+        .nosotros p {
+            max-width: 1000px;
+            margin: 20px auto;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .tarjeta-nosotros {
+            position: static;
+            height: auto;
+        }
+
+        .tarjeta-nosotros img {
+            height: 220px;
+        }
+
+        .tarjeta-nosotros h3 {
+            position: static;
+            background: none;
+            color: #4e342e;
+            transform: none;
+            padding: 20px 0 10px;
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .tarjeta-nosotros p {
+            position: static;
+            padding: 0 25px 25px;
+            line-height: 1.6;
+            color: #333;
+            font-size: 1rem;
+            margin: 0;
+        }
