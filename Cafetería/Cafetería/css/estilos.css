@@ -6,12 +6,10 @@
     
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
     background-color: #eef4ed;
-    
-    text-align: center;
 }
 
 header{
@@ -140,23 +138,24 @@ nav{
 
 
 
-.banner{
+.banner {
     position: relative;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    margin:20px 0;
+    width: 100%;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    margin: 0; /* Quita el hueco blanco arriba/abajo */
 }
 
-.textoBanners{
-    position:absolute;
-    top:50%;
-    left:8%;
-    transform:translateY(-50%);
-    z-index:20;
-    color:white;
-    max-width:500px;
-    margin-top: -80px;
+.textoBanners {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: #ffffff;
+    max-width: 500px;
+    text-align: left; /* Alinea los h1, h3 y p a la izquierda */
 }
 
 .textoBanners h3{
@@ -180,50 +179,48 @@ nav{
     font-family: 'calibri', 'arial black';
 }
 
-.ruleta::before {
+.rulebanimg::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.45) 35%, rgba(0, 0, 0, 0) 70%);
-    z-index: 5;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.45) 40%, rgba(0, 0, 0, 0) 75%);
+    z-index: 2; /* Sobre la imagen (z-index 1) pero bajo el texto (z-index 10) */
     pointer-events: none;
 }
 
 .ruleta {
-    width: 300%;
-    max-width: 2000px; /* Ancho máximo ajustado */
-    height: 600px;    /* Altura fija para la ruleta */
-    margin: 0 auto;
-    position: relative; /* Mantiene flechas y puntos dentro */
-    overflow: hidden;   /* Oculta las imágenes de los lados */
-    border-radius: 0px; /* Bordes redondeados elegantes */
-    margin-top: -30px
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
-.ruleban{
-    display:flex;
-    width:100%;
-    height:100%;
-    transition:transform .6s ease;
+.ruleban {
+    position: relative; /* Agregado */
+    z-index: 10;       /* Agregado para estar encima del ::before */
+    display: flex;
+    width: 100%;
+    transition: transform 0.6s ease-in-out;
 }
 
 .rulebanimg {
-    min-width: 100%; /* Forzar ancho completo */
-    width: 100%;     /* Ocupa el 100% del contenedor visible */
-    flex-shrink: 0;  /* CLAVE: Evita que las fotos se encojan para entrar juntas */
-    height: 100%;
-    border-radius: 0;
+    position: relative;
+    min-width: 100%;
+    height: 650px; /* <--- O la altura que prefieras para tu banner */
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .rulebanimg img {
-    width: 180%;
-    height: 180%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 0;
+    position: relative;
+    z-index: 1;
 }
 
 .antes,
@@ -257,6 +254,20 @@ nav{
     gap: 10px;
     z-index: 25;
     border-radius: 0;
+}
+
+.link-clave {
+    color: #e0ba6f;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.link-clave:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(224, 186, 111, 0.9);
+    transform: translateY(-2px);
 }
 
 .area{
@@ -300,9 +311,10 @@ nav{
     font-size: 18px;
 }
 
-.servicios{
-    padding: 50px;
-    margin-top: -50px;
+.servicios {
+    text-align: center;
+    margin-top: 0;
+    padding: 50px 20px;
 }
 
 .tarjetas {
