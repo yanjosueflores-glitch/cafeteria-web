@@ -88,3 +88,26 @@ function actualizarTotales() {
     document.getElementById("totalPedido").innerText =
         "Total: S/ " + total.toFixed(2);
 }
+
+
+function filtrarProductos(categoria) {
+    const productos = document.querySelectorAll('.producto');
+    const botones = document.querySelectorAll('.btn-filtro');
+
+    // Cambia la clase activa en el botón presionado
+    botones.forEach(btn => btn.classList.remove('active'));
+    if (event) {
+        event.target.classList.add('active');
+    }
+
+    // Muestra u oculta los productos según la categoría seleccionada
+    productos.forEach(prod => {
+        const categoriaProducto = prod.getAttribute('data-category');
+        
+        if (categoria === 'todos' || categoriaProducto === categoria) {
+            prod.style.display = 'block';
+        } else {
+            prod.style.display = 'none';
+        }
+    });
+}

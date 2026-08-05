@@ -13,7 +13,7 @@ body {
 }
 
 header{
-    background-color: #262a10;
+    background-color: #16180a;
     position: relative;
     padding: 5px 40px;
     display: flex;
@@ -448,7 +448,7 @@ footer{
     margin:auto;
     padding:40px 0;
 }
-/* Estilo para el titulo nuestro menu */
+/* Estilo para el titulo nuestra carta */
 .productos h2{
   margin-bottom:30px;
   font-family:Georgia, 'Times New Roman', Times, serif; 
@@ -456,6 +456,68 @@ footer{
   font-size: 36px;
   font-weight:700;
   letter-spacing: 5px;
+  text-align:center;
+}
+
+     .contenedor-filtros {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.btn-filtro {
+  background-color: #3d2314;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.btn-filtro:hover, .btn-filtro.active {
+  background-color: #6b3e23;
+}
+.btn-cerrar {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.itemPedido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #3d2314;
+  font-size: 0.95rem;
+}
+
+.total-contenedor {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.btn-confirmar {
+  width: 100%;
+  padding: 12px;
+  background-color: #c88d51;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-confirmar:hover {
+  background-color: #a6703c;
 }
 .producto {
   /* Borde de 3px de grosor, estilo sólido y color dorado/amarillo oro */
@@ -484,14 +546,14 @@ footer{
 /* Aplicar el fondo únicamente al contenedor de productos (sección Carta) */
 .productos {
   /* Imagen de fondo de madera */
-  background-image: url('../img/logo4.avif'); /* Asegúrate de poner el nombre/ruta correcta de tu imagen */
+  background-image: url('../img/baner8.jpg');
   
-  /* Ajustes para que la imagen se vea perfecta */
-  background-size: cover;          /* Cubre todo el área del contenedor */
-  background-position: center;     /* Centra la imagen de madera */
-  background-repeat: no-repeat;    /* Evita que se repita */
   
-  /* Opcional: Espaciado interno para que las tarjetas no peguen a los bordes */
+  background-size: cover;          
+  background-position: center;     
+  background-repeat: no-repeat;    
+  
+
   padding: 40px 20px;
   width: 100%;
   min-height: 100vh;               
@@ -962,3 +1024,33 @@ footer hr {
             font-size: 1rem;
             margin: 0;
         }
+     
+
+   /* --- ESTILOS DEL MENÚ Y NAVEGACIÓN --- */
+header {
+  background-color: #122115;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  color: #f3efe6;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #c09a58;
+}
