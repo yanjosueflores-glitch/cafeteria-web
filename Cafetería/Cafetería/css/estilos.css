@@ -13,7 +13,7 @@ body {
 }
 
 header{
-    background-color: #16180a;
+    background-color: #7c8454;
     position: relative;
     padding: 5px 40px;
     display: flex;
@@ -93,6 +93,12 @@ nav{
     gap: 40px;
     margin-top: 15px;
     font-family: "Barlow", sans-serif;
+}
+
+/* Espacio para el boton de dia y noche a la derecha y izquierda */
+.menu .item-theme,
+.menu #toggle-theme {
+  margin-left: 130px !important; 
 }
 
 .menu li a {
@@ -343,15 +349,15 @@ nav{
     display: block;
 }
 
-/* Texto flotante con tu color #4e342e o blanco sobre la imagen */
+
 .tarjeta h3 {
     position: absolute;
     bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo claro para que resalte */
-    color: #4e342e;             /* Tu color de texto original */
+    background-color: rgba(255, 255, 255, 0.9); 
+    color: #4e342e;             
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 1rem;
@@ -359,10 +365,10 @@ nav{
     white-space: nowrap;
 }
 
-/* EFECTO HOVER: Aumento y borde amarillo */
+
 .tarjeta:hover {
     transform: scale(1.04);
-    border-color: #f1c40f;      /* Borde amarillo delgado */
+    border-color: #f1c40f;      
     box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
 }
 
@@ -520,7 +526,7 @@ footer{
   background-color: #a6703c;
 }
 .producto {
-  /* Borde de 3px de grosor, estilo sólido y color dorado/amarillo oro */
+  
   border: 4px solid #cfad3c; 
   
   background: linear-gradient(180deg, #d4af37 0%, #a46f18 100%);
@@ -528,22 +534,20 @@ footer{
   
 
   
-  /* (Opcional) Sombra suave dorada alrededor para darle un toque brillante */
  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); 
   
-  /* Asegura que la imagen interna respete los bordes redondeados */
+
   overflow: hidden; 
   
-  /* Transición suave por si quieres que cambie al pasar el mouse */
+  
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efecto hover opcional: brilla un poco más al pasar el cursor */
 .producto:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 18px rgba(212, 175, 55, 0.7);
 }
-/* Aplicar el fondo únicamente al contenedor de productos (sección Carta) */
+
 .productos {
   /* Imagen de fondo de madera */
   background-image: url('../img/baner8.jpg');
@@ -645,7 +649,7 @@ footer{
     border-radius:5px;
     cursor:pointer;
 }
-/*el botton de agrgar pedido cambia de color al pasar el mouse por encima*/
+
 .producto button:hover{
     background:#3a2615;
 }
@@ -875,7 +879,7 @@ td{
 }
 
 footer{
-    background-color: #262a10;
+    background-color:#121d17;
     
     
 }
@@ -1024,7 +1028,80 @@ footer hr {
             font-size: 1rem;
             margin: 0;
         }
-     
+    
+        
+        .nosotros {
+            padding: 0;
+        }
+
+        .fila-nosotros {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            padding: 60px 80px;
+        }
+
+        .fila-nosotros:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .fila-cafe-1 {
+            background: #f4ede4;
+        }
+
+        .fila-cafe-2 {
+            background: #e8dcc8;
+        }
+
+        .fila-cafe-3 {
+            background: #ddc9a3;
+        }
+
+        .fila-img {
+            flex: 1;
+        }
+
+        .fila-img img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
+        }
+
+        .fila-texto {
+            flex: 1;
+            text-align: left;
+            max-width: 500px;
+        }
+
+        .fila-texto h2 {
+            font-size: 34px;
+            color: #3e2723;
+            margin-bottom: 20px;
+        }
+
+        .fila-texto p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #3e2723;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .fila-nosotros,
+            .fila-nosotros:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 30px;
+            }
+
+            .fila-texto {
+                max-width: 100%;
+                text-align: center;
+            }
+        }
+
 
    /* --- ESTILOS DEL MENÚ Y NAVEGACIÓN --- */
 header {
@@ -1033,6 +1110,19 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 15px 40px;
+}
+
+/* --- UNIFICACIÓN DE COLOR DE HEADER Y FOOTER EN MODO OSCURO --- */
+
+
+body.dark-mode,
+body.dark-mode header,
+body.dark-mode main,
+body.dark-mode footer,
+body.dark-mode .pie-pagina,
+body.dark-mode [class*="footer"] {
+  background-color: #0d140e !important; 
+  background-image: none !important;
 }
 
 .menu {
@@ -1053,4 +1143,313 @@ header {
 
 .menu a:hover {
   color: #c09a58;
+}
+
+
+/* --- BARRA DE BÚSQUEDA CARTA --- */
+
+
+.buscador-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 650px;
+  width: 90%;
+  margin: 20px auto 30px auto;
+  padding: 4px;
+  background-color: #efe5d8;
+  border: 2px solid #8c5a32;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding-left: 14px;
+}
+
+.icono-lupa {
+  width: 20px;
+  height: 20px;
+  color: #6e472a;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 10px 5px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #3b2314;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.input-wrapper input::placeholder {
+  color: #8c7664;
+}
+
+.buscador-container button {
+  padding: 10px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #ffffff;
+  background-color: #5c3821;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  margin-left: 6px;
+}
+
+.buscador-container button:hover {
+  background-color: #422614;
+}
+
+
+
+
+
+
+
+
+
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+}
+
+/* --- BOTÓN CIRCULAR MODO OSCURO / DÍA --- */
+.btn-theme {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #cfac3a; 
+  background-color: #1b261b; 
+  color: #d4af37;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-left: 20px;
+}
+
+.btn-theme:hover {
+  background-color: #d4af37;
+  color: #1b261b;
+  transform: scale(1.08);
+}
+
+.btn-theme svg {
+  width: 22px;
+  height: 22px;
+}
+
+
+.btn-theme .icon-sun {
+  display: none; 
+}
+
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+
+body.dark-mode .seccion-carta,
+body.dark-mode .contenedor-productos {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .producto {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border-color: #444;
+}
+
+body.dark-mode h2, 
+body.dark-mode h4 {
+  color: #f1c40f; 
+}
+
+
+body.dark-mode .btn-theme .icon-moon {
+  display: none;
+}
+
+body.dark-mode .btn-theme .icon-sun {
+  display: block;
+  color: #f1c40f;
+}
+
+body.dark-mode {
+  background-color: #0f1c15; 
+  color: #e2d7c5;          
+}
+
+
+body.dark-mode header {
+  background-color: #0b140f;
+  border-bottom: 1px solid #2a3d31;
+}
+
+body.dark-mode nav ul li a {
+  color: #e2d7c5;
+}
+
+body.dark-mode nav ul li a:hover {
+  color: #d4af37; 
+}
+
+/* Títulos principales e importantes */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+  color: #d4af37;
+}
+
+body.dark-mode .seccion-carta,
+body.dark-mode .productos,
+body.dark-mode .contenedor-productos {
+  background-color: #0f1c15;
+}
+
+body.dark-mode .producto {
+  background-color: #16261d;
+  border: 1px solid #2a3d31;
+  color: #e2d7c5;
+}
+
+body.dark-mode .btn-theme {
+  background-color: #d4af37;
+  color: #0f1c15;            
+  border-color: #d4af37;
+}
+
+body.dark-mode .btn-theme .icon-moon {
+  display: none;
+}
+
+body.dark-mode .btn-theme .icon-sun {
+  display: block;
+}
+
+body.dark-mode,
+body.dark-mode .seccion-carta,
+body.dark-mode .productos,
+body.dark-mode section {
+  background-image: none !important; 
+  background-color: #0d1a12 !important;
+  color: #f1c40f;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode label {
+  color: #e6c687 !important;
+}
+
+body.dark-mode .producto,
+body.dark-mode .card {
+  background-color: #1a2e22; 
+  border: 1px solid #2d4737;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .buscador-container {
+  background-color: #122218;
+  border-color: #d4af37;
+}
+
+body.dark-mode .buscador-container input {
+  color: #ffffff;
+}
+
+body.dark-mode .icono-lupa {
+  color: #d4af37;
+}
+
+
+body.dark-mode,
+body.dark-mode main,
+body.dark-mode section,
+body.dark-mode div,
+body.dark-mode article,
+body.dark-mode .nosotros,
+body.dark-mode .historia,
+body.dark-mode .mision,
+body.dark-mode .vision {
+  background-color: #121d17 !important;
+  background-image: none !important;
+}
+
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode li {
+  color: #e2d7c5 !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+  color: #d4af37 !important;
+}
+
+body.dark-mode .banner,
+body.dark-mode .ruleta,
+body.dark-mode .ruleban,
+body.dark-mode .rulebanimg,
+body.dark-mode .textoBanners {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+body.dark-mode .textoBanners h1,
+body.dark-mode .textoBanners h3 {
+  color: #d4af37 !important; 
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8) !important;
+}
+
+body.dark-mode .textoBanners p {
+  color: #ffffff !important; 
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8) !important;
+}
+
+body.dark-mode .textoBanners a.link-clave {
+  color: #d4af37 !important; 
+}
+body.dark-mode .ruleta div[class*="indicador"],
+body.dark-mode .banner div[class*="indicador"],
+body.dark-mode .ruleta div[class*="puntos"],
+body.dark-mode div[class*="ruleta"] > div:last-child {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+body.dark-mode section.banner *,
+body.dark-mode .banner *,
+body.dark-mode .ruleta *,
+body.dark-mode .ruleban * {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+body.dark-mode .banner button,
+body.dark-mode .ruleta button,
+body.dark-mode .prev,
+body.dark-mode .next {
+  color: #ffffff !important;
+  font-size: 24px;
 }
