@@ -25,7 +25,23 @@
                     <li><a href="promociones.html">Promociones</a></li>
                     <li><a href="reservas.html">Reservas</a></li>
                     <li><a href="comentarios.html">Comentarios</a></li>
-                </ul>
+                    
+    <li class="item-theme">
+      <button id="toggle-theme" class="btn-theme" aria-label="Cambiar tema">
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.3 2a10 10 0 0 0 9.21 12.86 9.93 9.93 0 0 1-9-9.86 9.88 9.88 0 0 1 .21-3zm-1.3 2a8 8 0 1 0 8 8 10 10 0 0 1-8-8z"/>
+        </svg>
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 17a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm10-8a1 1 0 0 1-1 1h-2a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1zM5 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1zm14.95-6.95a1 1 0 0 1 0 1.41l-1.42 1.42a1 1 0 1 1-1.41-1.41l1.42-1.42a1 1 0 0 1 1.41 0zm-14.14 14.14a1 1 0 0 1 0 1.41l-1.42 1.42a1 1 0 0 1-1.41-1.41l1.42-1.42a1 1 0 0 1 1.41 0zm14.14 0a1 1 0 0 1-1.41 0l-1.42-1.42a1 1 0 0 1 1.41-1.41l1.42 1.42a1 1 0 0 1 0 1.41zM6.34 6.34a1 1 0 0 1-1.41 0L3.51 4.93a1 1 0 1 1 1.41-1.41l1.42 1.42a1 1 0 0 1 0 1.41z"/>
+        </svg>
+      </button>
+    </li>
+  </ul>
+        
+
+    
+
+
     </header>
 
     <section class="productos">
@@ -39,7 +55,21 @@
     <button class="btn-filtro" onclick="filtrarProductos('postres')">Postres</button>
     <button class="btn-filtro" onclick="filtrarProductos('bebidas-frias')">Bebidas Frías</button>
   </div>
+      
+  <!-- 🔍 BUSCADOR DENTRO DE LA CARTA -->
+    <div class="buscador-container">
+      <div class="input-wrapper">
+        <svg class="icono-lupa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Buscar en la carta (ej. Cappuccino, Cheesecake)...">
+      </div>
+      <button type="button" id="btnBuscar" onclick="buscarPorTexto()">Buscar</button>
+    </div>
 
+
+      
   <div class="contenedor-productos">
 
     <!-- PRODUCTOS DE CAFÉ -->
