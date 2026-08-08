@@ -55,7 +55,11 @@
     <button class="btn-filtro" onclick="filtrarProductos('postres')">Postres</button>
     <button class="btn-filtro" onclick="filtrarProductos('bebidas-frias')">Bebidas Frías</button>
   </div>
-      
+
+
+    <!-- CONTENEDOR FILA: BUSCADOR A LA IZQUIERDA | CONVERSOR A LA DERECHA -->
+<div class="fila-herramientas">
+
   <!-- 🔍 BUSCADOR DENTRO DE LA CARTA -->
     <div class="buscador-container">
       <div class="input-wrapper">
@@ -67,6 +71,28 @@
       </div>
       <button type="button" id="btnBuscar" onclick="buscarPorTexto()">Buscar</button>
     </div>
+
+
+  <!-- Conversor de monedas -->
+  <div class="card-conversor-derecha">
+    <div class="titulo-conversor">Conversor de Dinero (S/ ⇄ $ ⇄ €)</div>
+    
+    <div class="campos-inline">
+      
+      <select id="tipoConversion">
+        <option value="solesADolares">Soles ➔ Dólares</option>
+        <option value="solesAEuros">Soles ➔ Euros</option>
+        <option value="dolaresASoles">Dólares ➔ Soles</option>
+        <option value="eurosASoles">Euros ➔ Soles</option>
+      </select>
+
+      <input type="number" id="monto" placeholder="Monto" step="0.10">
+      <button onclick="convertirMoneda()">Cambio</button>
+      <div id="resultado" class="res-badge">Total: $ 0.00</div>
+    </div>
+  </div>
+
+</div>
 
 
       
@@ -109,7 +135,7 @@
       <button onclick="agregarPedido(this, 'Americano', 8)">Agregar pedido</button>
     </div>
 
-    <!-- PRODUCTOS DE POSTRES (Añade tus postres aquí con data-category="postres") -->
+    <!-- PRODUCTOS DE POSTRES -->
     <div class="producto" data-category="postres">
       <img src="img/prod4.png" alt="Postre">
       <h4>Cheesecake</h4>
@@ -139,7 +165,7 @@
     </div>
 
 
-    <!-- PRODUCTOS DE BEBIDAS FRÍAS (Añade tus bebidas frías aquí con data-category="bebidas-frias") -->
+    <!-- PRODUCTOS DE BEBIDAS FRÍAS -->
     <div class="producto" data-category="bebidas-frias">
       <img src="img/prod7.png" alt="Bebida Fría">
       <h4>Frappé de Café</h4>
@@ -189,6 +215,9 @@
             <p> Café artesanal con un ambiente acogedor.</p>
 
         </div>
+
+
+        
 
         <div class="footer-contacto">
 

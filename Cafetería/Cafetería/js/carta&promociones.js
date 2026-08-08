@@ -179,3 +179,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
+
+function convertirMoneda() {
+  const inputMonto = document.getElementById("monto").value;
+  const monto = parseFloat(inputMonto);
+  const tipoConversion = document.getElementById("tipoConversion").value;
+  const divResultado = document.getElementById("resultado");
+
+  if (isNaN(monto) || monto <= 0) {
+    divResultado.textContent = "Inválido";
+    divResultado.style.color = "#ff8a80";
+    return;
+  }
+
+  const tasaDolar = 3.75;
+  const tasaEuro = 4.05;
+
+  let resultado = 0;
+  let simbolo = "";
+
+  switch (tipoConversion) {
+    case "solesADolares":
+      resultado = monto / tasaDolar;
+      simbolo = "$";
+      break;
+    case "solesAEuros":
+      resultado = monto / tasaEuro;
+      simbolo = "€";
+      break;
+    case "dolaresASoles":
+      resultado = monto * tasaDolar;
+      simbolo = "S/";
+      break;
+    case "eurosASoles":
+      resultado = monto * tasaEuro;
+      simbolo = "S/";
+      break;
+  }
+
+  divResultado.style.color = "#f3e5ab";
+  divResultado.textContent = `Total: ${simbolo}${resultado.toFixed(2)}`;
+}
