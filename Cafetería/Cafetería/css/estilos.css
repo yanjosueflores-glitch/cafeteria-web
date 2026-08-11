@@ -79,19 +79,19 @@ header > a img.prendido {
   }
 }
 
-nav{
-    position: absolute;
-    left: 55%;
-    transform: translateX(-50%);
+nav {
+    display: flex;
+    align-items: center;
 }
 
 
-.menu{
+.menu {
     list-style: none;
     display: flex;
-    justify-content: center;
     gap: 40px;
-    margin-top: 15px;
+    align-items: center;
+    margin: 0; /* Cambiamos margin-top por 0 para evitar desfases de altura */
+    padding: 0;
     font-family: "Barlow", sans-serif;
 }
 
