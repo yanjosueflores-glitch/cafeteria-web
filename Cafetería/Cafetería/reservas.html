@@ -89,6 +89,28 @@
                 <label for="observaciones">Observaciones</label>
             </div>
 
+            <!-- NUEVA SECCIÓN: ORDEN PERSONALIZADA -->
+            <div class="mb-4 p-3 border rounded bg-light">
+                <label class="form-label fw-bold"><i class="bi bi-plus-circle-fill me-1"></i> Personaliza tu Orden / Comanda</label>
+                <p class="text-muted small">Agrega los cafés o aperitivos personalizados que deseas tener listos en tu mesa.</p>
+                
+                <div class="input-group mb-3">
+                    <input type="text" id="inputOrden" class="form-control" placeholder="Ej. 1 Café Capuccino con leche de almendras...">
+                    <button class="btn btn-outline-dark" type="button" id="btnAgregarOrden">Añadir</button>
+                </div>
+
+                <!-- Lista dinámica de ítems de la comanda -->
+                <ul class="list-group" id="listaOrden">
+                    <!-- Los elementos agregados aparecerán aquí dinámicamente -->
+                </ul>
+            </div>
+            <!-- FIN DE ORDEN PERSONALIZADA -->
+
+            <button type="submit" class="btn btn-dark w-100">
+                Reservar Mesa
+            </button>
+        </form>
+
             <button type="submit" class="btn btn-dark w-100">
                 Reservar Mesa
             </button>
