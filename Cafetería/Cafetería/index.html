@@ -111,45 +111,65 @@
 
     </section>
 
-    <section class="seccion-intermedia">
-  
-        <!-- BLOQUE 1: FOTO + TEXTO -->
-        <div class="bloque-nosotros">
-            <div class="columna-foto">
-                <img src="img2/Barista.png" alt="Barista preparando café">
-            </div>
-            <div class="columna-texto">
-                <span class="tag">NUESTRA ESENCIA</span>
-                <h2>Café 100% Peruano de Finca</h2>
-                <p>Seleccionamos granos de especialidad de Cusco y Cajamarca, tostados semanalmente para ofrecerte una experiencia aromática e inolvidable.</p>
+    <section class="seccion-principal">
+
+        <!-- BLOQUE 1: Fondo Claro (Imagen Izquierda, Texto Derecha) -->
+        <div class="bloque-fila fondo-claro">
+            <div class="contenido-ancho">
+                <div class="bloque-media">
+                    <img src="tu-imagen-cafe.jpg" alt="Café 100% Peruano de Finca">
+                </div>
+                <div class="bloque-texto">
+                    <span class="subtitulo">NUESTRA ESENCIA</span>
+                    <h2>Café 100% Peruano de Finca</h2>
+                    <p>Seleccionamos granos de especialidad de Cusco y Cajamarca, tostados semanalmente para ofrecerte una experiencia aromática e inolvidable.</p>
+                </div>
             </div>
         </div>
 
-        <hr class="linea-divisor">
-
-        <!-- BLOQUE 2: MAPA + UBICACIÓN -->
-        <div class="bloque-ubicacion">
-            <div class="columna-mapa">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.965275822368!2d-77.0315211!3d-12.046374!2m3!100!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8b5e28a5555%3A0x103d123456789abc!2sLima%2C%20Peru!5e0!3m2!1ses!2spe!4v1700000000000!5m2!1ses!2spe" 
-                    width="100%" 
-                    height="250" 
-                    style="border:0; border-radius: 8px;" 
-                    allowfullscreen="" 
+        <!-- BLOQUE 2: Fondo Oscuro / Tono Medio (Texto Izquierda, Mapa Derecha) -->
+        <div class="bloque-fila fondo-oscuro">
+            <div class="contenido-ancho">
+                <div class="bloque-texto">
+                    <h2>¿CÓMO LLEGAR?</h2>
+                    <p><strong>Dirección:</strong> Av. Principal 123, Miraflores</p>
+                    <p><strong>Referencia:</strong> A 2 cuadras del parque central.</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn-mapa">ABRIR EN GOOGLE MAPS</a>
+                </div>
+                <div class="bloque-media">
+                    <iframe 
+                    src="https://www.google.com/maps/embed?pb=..." 
                     loading="lazy">
-                </iframe>
-            </div>
-            <div class="columna-info">
-                <h3>¿CÓMO LLEGAR?</h3>
-                <p>Av. Principal 123, Miraflores</p>
-                <p class="referencia">Referencia: A 2 cuadras del parque central.</p>
-                <a href="https://maps.google.com/?q=Estacion+Cafe+Lima" target="_blank" class="btn-mapa">
-                    📍 ABRIR EN GOOGLE MAPS
-                </a>
+                    </iframe>
+                </div>
             </div>
         </div>
 
-    </section>
+        <!-- BLOQUE 3: Fondo Tono Verde Bosque / Café Profundo (Subir Foto a la Izquierda, Texto a la Derecha) -->
+<div class="bloque-fila fondo-terciario">
+  <div class="contenido-ancho">
+    
+    <!-- Lado Izquierdo: Caja para subir la imagen -->
+    <div class="bloque-subida">
+      <p class="titulo-subida">Sube una foto en nuestra Casa</p>
+      <label for="upload-foto" class="caja-dropzone">
+        <div class="icono-camara">📷</div>
+        <span>Haz clic o arrastra una imagen aquí</span>
+        <input type="file" id="upload-foto" accept="image/*" class="input-oculto">
+      </label>
+    </div>
+
+    <!-- Lado Derecho: Texto explicativo / llamado a la acción -->
+    <div class="bloque-texto">
+      <span class="subtitulo">COMUNIDAD</span>
+      <h2>Comparte tu Experiencia</h2>
+      <p>Nos encanta ver cómo disfrutas de nuestro café. Sube tu foto visitándonos y formarás parte de nuestra galería en la cafetería.</p>
+    </div>
+
+  </div>
+</div>
+
+</section>
 
     <footer>
         <div class="footer-contenedor">
