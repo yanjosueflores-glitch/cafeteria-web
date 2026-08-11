@@ -4,67 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estacion Cafe"</title>
+    <title>Estación Café</title>
     <link rel="stylesheet" href="css/estilos.css">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body>
 
     <header>
-
-        <a href="index.html"> <img src="img/logo.png" alt="Logo de la cafetería"></a>
-        
+        <a href="index.html"><img src="img/logo.png" alt="Logo de la cafetería"></a>
 
         <nav>
             <ul class="menu">
-                
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="carta.html">Carta</a></li>
                 <li><a href="promociones.html">Promociones</a></li>
                 <li><a href="reservas.html">Reservas</a></li>
                 <li><a href="comentarios.html">Comentarios</a></li>
-            </ul>
 
+            <li class="item-theme">
+      <button id="toggle-theme" class="btn-theme" aria-label="Cambiar tema">
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.3 2a10 10 0 0 0 9.21 12.86 9.93 9.93 0 0 1-9-9.86 9.88 9.88 0 0 1 .21-3zm-1.3 2a8 8 0 1 0 8 8 10 10 0 0 1-8-8z"/>
+        </svg>
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 17a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm10-8a1 1 0 0 1-1 1h-2a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1zM5 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1zm14.95-6.95a1 1 0 0 1 0 1.41l-1.42 1.42a1 1 0 1 1-1.41-1.41l1.42-1.42a1 1 0 0 1 1.41 0zm-14.14 14.14a1 1 0 0 1 0 1.41l-1.42 1.42a1 1 0 0 1-1.41-1.41l1.42-1.42a1 1 0 0 1 1.41 0zm14.14 0a1 1 0 0 1-1.41 0l-1.42-1.42a1 1 0 0 1 1.41-1.41l1.42 1.42a1 1 0 0 1 0 1.41zM6.34 6.34a1 1 0 0 1-1.41 0L3.51 4.93a1 1 0 1 1 1.41-1.41l1.42 1.42a1 1 0 0 1 0 1.41z"/>
+        </svg>
+      </button>
+    </li>
+
+     <!--reloj digital-->
+  <li class="item-reloj">
+    <div id="reloj-digital" class="clock-container">
+        <span id="horas">00</span><span class="puntos">:</span><span id="minutos">00</span><span class="puntos">:</span><span id="segundos">00</span>
+        
+    </div>
+</li> 
+<div class="status-badge">
+    <span id="status-dot" class="dot abierto"></span>
+    <span id="status-text" class="status-text">ABIERTO</span>
+</div>
+
+</ul>
         </nav>
-
     </header>
 
     <section class="banner">
-
-        <div class="textoBanners">
-
-            <h3>Bienvenido a</h3>
-
-            <h1>Estación</h1> 
-            <h1>Café</h1>
-
-            <p>
-                Donde cada taza cuenta una historia y cada visita
-                se convierte en un momento especial.
-            </p>
-
-        </div>
 
         <div class="ruleta">
 
             <div class="ruleban">
 
+                <!-- Imagen 1: Reservas -->
                 <div class="rulebanimg">
-                    <img src="img2/bannerimg1.png" alt="">
+                    <img src="img2/imgreservas.png" alt="Reservas">
+                    <div class="textoBanners">
+                        <h3>Reserva tu mesa</h3>
+                        <h1>Un momento único</h1>
+                        <p>Asegura tu lugar con nosotros. Haz tu <a href="reservas.html" class="link-clave">RESERVA AQUÍ</a> y disfruta la mejor experiencia.</p>
+                    </div>
                 </div>
 
+                <!-- Imagen 2: Promociones -->
                 <div class="rulebanimg">
-                    <img src="img2/bannerimg2.png" alt="">
+                    <img src="img2/imgpromociones.png" alt="Promociones">
+                    <div class="textoBanners">
+                        <h3>Especiales del mes</h3>
+                        <h1>Promociones</h1>
+                        <p>Descubre las ofertas de hoy. Revisa nuestras <a href="promociones.html" class="link-clave">PROMOCIONES</a> exclusivas.</p>
+                    </div>
                 </div>
 
+                <!-- Imagen 3: Carta -->
                 <div class="rulebanimg">
-                    <img src="img2/bannerimg3.png" alt="">
+                    <img src="img2/imgcarta.png" alt="Carta">
+                    <div class="textoBanners">
+                        <h3>Sabor artesanal</h3>
+                        <h1>Nuestra Carta</h1>
+                        <p>Café de especialidad y repostería fina. Explora la <a href="carta.html" class="link-clave">CARTA COMPLETA</a>.</p>
+                    </div>
                 </div>
 
+                <!-- Imagen 4: Nosotros -->
                 <div class="rulebanimg">
-                    <img src="img2/bannerimg4.png" alt="">
+                    <img src="img2/imgnosotros.png" alt="Nosotros">
+                    <div class="textoBanners">
+                        <h3>Conócenos</h3>
+                        <h1>Estación Café</h1>
+                        <p>Pasión por el detalle y el mejor ambiente. Descubre más sobre <a href="nosotros.html" class="link-clave">NOSOTROS</a>.</p>
+                    </div>
                 </div>
 
             </div>
@@ -77,87 +105,112 @@
                 <span class="area"></span>
                 <span class="area"></span>
                 <span class="area"></span>
-        </div>
+            </div>
 
         </div>
 
     </section>
 
-    <section class="servicios">
-        <h2>Nuestros Servicios</h2>
+    <section class="seccion-principal">
 
-        <div class="tarjetas">
+  <!-- BLOQUE 1: Fondo Claro (Imagen Izquierda, Texto Derecha) -->
+  <div class="bloque-fila fondo-claro">
+    <div class="contenido-ancho">
+      <div class="bloque-media">
+        <img src="tu-imagen-cafe.jpg" alt="Café 100% Peruano de Finca">
+      </div>
+      <div class="bloque-texto">
+        <span class="subtitulo">NUESTRA ESENCIA</span>
+        <h2>Café 100% Peruano de Finca</h2>
+        <p>Seleccionamos granos de especialidad de Cusco y Cajamarca, tostados semanalmente para ofrecerte una experiencia aromática e inolvidable.</p>
+      </div>
+    </div>
+  </div>
 
-            <a href="reservas.html" class="tarjeta">
-                <img src="img2/Reservas.png" alt="Reservas">
-                <h3>Reservas</h3>
-            </a>
+  <!-- BLOQUE 2: Fondo Oscuro (Texto Izquierda, Mapa Derecha) -->
+  <div class="bloque-fila fondo-oscuro">
+    <div class="contenido-ancho">
+      <div class="bloque-texto">
+        <h2>¿CÓMO LLEGAR?</h2>
+        <p><strong>Dirección:</strong> Av. Principal 123, Miraflores</p>
+        <p><strong>Referencia:</strong> A 2 cuadras del parque central.</p>
+        <a href="https://maps.google.com" target="_blank" class="btn-mapa">ABRIR EN GOOGLE MAPS</a>
+      </div>
+      <div class="bloque-media">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=..." 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
 
-            <a href="promociones.html" class="tarjeta">
-                <img src="img2/Promociones.png" alt="Promociones">
-                <h3>Promociones</h3>
-            </a>
-
-            <a href="comentarios.html" class="tarjeta">
-                <img src="img2/Comentarios.png" alt="Comentarios">
-                <h3>Comentarios</h3>
-            </a>
-
+  <!-- BLOQUE 3: Comunidad / Subida de Foto (Foto Izquierda, Texto Derecha) -->
+<div class="bloque-fila fondo-terciario">
+  <div class="comunidad-contenedor">
+    
+    <!-- LADO IZQUIERDO: CUADRO DE SUBIDA DE FOTO -->
+    <div class="comunidad-columna-foto">
+      <p class="comunidad-titulo-foto">Sube una foto en nuestra Casa</p>
+      
+      <label for="foto-input" class="comunidad-dropzone">
+        <div id="comunidad-contenido-dropzone">
+          <div class="comunidad-icono">📷</div>
+          <span class="comunidad-texto-instruccion">Haz clic o arrastra una imagen aquí</span>
         </div>
-</section>
-
-<footer>
-
-    <div class="footer-contenedor">
-
-        <div class="footer-info">
-
-            <a href="index.html"> <img src="img/logo.png" alt="Logo de la cafetería"></a>
-
-            <p> Café artesanal con un ambiente
-                 acogedor.</p>
-
-        </div>
-
-        <div class="footer-contacto">
-
-            <h4>Contacto</h4>
-
-            <p> Lima, Perú</p>
-            <p> +51 999 999 999</p>
-            <p> contacto@estacioncafe.com</p>
-
-        </div>
-
-        <div class="footer-horario">
-
-            <h4>Horario</h4>
-
-            <p>Lunes - Viernes: 8:00 am - 9:00 pm</p>
-            <p>Sábado - Domingo: 9:00 am - 10:00 pm</p>
-
-        </div>
-
-        <div class="footer-redes">
-
-            <h4>Síguenos</h4>
-
-            <a href="#"><i class="bi bi-facebook"></i></a><br>
-            <a href="#"><i class="bi bi-instagram"></i></a><br>
-            <a href="#"><i class="bi bi-tiktok"></i></a>
-
-        </div>
-
+        <input type="file" id="foto-input" accept="image/*" class="comunidad-input-oculto">
+      </label>
     </div>
 
-    <hr>
-    <p class="copyright">
-        © 2026 Estación Café. Todos los derechos reservados.
-    </p>
+    <!-- LADO DERECHO: TEXTO INFORMATIVO -->
+    <div class="comunidad-columna-texto">
+      <span class="comunidad-subtitulo">COMUNIDAD</span>
+      <h2 class="comunidad-titulo">Comparte tu Experiencia</h2>
+      <p class="comunidad-descripcion">Nos encanta ver cómo disfrutas de nuestro café. Sube tu foto visitándonos y formarás parte de nuestra galería en la cafetería.</p>
+    </div>
 
-</footer>
-<script src="js/index.js"></script>
+  </div>
+</div>
+
+</section>
+
+    <footer>
+        <div class="footer-contenedor">
+
+            <div class="footer-info">
+                <a href="index.html"><img src="img/logo.png" alt="Logo de la cafetería"></a>
+                <p>Café artesanal con un ambiente acogedor.</p>
+            </div>
+
+            <div class="footer-contacto">
+                <h4>Contacto</h4>
+                <p>Lima, Perú</p>
+                <p>+51 999 999 999</p>
+                <p>contacto@estacioncafe.com</p>
+            </div>
+
+            <div class="footer-horario">
+                <h4>Horario</h4>
+                <p>Lunes - Viernes: 8:00 am - 10:00 pm</p>
+                <p>Sábado - Domingo: 9:00 am - 10:00 pm</p>
+            </div>
+
+            <div class="footer-redes">
+                <h4>Síguenos</h4>
+                <a href="#"><i class="bi bi-facebook"></i></a><br>
+                <a href="#"><i class="bi bi-instagram"></i></a><br>
+                <a href="#"><i class="bi bi-tiktok"></i></a>
+            </div>
+
+        </div>
+
+        <hr>
+        <p class="copyright">
+            © 2026 Estación Café. Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <script src="js/index.js"></script>
 </body>
-
 
 </html>

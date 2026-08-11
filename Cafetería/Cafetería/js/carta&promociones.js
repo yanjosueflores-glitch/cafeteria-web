@@ -1,3 +1,18 @@
+//ANIMACIÓN DEL LOGO AL CARGAR LA PÁGINA
+  document.addEventListener('DOMContentLoaded', () => {
+            const logo = document.querySelector('header > a img');
+
+            if (logo) {
+                logo.classList.remove('prendido');
+                void logo.offsetWidth;
+                logo.classList.add('prendido');
+
+                logo.addEventListener('animationend', () => {
+                    logo.classList.remove('prendido');
+                }, { once: true });
+            }
+        });
+
 let total = 0;
 let cantidadTotal = 0;
 
@@ -88,3 +103,210 @@ function actualizarTotales() {
     document.getElementById("totalPedido").innerText =
         "Total: S/ " + total.toFixed(2);
 }
+
+
+function filtrarProductos(categoria) {
+    const productos = document.querySelectorAll('.producto');
+    const botones = document.querySelectorAll('.btn-filtro');
+
+    // Cambia la clase activa en el botón presionado
+    botones.forEach(btn => btn.classList.remove('active'));
+    if (event) {
+        event.target.classList.add('active');
+    }
+
+    // Muestra u oculta los productos según la categoría seleccionada
+    productos.forEach(prod => {
+        const categoriaProducto = prod.getAttribute('data-category');
+        
+        if (categoria === 'todos' || categoriaProducto === categoria) {
+            prod.style.display = 'block';
+        } else {
+            prod.style.display = 'none';
+        }
+    });
+}
+
+
+// Función para filtrar productos por texto en tiempo real
+function buscarPorTexto() {
+  const input = document.getElementById('searchInput');
+  const texto = input.value.toLowerCase().trim();
+  const productos = document.querySelectorAll('.contenedor-productos .producto');
+
+  productos.forEach(producto => {
+    const titulo = producto.querySelector('h4');
+    if (titulo) {
+      const nombre = titulo.textContent.toLowerCase();
+      if (nombre.includes(texto)) {
+        producto.style.display = '';
+      } else {
+        producto.style.display = 'none';
+      }
+    }
+  });
+}
+
+// Escuchar el evento cuando el usuario escribe en el campo
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('keyup', buscarPorTexto);
+  }
+});
+
+// relaliza el funcionamiento de preder y apagar el modo oscuro y claro, ademas de guardar la preferencia del usuario en localStorage
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btnTheme = document.getElementById('toggle-theme');
+
+  // 1. Verificar si el usuario ya tenía activado el modo oscuro anteriormente
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+
+  // 2. Evento para alternar el tema al hacer clic
+  if (btnTheme) {
+    btnTheme.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+
+      // Guardar la preferencia en localStorage
+      if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  }
+});
+
+
+
+function convertirMoneda() {
+  const inputMonto = document.getElementById("monto").value;
+  const monto = parseFloat(inputMonto);
+  const tipoConversion = document.getElementById("tipoConversion").value;
+  const divResultado = document.getElementById("resultado");
+
+  if (isNaN(monto) || monto <= 0) {
+    divResultado.textContent = "Inválido";
+    divResultado.style.color = "#ff8a80";
+    return;
+  }
+
+  const tasaDolar = 3.75;
+  const tasaEuro = 4.05;
+
+  let resultado = 0;
+  let simbolo = "";
+
+  switch (tipoConversion) {
+    case "solesADolares":
+      resultado = monto / tasaDolar;
+      simbolo = "$";
+      break;
+    case "solesAEuros":
+      resultado = monto / tasaEuro;
+      simbolo = "€";
+      break;
+    case "dolaresASoles":
+      resultado = monto * tasaDolar;
+      simbolo = "S/";
+      break;
+    case "eurosASoles":
+      resultado = monto * tasaEuro;
+      simbolo = "S/";
+      break;
+  }
+
+  divResultado.style.color = "#f3e5ab";
+  divResultado.textContent = `Total: ${simbolo}${resultado.toFixed(2)}`;
+}
+
+
+//reloj digital
+
+function actualizarReloj() {
+    const ahora = new Date();
+    
+    let horas = String(ahora.getHours()).padStart(2, '0');
+    let minutos = String(ahora.getMinutes()).padStart(2, '0');
+    let segundos = String(ahora.getSeconds()).padStart(2, '0');
+
+    const reloj = document.getElementById('reloj-digital');
+    if (reloj) {
+        reloj.textContent = `${horas}:${minutos}:${segundos}`;
+    }
+}
+
+actualizarReloj();
+setInterval(actualizarReloj, 1000);
+
+
+actualizarReloj();
+setInterval(actualizarReloj, 1000);
+
+
+function actualizarReloj() {
+    const ahora = new Date();
+    
+    const horas = String(ahora.getHours()).padStart(2, '0');
+    const minutos = String(ahora.getMinutes()).padStart(2, '0');
+    const segundos = String(ahora.getSeconds()).padStart(2, '0');
+
+    const elemHoras = document.getElementById('horas');
+    const elemMinutos = document.getElementById('minutos');
+    const elemSegundos = document.getElementById('segundos');
+
+    if (elemHoras && elemMinutos && elemSegundos) {
+        elemHoras.textContent = horas;
+        elemMinutos.textContent = minutos;
+        elemSegundos.textContent = segundos;
+    }
+}
+     //abierto y cerrado de la cafeteria
+actualizarReloj();
+setInterval(actualizarReloj, 1000);
+
+
+
+actualizarReloj();
+setInterval(actualizarReloj, 1000);
+
+function actualizarRelojYEstado() {
+    const ahora = new Date();
+    const horas = ahora.getHours();
+    const minutos = ahora.getMinutes();
+    const segundos = ahora.getSeconds();
+
+    // 1. Actualizar números del reloj
+    document.getElementById('horas').textContent = String(horas).padStart(2, '0');
+    document.getElementById('minutos').textContent = String(minutos).padStart(2, '0');
+    document.getElementById('segundos').textContent = String(segundos).padStart(2, '0');
+
+    // 2. Definir Horario de Atención (Ejemplo: 08:00 a 22:00)
+    const horaApertura = 8;  // 8:00 AM
+    const horaCierre = 22;   // 10:00 PM
+
+    const dotElement = document.getElementById('status-dot');
+    const textElement = document.getElementById('status-text');
+
+    // 3. Evaluar si la cafetería está abierta o cerrada
+    if (horas >= horaApertura && horas < horaCierre) {
+        // ABIERTO
+        dotElement.className = 'dot abierto';
+        textElement.textContent = 'ABIERTO';
+        textElement.style.color = '#2ecc71';
+    } else {
+        // CERRADO
+        dotElement.className = 'dot cerrado';
+        textElement.textContent = 'CERRADO';
+        textElement.style.color = '#e74c3c';
+    }
+}
+
+// Ejecutar la función cada segundo
+setInterval(actualizarRelojYEstado, 1000);
+
+// Ejecutar una vez al cargar la página
+actualizarRelojYEstado();

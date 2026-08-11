@@ -1,65 +1,211 @@
- 
-    // Asegura que el código corra cuando la página esté lista
 document.addEventListener('DOMContentLoaded', () => {
+    //ANIMACIÓN DEL LOGO AL CARGAR LA PÁGINA
+  document.addEventListener('DOMContentLoaded', () => {
+            const logo = document.querySelector('header > a img');
+
+            if (logo) {
+                logo.classList.remove('prendido');
+                void logo.offsetWidth;
+                logo.classList.add('prendido');
+
+                logo.addEventListener('animationend', () => {
+                    logo.classList.remove('prendido');
+                }, { once: true });
+            }
+        });
+        
+    // --- ANIMACIÓN DEL LOGO ---
     const logo = document.querySelector('header > a img');
 
     if (logo) {
-        // Remueve por seguridad si ya existía
         logo.classList.remove('prendido');
-        
-        // Truco del offsetWidth para reiniciar el flujo de la animación
-        void logo.offsetWidth;
-
-        // Añade la clase que activa el parpadeo inmediatamente
+        void logo.offsetWidth; // Reinicia animación
         logo.classList.add('prendido');
 
-        // Limpia la clase al terminar la animación (opcional)
         logo.addEventListener('animationend', () => {
-            // Nota: Si quieres que el logo se quede encendido permanentemente 
-            // al final, te sugiero NO remover la clase aquí, a menos que 
-            // tu CSS ya lo maneje de otra forma.
             logo.classList.remove('prendido');
-        }, { once: true }); // 'once' evita que se acumulen listeners
+        }, { once: true });
     }
+
+    // --- LÓGICA DEL CARRUSEL ---
+    const ruleban = document.querySelector(".ruleban");
+    const rulebanimg = document.querySelectorAll(".rulebanimg");
+    const imgban = document.querySelectorAll(".area");
+    const btnLuego = document.querySelector(".luego");
+    const btnAntes = document.querySelector(".antes");
+
+    let index = 0;
+
+    function mostrarRulebanimg(i) {
+        if (i >= rulebanimg.length) {
+            index = 0;
+        } else if (i < 0) {
+            index = rulebanimg.length - 1;
+        } else {
+            index = i;
+        }
+
+        // Desplaza horizontalmente la tira de banners
+        ruleban.style.transform = `translateX(-${index * 100}%)`;
+
+        // Actualiza el indicador activo
+        imgban.forEach(area => area.classList.remove("active"));
+        if (imgban[index]) {
+            imgban[index].classList.add("active");
+        }
+    }
+
+    // Botones de navegación
+    if (btnLuego) {
+        btnLuego.onclick = () => mostrarRulebanimg(index + 1);
+    }
+
+    if (btnAntes) {
+        btnAntes.onclick = () => mostrarRulebanimg(index - 1);
+    }
+
+    // Clic en los puntos/barras de posición
+    imgban.forEach((area, i) => {
+        area.onclick = () => mostrarRulebanimg(i);
+    });
+
+    // Auto-reproducción cada 16 segundos
+    setInterval(() => {
+        mostrarRulebanimg(index + 1);
+    }, 16000);
+
 });
 
 
-    const ruleban=document.querySelector(".ruleban");
-    const rulebanimg=document.querySelectorAll(".rulebanimg");
-    const imgban=document.querySelectorAll(".area");
 
-    let index=0;
+// relaliza el funcionamiento de preder y apagar el modo oscuro y claro, ademas de guardar la preferencia del usuario en localStorage
 
-    function mostrarRulebanimg(i){
+document.addEventListener('DOMContentLoaded', () => {
+  const btnTheme = document.getElementById('toggle-theme');
 
-        if(i>=rulebanimg.length){
-            index=0;
-        }else if(i<0){
-            index=rulebanimg.length-1;
-        }else{
-            index=i;
-        }
+  // 1. Verificar si el usuario ya tenía activado el modo oscuro anteriormente
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
 
-        ruleban.style.transform=`translateX(-${index*100}%)`;
+  // 2. Evento para alternar el tema al hacer clic
+  if (btnTheme) {
+    btnTheme.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
 
-        imgban.forEach(area=>area.classList.remove("active"));
-        imgban[index].classList.add("active");
-    }
-
-    document.querySelector(".luego").onclick=()=>{
-        mostrarRulebanimg(index+1);
-    }
-
-    document.querySelector(".antes").onclick=()=>{
-        mostrarRulebanimg(index-1);
-    }
-
-    imgban.forEach((area,i)=>{
-        area.onclick=()=>{
-            mostrarRulebanimg(i);
-        }
+      // Guardar la preferencia en localStorage
+      if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
     });
+  }
+});
 
-    setInterval(()=>{
-        mostrarRulebanimg(index+1);
-    },16000);
+
+  //reloj digital
+
+function actualizarReloj() {
+    const ahora = new Date();
+    
+    let horas = String(ahora.getHours()).padStart(2, '0');
+    let minutos = String(ahora.getMinutes()).padStart(2, '0');
+    let segundos = String(ahora.getSeconds()).padStart(2, '0');
+
+    const reloj = document.getElementById('reloj-digital');
+    if (reloj) {
+        reloj.textContent = `${horas}:${minutos}:${segundos}`;
+    }
+}
+
+actualizarReloj();
+setInterval(actualizarReloj, 1000);
+
+
+function actualizarReloj() {
+    const ahora = new Date();
+    
+    const horas = String(ahora.getHours()).padStart(2, '0');
+    const minutos = String(ahora.getMinutes()).padStart(2, '0');
+    const segundos = String(ahora.getSeconds()).padStart(2, '0');
+
+    const elemHoras = document.getElementById('horas');
+    const elemMinutos = document.getElementById('minutos');
+    const elemSegundos = document.getElementById('segundos');
+
+    if (elemHoras && elemMinutos && elemSegundos) {
+        elemHoras.textContent = horas;
+        elemMinutos.textContent = minutos;
+        elemSegundos.textContent = segundos;
+    }
+}
+
+   //abierto y cerrado de la cafeteria
+
+actualizarReloj();
+setInterval(actualizarReloj, 1000);
+
+function actualizarRelojYEstado() {
+    const ahora = new Date();
+    const horas = ahora.getHours();
+    const minutos = ahora.getMinutes();
+    const segundos = ahora.getSeconds();
+
+    // 1. Actualizar números del reloj
+    document.getElementById('horas').textContent = String(horas).padStart(2, '0');
+    document.getElementById('minutos').textContent = String(minutos).padStart(2, '0');
+    document.getElementById('segundos').textContent = String(segundos).padStart(2, '0');
+
+    // 2. Definir Horario de Atención (Ejemplo: 08:00 a 22:00)
+    const horaApertura = 8;  // 8:00 AM
+    const horaCierre = 22;   // 10:00 PM
+
+    const dotElement = document.getElementById('status-dot');
+    const textElement = document.getElementById('status-text');
+
+    // 3. Evaluar si la cafetería está abierta o cerrada
+    if (horas >= horaApertura && horas < horaCierre) {
+        // ABIERTO
+        dotElement.className = 'dot abierto';
+        textElement.textContent = 'ABIERTO';
+        textElement.style.color = '#2ecc71';
+    } else {
+        // CERRADO
+        dotElement.className = 'dot cerrado';
+        textElement.textContent = 'CERRADO';
+        textElement.style.color = '#e74c3c';
+    }
+}
+
+// Ejecutar la función cada segundo
+setInterval(actualizarRelojYEstado, 1000);
+
+// Ejecutar una vez al cargar la página
+actualizarRelojYEstado();
+
+// Imagen del bloque 3: foto
+document.addEventListener('DOMContentLoaded', function() {
+    const inputFoto = document.getElementById('foto-input');
+    const contenidoDropzone = document.getElementById('comunidad-contenido-dropzone');
+
+    if (inputFoto && contenidoDropzone) {
+      inputFoto.addEventListener('change', function(e) {
+        const archivo = e.target.files[0];
+        
+        if (archivo && archivo.type.startsWith('image/')) {
+          const reader = new FileReader();
+
+          reader.onload = function(event) {
+            // Reemplaza el ícono por la imagen cargada manteniendo las clases de tu CSS
+            contenidoDropzone.innerHTML = `
+              <img src="${event.target.result}" class="comunidad-imagen-previa" alt="Vista previa">
+              <span class="comunidad-texto-instruccion" style="color: #d4a359; font-size: 13px; text-decoration: underline;">Haz clic para cambiar la foto</span>
+            `;
+          };
+
+          reader.readAsDataURL(archivo);
+        }
+      });
+    }
+  });

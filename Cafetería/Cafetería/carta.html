@@ -19,255 +19,192 @@
             <a href="index.html"> <img src="img/logo.png" alt="Logo de la cafetería"></a>
         
         <nav>
-            <ul class="menu">
-                
-                <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="carta.html">Carta</a></li>
-                <li><a href="promociones.html">Promociones</a></li>
-                <li><a href="reservas.html">Reservas</a></li>
-                <li><a href="comentarios.html">Comentarios</a></li>
-            </ul>
+                <ul class="menu">
+                   <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="carta.html">Carta</a></li>
+                    <li><a href="promociones.html">Promociones</a></li>
+                    <li><a href="reservas.html">Reservas</a></li>
+                    <li><a href="comentarios.html">Comentarios</a></li>
+                    
+    <li class="item-theme">
+      <button id="toggle-theme" class="btn-theme" aria-label="Cambiar tema">
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.3 2a10 10 0 0 0 9.21 12.86 9.93 9.93 0 0 1-9-9.86 9.88 9.88 0 0 1 .21-3zm-1.3 2a8 8 0 1 0 8 8 10 10 0 0 1-8-8z"/>
+        </svg>
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 17a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm10-8a1 1 0 0 1-1 1h-2a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1zM5 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1zm14.95-6.95a1 1 0 0 1 0 1.41l-1.42 1.42a1 1 0 1 1-1.41-1.41l1.42-1.42a1 1 0 0 1 1.41 0zm-14.14 14.14a1 1 0 0 1 0 1.41l-1.42 1.42a1 1 0 0 1-1.41-1.41l1.42-1.42a1 1 0 0 1 1.41 0zm14.14 0a1 1 0 0 1-1.41 0l-1.42-1.42a1 1 0 0 1 1.41-1.41l1.42 1.42a1 1 0 0 1 0 1.41zM6.34 6.34a1 1 0 0 1-1.41 0L3.51 4.93a1 1 0 1 1 1.41-1.41l1.42 1.42a1 1 0 0 1 0 1.41z"/>
+        </svg>
+      </button>
+    </li>
+      <!--reloj digital-->
+  <li class="item-reloj">
+    <div id="reloj-digital" class="clock-container">
+        <span id="horas">00</span><span class="puntos">:</span><span id="minutos">00</span><span class="puntos">:</span><span id="segundos">00</span>
+    </div>
+</li>
+<div class="status-badge">
+    <span id="status-dot" class="dot abierto"></span>
+    <span id="status-text" class="status-text">ABIERTO</span>
+</div>
+ 
+    
 
-        </nav>
 
     </header>
 
     <section class="productos">
 
-        <h2>Nuestro Menú</h2>
-
-        <h3>Cafés</h3>
-
-        <div class="contenedor-productos">
-
-            <div class="producto">
-
-                <img src="img/prod1.png" alt="Café">
-
-                <h4>Espresso</h4>
-
-                <p>S/ 8.00</p>
-
-                <label>Cantidad</label>
-
-                 <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad">
-
-                <button onclick="agregarPedido(this, 'Espresso',8)">
-                    Agregar  pedido
-                </button>
-
-            </div>
-
-            <div class="producto">
-
-                <img src="img/prod2.png" alt="Café">
-
-                <h4>Cappuccino</h4>
-
-                <p>S/ 10.00</p>
-
-                <label>Cantidad</label>
-
-                 <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad">
-
-               <button onclick="agregarPedido(this, 'Cappuccino',10)">
-                    Agregar  pedido
-                </button>
-
-            </div>
-
-            <div class="producto">
-
-                <img src="img/prod3.png" alt="Café">
-
-                <h4>Latte</h4>
-
-                <p>S/ 11.00</p>
-
-                <label>Cantidad</label>
-
-                 <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad">
-
-                <button onclick="agregarPedido(this, 'Latte',11)">
-                    Agregar  pedido
-                </button>
-
-            </div>
-
-        </div>
-
-        <h3>Postres</h3>
-
-        <div class="contenedor-productos">
-
-            <div class="producto">
-
-                <img src="img/prod4.png" alt="Postre">
-
-                <h4>Cheesecake</h4>
-
-                <p>S/ 12.00</p>
-
-                <label>Cantidad</label>
-
-                 <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad">
-
-                <button onclick="agregarPedido(this, 'Cheesecake',12)">
-                    Agregar  pedido
-                </button>
-
-            </div>
-
-            <div class="producto">
-
-                <img src="img/prod5.png" alt="Postre">
-
-                <h4>Brownie</h4>
-
-                <p>S/ 9.00</p>
-
-                <label>Cantidad</label>
-
-                 <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad">
-
-                <button onclick="agregarPedido(this, 'Brownie',9)">
-                    Agregar  pedido
-                </button>
-
-            </div>
-
-            <div class="producto">
-
-                <img src="img/prod6.png" alt="Postre">
-
-                <h4>Torta de Chocolate</h4>
-
-                <p>S/ 15.00</p>
-
-                <label>Cantidad</label>
-
-                 <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad">
-
-                <button onclick="agregarPedido(this, 'Torta de Chocolate',15)">
-                    Agregar  pedido
-                </button>
-
-            </div>
-
-        </div>
-
-        <h3>Bebidas Frías</h3>
-
-         <div class="contenedor-productos">
-
-            <div class="producto">
-
-                <img src="img/prod7.png" alt="Bebida fría">
-
-                <h4>Frappe de Café</h4>
-
-                <p>S/ 11.00</p>
-
-                <label>Cantidad</label>
-
-                <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad">
-
-                <button onclick="agregarPedido(this, 'Frappe de Café',11)">
-                    Agregar  pedido
-                </button>
-
-            </div>
-
-            <div class="producto">
-
-                <img src="img/prod8.png" alt="Bebida Fría">
-
-                <h4>Té Helado</h4>
-
-                <p>S/ 7.50</p>
-
-                <label>Cantidad</label>
-
-                 <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad">
-
-                <button onclick="agregarPedido(this, 'Té Helado',7.50)">
-                    Agregar al pedido
-                </button>
-
-            </div>
-
-            <div class="producto">
-
-                <img src="img/prod9.png" alt="Bebida Fría">
-
-                <h4>Malteada de Fresa</h4>
-
-                <p>S/ 13.00</p>
-
-                <label>Cantidad</label>
-
-                 <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad">
-
-                <button onclick="agregarPedido(this, 'Malteada de Fresa',13)">
-                    Agregar  pedido
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="pedido">
-
-        <h2>Resumen de Pedidos</h2>
-
-        <div id="listaPedido"></div>
-
-        <h3 id="cantidadProductos">
-            Productos agregados: 0
-        </h3>
-
-        <h3 id="totalPedido">
-            Total: S/ 0.00
-        </h3>
-
+  <h2>Nuestra Carta</h2>
+
+  <!-- BOTONES DE FILTRO -->
+  <div class="contenedor-filtros">
+    <button class="btn-filtro active" onclick="filtrarProductos('todos')">Todos</button>
+    <button class="btn-filtro" onclick="filtrarProductos('cafes')">Cafés</button>
+    <button class="btn-filtro" onclick="filtrarProductos('postres')">Postres</button>
+    <button class="btn-filtro" onclick="filtrarProductos('bebidas-frias')">Bebidas Frías</button>
+  </div>
+
+
+    <!-- CONTENEDOR FILA: BUSCADOR A LA IZQUIERDA | CONVERSOR A LA DERECHA -->
+<div class="fila-herramientas">
+
+  <!-- 🔍 BUSCADOR DENTRO DE LA CARTA -->
+    <div class="buscador-container">
+      <div class="input-wrapper">
+        <svg class="icono-lupa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Buscar en la carta (ej. Cappuccino, Cheesecake)...">
+      </div>
+      <button type="button" id="btnBuscar" onclick="buscarPorTexto()">Buscar</button>
+    </div>
+
+
+  <!-- Conversor de monedas -->
+  <div class="card-conversor-derecha">
+    <div class="titulo-conversor">Conversor de Dinero (S/ ⇄ $ ⇄ €)</div>
+    
+    <div class="campos-inline">
+      
+      <select id="tipoConversion">
+        <option value="solesADolares">Soles ➔ Dólares</option>
+        <option value="solesAEuros">Soles ➔ Euros</option>
+        <option value="dolaresASoles">Dólares ➔ Soles</option>
+        <option value="eurosASoles">Euros ➔ Soles</option>
+      </select>
+
+      <input type="number" id="monto" placeholder="Monto" step="0.10">
+      <button onclick="convertirMoneda()">Cambio</button>
+      <div id="resultado" class="res-badge">Total: $ 0.00</div>
+    </div>
+  </div>
+
+</div>
+
+
+      
+  <div class="contenedor-productos">
+
+    <!-- PRODUCTOS DE CAFÉ -->
+    <div class="producto" data-category="cafes">
+      <img src="img/prod1.png" alt="Café">
+      <h4>Espresso</h4>
+      <p>S/ 8.00</p>
+      <label>Cantidad</label>
+      <input type="number" min="1" value="1" class="cantidad">
+      <button onclick="agregarPedido(this, 'Espresso', 8)">Agregar pedido</button>
+    </div>
+
+    <div class="producto" data-category="cafes">
+      <img src="img/prod2.png" alt="Café">
+      <h4>Cappuccino</h4>
+      <p>S/ 10.00</p>
+      <label>Cantidad</label>
+      <input type="number" min="1" value="1" class="cantidad">
+      <button onclick="agregarPedido(this, 'Cappuccino', 10)">Agregar pedido</button>
+    </div>
+
+    <div class="producto" data-category="cafes">
+      <img src="img/prod3.png" alt="Café">
+      <h4>Latte</h4>
+      <p>S/ 7.00</p>
+      <label>Cantidad</label>
+      <input type="number" min="1" value="1" class="cantidad">
+      <button onclick="agregarPedido(this, 'Latte', 7)">Agregar pedido</button>
+    </div>
+
+    <div class="producto" data-category="cafes">
+      <img src="img/prod10.webp" alt="Café">
+      <h4>Americano</h4>
+      <p>S/ 8.00</p>
+      <label>Cantidad</label>
+      <input type="number" min="1" value="1" class="cantidad">
+      <button onclick="agregarPedido(this, 'Americano', 8)">Agregar pedido</button>
+    </div>
+
+    <!-- PRODUCTOS DE POSTRES -->
+    <div class="producto" data-category="postres">
+      <img src="img/prod4.png" alt="Postre">
+      <h4>Cheesecake</h4>
+      <p>S/ 12.00</p>
+      <label>Cantidad</label>
+      <input type="number" min="1" value="1" class="cantidad">
+      <button onclick="agregarPedido(this, 'Torta de Chocolate', 12)">Agregar pedido</button>
+    </div>
+
+    <div class="producto" data-category="postres">
+      <img src="img/prod5.png" alt="Postre">
+      <h4>Brownie</h4>
+      <p>S/ 9.00</p>
+      <label>Cantidad</label>
+      <input type="number" min="1" value="1" class="cantidad">
+      <button onclick="agregarPedido(this, 'Brownie', 9)">Agregar pedido</button>
+    </div>
+    
+
+    <div class="producto" data-category="postres">
+      <img src="img/prod6.png" alt="Postre">
+      <h4>Torta de Chocolate</h4>
+      <p>S/ 15.00</p>
+      <label>Cantidad</label>
+      <input type="number" min="1" value="1" class="cantidad">
+      <button onclick="agregarPedido(this, 'Torta de Chocolate', 15)">Agregar pedido</button>
+    </div>
+
+
+    <!-- PRODUCTOS DE BEBIDAS FRÍAS -->
+    <div class="producto" data-category="bebidas-frias">
+      <img src="img/prod7.png" alt="Bebida Fría">
+      <h4>Frappé de Café</h4>
+      <p>S/ 11.00</p>
+      <label>Cantidad</label>
+      <input type="number" min="1" value="1" class="cantidad">
+      <button onclick="agregarPedido(this, 'Frappé de Café', 11)">Agregar pedido</button>
+    </div>
+
+    <div class="producto" data-category="bebidas-frias">
+      <img src="img/prod8.png" alt="Bebida Fría">
+      <h4>Té Helado</h4>
+      <p>S/ 7.50</p>
+      <label>Cantidad</label>
+      <input type="number" min="1" value="1" class="cantidad">
+      <button onclick="agregarPedido(this, 'Té Helado', 7.5)">Agregar pedido</button>
+    </div>
+    
+
+    <div class="producto" data-category="bebidas-frias">
+      <img src="img/prod9.png" alt="Bebida Fría">
+      <h4>Malteada de Fresa</h4>
+      <p>S/ 13.00</p>
+      <label>Cantidad</label>
+      <input type="number" min="1" value="1" class="cantidad">
+      <button onclick="agregarPedido(this, 'Malteada de Fresa', 13)">Agregar pedido</button>
+    </div>
+
+
+  </div>
+</section>
         <!-- Botón para eliminar todo el carrito de golpe -->
         <button id="btnVaciar" onclick="vaciarTodo()" style="display:none;" class="btn-vaciar">
             Vaciar Todo
@@ -287,6 +224,9 @@
 
         </div>
 
+
+        
+
         <div class="footer-contacto">
 
             <h4>Contacto</h4>
@@ -301,7 +241,7 @@
 
             <h4>Horario</h4>
 
-            <p>Lunes - Viernes: 8:00 am - 9:00 pm</p>
+            <p>Lunes - Viernes: 8:00 am - 10:00 pm</p>
             <p>Sábado - Domingo: 9:00 am - 10:00 pm</p>
 
         </div>
