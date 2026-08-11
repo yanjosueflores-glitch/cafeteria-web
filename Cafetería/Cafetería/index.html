@@ -113,57 +113,60 @@
 
     <section class="seccion-principal">
 
-        <!-- BLOQUE 1: Fondo Claro (Imagen Izquierda, Texto Derecha) -->
-        <div class="bloque-fila fondo-claro">
-            <div class="contenido-ancho">
-                <div class="bloque-media">
-                    <img src="tu-imagen-cafe.jpg" alt="Café 100% Peruano de Finca">
-                </div>
-                <div class="bloque-texto">
-                    <span class="subtitulo">NUESTRA ESENCIA</span>
-                    <h2>Café 100% Peruano de Finca</h2>
-                    <p>Seleccionamos granos de especialidad de Cusco y Cajamarca, tostados semanalmente para ofrecerte una experiencia aromática e inolvidable.</p>
-                </div>
-            </div>
-        </div>
+  <!-- BLOQUE 1: Fondo Claro (Imagen Izquierda, Texto Derecha) -->
+  <div class="bloque-fila fondo-claro">
+    <div class="contenido-ancho">
+      <div class="bloque-media">
+        <img src="tu-imagen-cafe.jpg" alt="Café 100% Peruano de Finca">
+      </div>
+      <div class="bloque-texto">
+        <span class="subtitulo">NUESTRA ESENCIA</span>
+        <h2>Café 100% Peruano de Finca</h2>
+        <p>Seleccionamos granos de especialidad de Cusco y Cajamarca, tostados semanalmente para ofrecerte una experiencia aromática e inolvidable.</p>
+      </div>
+    </div>
+  </div>
 
-        <!-- BLOQUE 2: Fondo Oscuro / Tono Medio (Texto Izquierda, Mapa Derecha) -->
-        <div class="bloque-fila fondo-oscuro">
-            <div class="contenido-ancho">
-                <div class="bloque-texto">
-                    <h2>¿CÓMO LLEGAR?</h2>
-                    <p><strong>Dirección:</strong> Av. Principal 123, Miraflores</p>
-                    <p><strong>Referencia:</strong> A 2 cuadras del parque central.</p>
-                    <a href="https://maps.google.com" target="_blank" class="btn-mapa">ABRIR EN GOOGLE MAPS</a>
-                </div>
-                <div class="bloque-media">
-                    <iframe 
-                    src="https://www.google.com/maps/embed?pb=..." 
-                    loading="lazy">
-                    </iframe>
-                </div>
-            </div>
-        </div>
+  <!-- BLOQUE 2: Fondo Oscuro (Texto Izquierda, Mapa Derecha) -->
+  <div class="bloque-fila fondo-oscuro">
+    <div class="contenido-ancho">
+      <div class="bloque-texto">
+        <h2>¿CÓMO LLEGAR?</h2>
+        <p><strong>Dirección:</strong> Av. Principal 123, Miraflores</p>
+        <p><strong>Referencia:</strong> A 2 cuadras del parque central.</p>
+        <a href="https://maps.google.com" target="_blank" class="btn-mapa">ABRIR EN GOOGLE MAPS</a>
+      </div>
+      <div class="bloque-media">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=..." 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
 
-        <!-- BLOQUE 3: Fondo Tono Verde Bosque / Café Profundo (Subir Foto a la Izquierda, Texto a la Derecha) -->
+  <!-- BLOQUE 3: Comunidad / Subida de Foto (Foto Izquierda, Texto Derecha) -->
 <div class="bloque-fila fondo-terciario">
-  <div class="contenido-ancho">
+  <div class="comunidad-contenedor">
     
-    <!-- Lado Izquierdo: Caja para subir la imagen -->
-    <div class="bloque-subida">
-      <p class="titulo-subida">Sube una foto en nuestra Casa</p>
-      <label for="upload-foto" class="caja-dropzone">
-        <div class="icono-camara">📷</div>
-        <span>Haz clic o arrastra una imagen aquí</span>
-        <input type="file" id="upload-foto" accept="image/*" class="input-oculto">
+    <!-- LADO IZQUIERDO: CUADRO DE SUBIDA DE FOTO -->
+    <div class="comunidad-columna-foto">
+      <p class="comunidad-titulo-foto">Sube una foto en nuestra Casa</p>
+      
+      <label for="foto-input" class="comunidad-dropzone">
+        <div id="comunidad-contenido-dropzone">
+          <div class="comunidad-icono">📷</div>
+          <span class="comunidad-texto-instruccion">Haz clic o arrastra una imagen aquí</span>
+        </div>
+        <input type="file" id="foto-input" accept="image/*" class="comunidad-input-oculto">
       </label>
     </div>
 
-    <!-- Lado Derecho: Texto explicativo / llamado a la acción -->
-    <div class="bloque-texto">
-      <span class="subtitulo">COMUNIDAD</span>
-      <h2>Comparte tu Experiencia</h2>
-      <p>Nos encanta ver cómo disfrutas de nuestro café. Sube tu foto visitándonos y formarás parte de nuestra galería en la cafetería.</p>
+    <!-- LADO DERECHO: TEXTO INFORMATIVO -->
+    <div class="comunidad-columna-texto">
+      <span class="comunidad-subtitulo">COMUNIDAD</span>
+      <h2 class="comunidad-titulo">Comparte tu Experiencia</h2>
+      <p class="comunidad-descripcion">Nos encanta ver cómo disfrutas de nuestro café. Sube tu foto visitándonos y formarás parte de nuestra galería en la cafetería.</p>
     </div>
 
   </div>

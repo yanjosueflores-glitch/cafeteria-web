@@ -183,3 +183,29 @@ setInterval(actualizarRelojYEstado, 1000);
 
 // Ejecutar una vez al cargar la página
 actualizarRelojYEstado();
+
+// Imagen del bloque 3: foto
+document.addEventListener('DOMContentLoaded', function() {
+    const inputFoto = document.getElementById('foto-input');
+    const contenidoDropzone = document.getElementById('comunidad-contenido-dropzone');
+
+    if (inputFoto && contenidoDropzone) {
+      inputFoto.addEventListener('change', function(e) {
+        const archivo = e.target.files[0];
+        
+        if (archivo && archivo.type.startsWith('image/')) {
+          const reader = new FileReader();
+
+          reader.onload = function(event) {
+            // Reemplaza el ícono por la imagen cargada manteniendo las clases de tu CSS
+            contenidoDropzone.innerHTML = `
+              <img src="${event.target.result}" class="comunidad-imagen-previa" alt="Vista previa">
+              <span class="comunidad-texto-instruccion" style="color: #d4a359; font-size: 13px; text-decoration: underline;">Haz clic para cambiar la foto</span>
+            `;
+          };
+
+          reader.readAsDataURL(archivo);
+        }
+      });
+    }
+  });
