@@ -309,7 +309,7 @@ nav {
 .area{
     width:14px;
     height:14px;
-    background:white;
+    background:rgb(37, 32, 32);
     border-radius: 0;
     opacity:.5;
     cursor:pointer;
@@ -335,7 +335,7 @@ nav {
     transform: translateY(-50%);
     padding: 25px;
     border-radius: 0px;
-    color:rgb(235, 228, 228);
+    color:rgb(26, 21, 21);
 }
 
 .contenido-banner h2{
@@ -348,7 +348,7 @@ nav {
 }
 
 .seccion-intermedia {
-  background-color: #f7f5ef;
+  background-color: #1d1c17;
   padding: 60px 8%;
 }
 
@@ -366,20 +366,21 @@ nav {
 
 /* Colores de fondo de las filas */
 .fondo-claro {
-  background-color: #f9f8f6;
+  background-color: #e7e1d5;
 }
 
 .fondo-oscuro {
-  background-color: #1e1916;
+  background-color: #bbaba1;
 }
 
 /* Contenedor interno estándar que distribuye los elementos a lo ancho */
-.contenido-ancho {
+.contenido-ancho,
+.comunidad-contenedor {
   width: 100%;
-  max-width: 1400px; /* Permite ocupar prácticamente todo el ancho de la pantalla */
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 50% para la imagen/mapa y 50% para el texto */
+  grid-template-columns: 1fr 1fr;
   gap: 50px;
   align-items: center;
 }
@@ -403,6 +404,11 @@ nav {
   border: none;
 }
 
+.bloque-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 /* ==========================================
    TEXTOS (BLOQUES CLARO Y OSCURO)
    ========================================== */
@@ -422,51 +428,44 @@ nav {
 }
 
 .fondo-claro p {
-  color: #4a4a4a;
+  color: #8c7474;
   line-height: 1.6;
 }
 
 /* Estilos de texto adaptados para el Bloque Oscuro */
 .fondo-oscuro h2 {
-  color: #ffffff;
+  color: #2b1d14;
   font-size: 32px;
+  margin-bottom: 12px;
 }
 
 .fondo-oscuro p {
-  color: #d1c7bd;
+  color: #3b2a1d;
   line-height: 1.6;
+  margin: 4px 0;
 }
 
 /* Botón adaptable de mapa */
 .btn-mapa {
   display: inline-block;
-  margin-top: 15px;
+  margin-top: 18px;
   padding: 12px 24px;
-  background-color: #d4a359; /* Tono dorado/café para destacar en fondo oscuro */
-  color: #473939;
+  background-color: #8c5835;
+  color: #ffffff;
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
+  width: fit-content;
   transition: background 0.3s ease;
 }
 
 .btn-mapa:hover {
-  background-color: #5f441c;
+  background-color: #6a3e20;
 }
 
 /* ==========================================
    SECCIÓN COMUNIDAD (SUBIDA DE FOTO)
    ========================================== */
-
-.comunidad-contenedor {
-  max-width: 1300px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 50% Izquierda - 50% Derecha */
-  gap: 50px;
-  align-items: center;
-}
-
 /* Columna Foto (Izquierda) */
 .comunidad-columna-foto {
   width: 100%;
@@ -489,7 +488,7 @@ nav {
   height: 280px;         /* Alto fijo de la tarjeta */
   border: 2px dashed rgba(255, 255, 255, 0.4); /* Bordes punteados */
   border-radius: 16px;
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: rgba(170, 151, 151, 0.867);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -504,7 +503,7 @@ nav {
 }
 
 .fondo-terciario {
-  background-color: #65432e; /* <--- CAMBIA ESTE CÓDIGO HEXADECIMAL PARA CAMBIAR EL FONDO */
+  background-color: #9e7157db; /* <--- CAMBIA ESTE CÓDIGO HEXADECIMAL PARA CAMBIAR EL FONDO */
 }
 
 .comunidad-dropzone:hover {

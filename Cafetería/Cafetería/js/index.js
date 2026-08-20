@@ -35,6 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnAntes = document.querySelector(".antes");
 
     let index = 0;
+    let intervaloRuleta; // Variable para almacenar el temporizador
+
+    // Función para (re)iniciar el contador de 7 segundos
+    function iniciarTemporizador() {
+        clearInterval(intervaloRuleta);
+        intervaloRuleta = setInterval(() => {
+            mostrarRulebanimg(index + 1);
+        }, 7000);
+    }
 
     function mostrarRulebanimg(i) {
         if (i >= rulebanimg.length) {
@@ -57,22 +66,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Botones de navegación
     if (btnLuego) {
-        btnLuego.onclick = () => mostrarRulebanimg(index + 1);
+        btnLuego.onclick = () => {
+            mostrarRulebanimg(index + 1);
+            iniciarTemporizador(); // Reinicia la cuenta
+        };
     }
 
     if (btnAntes) {
-        btnAntes.onclick = () => mostrarRulebanimg(index - 1);
+        btnAntes.onclick = () => {
+            mostrarRulebanimg(index - 1);
+            iniciarTemporizador(); // Reinicia la cuenta
+        };
     }
 
     // Clic en los puntos/barras de posición
     imgban.forEach((area, i) => {
-        area.onclick = () => mostrarRulebanimg(i);
+        area.onclick = () => {
+            mostrarRulebanimg(i);
+            iniciarTemporizador(); // Reinicia la cuenta
+        };
     });
 
-    // Auto-reproducción cada 16 segundos
-    setInterval(() => {
-        mostrarRulebanimg(index + 1);
-    }, 16000);
+    // Inicia la auto-reproducción al cargar la página
+    iniciarTemporizador();
 
 });
 
