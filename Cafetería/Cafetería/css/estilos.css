@@ -12,13 +12,11 @@ body {
     background-color: #eef4ed;
 }
 
-header{
-    background-color: #7c8454;
-    position: relative;
-    padding: 5px 40px;
-    display: flex;
-    align-items: center;
-    
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Evita que las imágenes o textos del slider lo tapen */
 }
 
 .logo-header {
