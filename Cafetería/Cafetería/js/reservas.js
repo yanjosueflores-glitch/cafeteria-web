@@ -14,11 +14,25 @@
         });
 
 
+// Configuración e inicialización de Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyDwFpW_mjXwUquo7YftNUIfI__f-bL492I",
+    authDomain: "estacion-cafe.firebaseapp.com",
+    databaseURL: "https://estacion-cafe-default-rtdb.firebaseio.com",
+    projectId: "estacion-cafe",
+    storageBucket: "estacion-cafe.firebasestorage.app",
+    messagingSenderId: "892634658481",
+    appId: "1:892634658481:web:bda27aa5c3b78668cfd490"
+};
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+const db = firebase.database();
+const refReservas = db.ref("reservas");
+
 // Array temporal que guarda los items de la comanda mientras se llena el formulario
 let ordenActual = [];
-
-// Cargamos las reservas guardadas anteriormente (o un array vacío si no hay ninguna)
-let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
 
 // Dibuja la lista de items de la comanda que se van agregando
 function mostrarOrdenActual() {
@@ -60,12 +74,12 @@ document.getElementById("listaOrden").addEventListener("click", function(e) {
 });
 
 // Dibuja la tabla completa de reservas registradas
-function mostrarReservas() {
+function mostrarReservas(reservas) {
     let tbody = document.querySelector("#tablaReservas tbody");
     tbody.innerHTML = "";
 
     reservas.forEach(function(r) {
-        let ordenTexto = r.orden.length > 0
+        let ordenTexto = (r.orden && r.orden.length > 0)
             ? r.orden.join(", ")
             : "—";
 
@@ -83,6 +97,18 @@ function mostrarReservas() {
         tbody.innerHTML += fila;
     });
 }
+
+// Escuchar cambios de Firebase en tiempo real
+refReservas.on("value", function(snapshot) {
+    let datos = snapshot.val();
+    let reservas = [];
+
+    if (datos) {
+        reservas = Object.values(datos);
+    }
+
+    mostrarReservas(reservas);
+});
 
 // Envío del formulario de reserva
 document.getElementById("formReserva").addEventListener("submit", function(e) {
@@ -104,12 +130,8 @@ document.getElementById("formReserva").addEventListener("submit", function(e) {
         orden: ordenActual
     };
 
-    // Agregamos la reserva al array y la guardamos en localStorage
-    reservas.push(nuevaReserva);
-    localStorage.setItem("reservas", JSON.stringify(reservas));
-
-    // Volvemos a dibujar la tabla completa
-    mostrarReservas();
+    // Guardamos la reserva en Firebase
+    refReservas.push(nuevaReserva);
 
     // Reiniciamos la comanda temporal para la siguiente reserva
     ordenActual = [];
@@ -118,9 +140,6 @@ document.getElementById("formReserva").addEventListener("submit", function(e) {
     this.reset();
 
 });
-
-// Mostramos las reservas guardadas apenas se carga la página
-mostrarReservas();
 
 
 // relaliza el funcionamiento de preder y apagar el modo oscuro y claro, ademas de guardar la preferencia del usuario en localStorage
