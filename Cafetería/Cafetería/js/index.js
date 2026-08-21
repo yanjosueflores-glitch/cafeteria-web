@@ -157,151 +157,31 @@ function actualizarReloj() {
     }
 }
 
-   //abierto y cerrado de la cafeteria
+ // Definimos la duración inicial de la oferta (ejemplo: 1 hora, 45 minutos, 30 segundos)
+  let totalTimeInSeconds = (1 * 3600) + (45 * 60) + 30;
 
-actualizarReloj();
-setInterval(actualizarReloj, 1000);
+  function updateCountdown() {
+    const hoursElement = document.getElementById('hours');
+    const minutesElement = document.getElementById('minutes');
+    const secondsElement = document.getElementById('seconds');
 
-function actualizarRelojYEstado() {
-    const ahora = new Date();
-    const horas = ahora.getHours();
-    const minutos = ahora.getMinutes();
-    const segundos = ahora.getSeconds();
-
-    // 1. Actualizar números del reloj
-    document.getElementById('horas').textContent = String(horas).padStart(2, '0');
-    document.getElementById('minutos').textContent = String(minutos).padStart(2, '0');
-    document.getElementById('segundos').textContent = String(segundos).padStart(2, '0');
-
-    // 2. Definir Horario de Atención (Ejemplo: 08:00 a 22:00)
-    const horaApertura = 8;  // 8:00 AM
-    const horaCierre = 22;   // 10:00 PM
-
-    const dotElement = document.getElementById('status-dot');
-    const textElement = document.getElementById('status-text');
-
-    // 3. Evaluar si la cafetería está abierta o cerrada
-    if (horas >= horaApertura && horas < horaCierre) {
-        // ABIERTO
-        dotElement.className = 'dot abierto';
-        textElement.textContent = 'ABIERTO';
-        textElement.style.color = '#2ecc71';
-    } else {
-        // CERRADO
-        dotElement.className = 'dot cerrado';
-        textElement.textContent = 'CERRADO';
-        textElement.style.color = '#e74c3c';
+    if (totalTimeInSeconds <= 0) {
+      // Si llega a cero, reiniciamos la oferta a 2 horas para mantener la escasez activa
+      totalTimeInSeconds = 2 * 3600;
     }
-}
 
-// Ejecutar la función cada segundo
-setInterval(actualizarRelojYEstado, 1000);
+    const hours = Math.floor(totalTimeInSeconds / 3600);
+    const minutes = Math.floor((totalTimeInSeconds % 3600) / 60);
+    const seconds = totalTimeInSeconds % 60;
 
-// Ejecutar una vez al cargar la página
-actualizarRelojYEstado();
+    // Formato con dos dígitos (ej. 01, 05, 09)
+    hoursElement.textContent = String(hours).padStart(2, '0');
+    minutesElement.textContent = String(minutes).padStart(2, '0');
+    secondsElement.textContent = String(seconds).padStart(2, '0');
 
-// Imagen del bloque 3: foto
-document.addEventListener('DOMContentLoaded', function() {
-    const inputFoto = document.getElementById('foto-input');
-    const contenidoDropzone = document.getElementById('comunidad-contenido-dropzone');
-
-    if (inputFoto && contenidoDropzone) {
-      inputFoto.addEventListener('change', function(e) {
-        const archivo = e.target.files[0];
-        
-        if (archivo && archivo.type.startsWith('image/')) {
-          const reader = new FileReader();
-
-          reader.onload = function(event) {
-            // Reemplaza el ícono por la imagen cargada manteniendo las clases de tu CSS
-            contenidoDropzone.innerHTML = `
-              <img src="${event.target.result}" class="comunidad-imagen-previa" alt="Vista previa">
-              <span class="comunidad-texto-instruccion" style="color: #d4a359; font-size: 13px; text-decoration: underline;">Haz clic para cambiar la foto</span>
-            `;
-          };
-
-          reader.readAsDataURL(archivo);
-        }
-      });
-    }
-  });
-
-
-
-// Clima
-// Obtener clima en tiempo real (Coordenadas de Lima por defecto)
-async function getWeatherData(lat = -12.0464, lon = -77.0428) {
-  try {
-    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
-    const data = await response.json();
-
-    if (data.current_weather) {
-      const temp = Math.round(data.current_weather.temperature);
-      const code = data.current_weather.weathercode;
-
-      // Espera 1.5 segundos mostrando "Cargando..." antes de poner el clima real
-      setTimeout(() => {
-        const tempEl = document.getElementById('weather-temp');
-        const condEl = document.getElementById('weather-cond');
-
-        if (tempEl) tempEl.textContent = `${temp}°C`;
-        if (condEl) condEl.textContent = getWeatherStatusText(code);
-      }, 800); // <-- Cambia a 2000 si quieres que dure 2 segundos completos
-    }
-  } catch (error) {
-    console.error("Error al cargar datos del clima:", error);
-  }
-}
-
-// Convertir código de la API a texto
-function getWeatherStatusText(code) {
-  if (code === 0) return 'SOLEADO';
-  if (code >= 1 && code <= 3) return 'PARCIALMENTE NUBLADO';
-  if (code >= 45 && code <= 48) return 'NIEBLA';
-  if (code >= 51 && code <= 67) return 'LLUVIA';
-  if (code >= 80 && code <= 82) return 'CHUBASCOS';
-  if (code >= 95) return 'TORMENTA';
-  return 'DESPEJADO';
-}
-
-// Ejecutar al cargar la página y actualizar en segundo plano
-document.addEventListener('DOMContentLoaded', () => {
-  let userLat = -12.0464;
-  let userLon = -77.0428;
-
-  const initWeather = (lat, lon) => {
-    userLat = lat;
-    userLon = lon;
-    getWeatherData(userLat, userLon);
-  };
-
-  // 1. Carga inicial
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (pos) => initWeather(pos.coords.latitude, pos.coords.longitude),
-      () => initWeather(userLat, userLon)
-    );
-  } else {
-    initWeather(userLat, userLon);
+    totalTimeInSeconds--;
   }
 
-  // 2. Auto-actualización cada 15 minutos (900,000 milisegundos)
-  setInterval(() => {
-    getWeatherData(userLat, userLon);
-  }, 900000);
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    // Obtiene la ruta de la página actual (ej. "nosotros.html")
-    const currentPage = window.location.pathname.split("/").pop();
-    
-    // Selecciona todos los enlaces dentro del menú
-    const menuLinks = document.querySelectorAll(".menu li a");
-
-    menuLinks.forEach(link => {
-        // Compara el href del enlace con la página actual
-        if (link.getAttribute("href") === currentPage) {
-            link.classList.add("active");
-        }
-    });
-});
+  // Ejecutamos cada 1 segundo (1000 ms)
+  setInterval(updateCountdown, 1000);
+  updateCountdown(); // Ejecutar inmediatamente al cargar la página

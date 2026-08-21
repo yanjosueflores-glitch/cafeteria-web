@@ -12,7 +12,40 @@ body {
   background-color: #eef4ed;
   font-family: 'Plus Jakarta Sans', sans-serif; /* Misma fuente uniforme para todo el sitio */
 }
+/* --- NAVEGACIÓN PRINCIPAL --- */
 
+/* 1. Estilo base de las opciones del menú */
+ul.menu li a {
+  color: #ffffff;             /* Texto blanco */
+  text-decoration: none;
+  font-size: 15px;
+  position: relative;
+  padding: 8px 12px;
+  transition: color 0.3s ease;
+}
+
+/* 2. Línea inferior (oculta por defecto) */
+ul.menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background-color: #c5a059;   /* Dorado de Reservas */
+  transition: width 0.3s ease, left 0.3s ease;
+  border-radius: 2px;
+}
+
+/* 3. Efecto al pasar el mouse (Hover) */
+ul.menu li a:hover {
+  color: #c5a059;             /* Cambia a dorado */
+}
+
+ul.menu li a:hover::after {
+  width: 100%;                /* Expande la línea */
+  left: 0;
+}
 /* ==========================================
    HEADER / BARRA SUPERIOR (EXPANDIDA HACIA ABAJO)
    ========================================== */
@@ -142,44 +175,6 @@ header > a img.prendido {
   transform: scaleX(1);
   transform-origin: bottom left;
   box-shadow: 0 2px 8px rgba(212, 175, 55, 0.6);
-}
-
-/* ==========================================
-   WIDGETS: RELOJ Y CLIMA
-   ========================================== */
-#reloj-digital {
-  font-size: 1.35rem !important;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-}
-
-.weather-card {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.weather-icon-gold {
-  width: 32px !important;
-  height: 32px !important;
-}
-
-.weather-info {
-  min-width: 95px;
-  display: flex;
-  flex-direction: column;
-}
-
-.weather-info .temp {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.weather-info .cond {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 10px;
-  letter-spacing: 0.5px;
 }
 
 /* ==========================================
@@ -1442,14 +1437,6 @@ body.dark-mode [class*="footer"] {
 }
 
 
-
-
-
-
-
-
-
-
 header {
   display: flex;
   align-items: center;
@@ -1767,140 +1754,201 @@ body.dark-mode .next {
 }
 
 
-/* reloj digital */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap'); /* <--- IMPORTAMOS UN PESO MÁS GRUESO (800) */
 
-.clock-container {
-    font-family: 'Orbitron', monospace;
-    font-size: 1.2rem; /* <--- LIGERAMENTE MÁS GRANDE */
-    
-    /* CAMBIO CLAVE: Grosor de fuente extra nítido (Heavy) */
-    font-weight: 800; 
-    
-    /* Tono amarillo neón idéntico al logo */
-    color: #f7e06b;
-    
-    /* Fondo oscuro semi-transparente para dar contraste */
-    background-color: rgba(5, 10, 7, 0.75); /* <--- FONDO UN POCO MÁS OSCURO */
-    
-    /* Borde redondeado con el mismo tono neón */
-    border: 1.5px solid #f7e06b;
-    border-radius: 8px;
-    padding: 5px 12px;
-    letter-spacing: 2.5px; /* <--- MÁS ESPACIO ENTRE NÚMEROS AYUDA A LEER */
-    display: inline-block;
 
-    /* Halo ambiental exterior (Glow) */
-    box-shadow: 
-        0 0 6px rgba(247, 224, 107, 0.6),
-        0 0 14px rgba(247, 224, 107, 0.3);
-
-    /* AJUSTE DE NEÓN: Menos brillo interior para que el número sea más sólido */
-    text-shadow: 
-        0 0 2px #f7e06b, /* Color base sólido */
-        0 0 4px #f7e06b, /* Halo suave */
-        0 0 10px rgba(247, 224, 107, 0.5); /* Glow externo suave */
+/* --- BANNER DE PROMOCIÓN SUPERIOR --- */
+.promo-banner {
+  background-color: #120c08;
+  /* Fondo café oscuro elegante con patrón sutil si se desea */
+  background-image: radial-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 0);
+  background-size: 12px 12px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 10px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f5ebd6;
 }
 
-/* Efecto de parpadeo neón para los dos puntos ":" manteniendo la solidez */
-@keyframes parpadeo {
-    0%, 100% {
-        opacity: 1;
-        text-shadow: 
-            0 0 2px #f7e06b,
-            0 0 4px #f7e06b;
-    }
-    50% {
-        opacity: 0.2;
-        text-shadow: none;
-    }
-}
-
-.puntos {
-    animation: parpadeo 1s infinite;
-    padding: 0 1px;
-}
-
-/* Contenedor vertical: punto arriba, texto abajo */
-.status-badge {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
-}
-
-/* Punto verde neón con resplandor */
-.dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-}
-
-.dot.abierto {
-    background-color: #39ff14;
-    box-shadow: 
-        0 0 5px #39ff14,
-        0 0 10px #39ff14,
-        0 0 15px rgba(57, 255, 20, 0.6);
-}
-
-.dot.cerrado {
-    background-color: #ff3333;
-    box-shadow: 
-        0 0 5px #ff3333,
-        0 0 10px #ff3333;
-}
-
-/* Texto blanco en mayúsculas compacto */
-.status-text {
-    font-family: system-ui, -apple-system, sans-serif;
-    font-size: 0.6rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    color: #ffffff;
-    text-transform: uppercase;
-    line-height: 1;
-}
-
-
-
-
-/* Tarjeta / Widget del Clima */
-.weather-card {
+.promo-container {
+  max-width: 1300px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  user-select: none;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
 }
 
-/* Icono con destello radiante */
-.weather-icon-gold {
-  flex-shrink: 0;
-  filter: drop-shadow(0 0 4px rgba(250, 204, 21, 0.35));
-}
-
-/* Contenedor del texto ordenado en vertical */
-.weather-info {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-/* Temperatura */
-.weather-info .temp {
-  color: #E1B139;
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.3px;
-}
-
-/* Condicion del clima */
-.weather-info .cond {
-  color: #f9fafb; /* Tono gris elegante */
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 0.8px;
+/* Insignia / Badge Metálico Dorado */
+.promo-badge {
+  background: linear-gradient(135deg, #b8860b, #e6ca65, #996515);
+  color: #dacbcb;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  padding: 6px 14px;
+  border-radius: 6px;
   text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Texto Informativo */
+.promo-text {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  color: #e2d7be;
+}
+
+.promo-text strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Temporizador Digital */
+.promo-timer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.timer-box {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 6px;
+  padding: 4px 8px;
+  text-align: center;
+  min-width: 42px;
+  box-shadow: inset 0 0 5px rgba(212, 175, 55, 0.2);
+}
+
+.timer-box span {
+  display: block;
+  color: #ffda6a;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.timer-box small {
+  display: block;
+  font-size: 8px;
+  color: #a89f8d;
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+.timer-dots {
+  color: #d4af37;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Botón Neón Dorado (CTA) */
+.promo-btn {
+  background: transparent;
+  color: #fff6df;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 6px 18px;
+  border-radius: 6px;
+  border: 1px solid #d4af37;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.promo-btn:hover {
+  background-color: #d4af37;
+  color: #000000;
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.8);
+  transform: translateY(-1px);
+}
+
+.promo-btn {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #d4af37;
+  padding: 6px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  /* Aplicar animación */
+  animation: parpadeoBotonDorado 1.8s infinite ease-in-out;
+}
+.promo-btn {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #d4af37;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.promo-btn:after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 215, 0, 0.8) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: rotate(30deg);
+  animation: destelloDorado 3s infinite;
+}
+
+@keyframes destelloDorado {
+  0% {
+    left: -60%;
+  }
+  20% {
+    left: 140%; /* Pasa rápido de un lado a otro */
+  }
+  100% {
+    left: 140%; /* Pausa hasta el siguiente ciclo */
+  }
+}
+
+.promo-btn {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #d4af37;
+  padding: 6px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  /* Aplicar animación */
+  animation: parpadeoBotonDorado 1.8s infinite ease-in-out;
+}
+
+/* Al pasar el mouse encima, se intensifica */
+.promo-btn:hover {
+  background-color: #d4af37;
+  color: #111;
+  transform: scale(1.05);
+}
+
+@keyframes parpadeoBotonDorado {
+  0% {
+    box-shadow: 0 0 3px rgba(212, 175, 55, 0.3);
+    border-color: #d4af37;
+  }
+  50% {
+    /* Resplandor más vivo e intenso en el medio del ciclo */
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.8), inset 0 0 6px rgba(255, 215, 0, 0.4);
+    border-color: #ffd700;
+  }
+  100% {
+    box-shadow: 0 0 3px rgba(212, 175, 55, 0.3);
+    border-color: #d4af37;
+  }
 }
