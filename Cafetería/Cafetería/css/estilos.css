@@ -177,6 +177,18 @@ header > a img.prendido {
   box-shadow: 0 2px 8px rgba(212, 175, 55, 0.6);
 }
 
+.bloque-fila:not(:last-child) {
+  border-bottom: 1px solid rgba(140, 88, 53, 0.25);
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+}
+
+/* 2. Línea en modo oscuro (tono dorado/cálido elegante) */
+body.dark .bloque-fila:not(:last-child),
+body.dark-mode .bloque-fila:not(:last-child) {
+  border-bottom: 1px solid rgba(212, 163, 89, 0.25);
+}
+
 /* ==========================================
    TIPOGRAFÍA Y BANNER
    ========================================== */
