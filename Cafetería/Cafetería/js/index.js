@@ -35,6 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnAntes = document.querySelector(".antes");
 
     let index = 0;
+    let intervaloRuleta; // Variable para almacenar el temporizador
+
+    // Función para (re)iniciar el contador de 7 segundos
+    function iniciarTemporizador() {
+        clearInterval(intervaloRuleta);
+        intervaloRuleta = setInterval(() => {
+            mostrarRulebanimg(index + 1);
+        }, 7000);
+    }
 
     function mostrarRulebanimg(i) {
         if (i >= rulebanimg.length) {
@@ -57,22 +66,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Botones de navegación
     if (btnLuego) {
-        btnLuego.onclick = () => mostrarRulebanimg(index + 1);
+        btnLuego.onclick = () => {
+            mostrarRulebanimg(index + 1);
+            iniciarTemporizador(); // Reinicia la cuenta
+        };
     }
 
     if (btnAntes) {
-        btnAntes.onclick = () => mostrarRulebanimg(index - 1);
+        btnAntes.onclick = () => {
+            mostrarRulebanimg(index - 1);
+            iniciarTemporizador(); // Reinicia la cuenta
+        };
     }
 
     // Clic en los puntos/barras de posición
     imgban.forEach((area, i) => {
-        area.onclick = () => mostrarRulebanimg(i);
+        area.onclick = () => {
+            mostrarRulebanimg(i);
+            iniciarTemporizador(); // Reinicia la cuenta
+        };
     });
 
-    // Auto-reproducción cada 16 segundos
-    setInterval(() => {
-        mostrarRulebanimg(index + 1);
-    }, 16000);
+    // Inicia la auto-reproducción al cargar la página
+    iniciarTemporizador();
 
 });
 
@@ -209,3 +225,80 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+
+
+
+  //clima
+  // Obtener clima en tiempo real (Coordenadas de Lima por defecto)
+async function getWeatherData(lat = -12.0464, lon = -77.0428) {
+  try {
+    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
+    const data = await response.json();
+
+    if (data.current_weather) {
+      const temp = Math.round(data.current_weather.temperature);
+      const code = data.current_weather.weathercode;
+
+      // Actualizar Temperatura
+      document.getElementById('weather-temp').textContent = `${temp}°C`;
+
+      // Actualizar Texto de Condición
+      document.getElementById('weather-cond').textContent = getWeatherStatusText(code);
+    }
+  } catch (error) {
+    console.error("Error al cargar datos del clima:", error);
+  }
+}
+
+// Convertir código de la API a texto
+function getWeatherStatusText(code) {
+  if (code === 0) return 'SOLEADO';
+  if (code >= 1 && code <= 3) return 'PARCIALMENTE NUBLADO';
+  if (code >= 45 && code <= 48) return 'NIEBLA';
+  if (code >= 51 && code <= 67) return 'LLUVIA';
+  if (code >= 80 && code <= 82) return 'CHUBASCOS';
+  if (code >= 95) return 'TORMENTA';
+  return 'DESPEJADO';
+}
+
+// Ejecutar al cargar la página y actualizar en segundo plano
+document.addEventListener('DOMContentLoaded', () => {
+  let userLat = -12.0464;
+  let userLon = -77.0428;
+
+  const initWeather = (lat, lon) => {
+    userLat = lat;
+    userLon = lon;
+    getWeatherData(userLat, userLon);
+  };
+
+  // 1. Carga inicial
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => initWeather(pos.coords.latitude, pos.coords.longitude),
+      () => initWeather(userLat, userLon)
+    );
+  } else {
+    initWeather(userLat, userLon);
+  }
+
+  // 2. Auto-actualización cada 15 minutos (900,000 milisegundos)
+  setInterval(() => {
+    getWeatherData(userLat, userLon);
+  }, 900000);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Obtiene la ruta de la página actual (ej. "nosotros.html")
+    const currentPage = window.location.pathname.split("/").pop();
+    
+    // Selecciona todos los enlaces dentro del menú
+    const menuLinks = document.querySelectorAll(".menu li a");
+
+    menuLinks.forEach(link => {
+        // Compara el href del enlace con la página actual
+        if (link.getAttribute("href") === currentPage) {
+            link.classList.add("active");
+        }
+    });
+});
