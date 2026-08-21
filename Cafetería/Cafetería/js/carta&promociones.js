@@ -312,8 +312,8 @@ setInterval(actualizarRelojYEstado, 1000);
 actualizarRelojYEstado();
 
 
-//clima
-  // Obtener clima en tiempo real (Coordenadas de Lima por defecto)
+// Clima
+// Obtener clima en tiempo real (Coordenadas de Lima por defecto)
 async function getWeatherData(lat = -12.0464, lon = -77.0428) {
   try {
     const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
@@ -323,11 +323,14 @@ async function getWeatherData(lat = -12.0464, lon = -77.0428) {
       const temp = Math.round(data.current_weather.temperature);
       const code = data.current_weather.weathercode;
 
-      // Actualizar Temperatura
-      document.getElementById('weather-temp').textContent = `${temp}°C`;
+      // Espera 1.5 segundos mostrando "Cargando..." antes de poner el clima real
+      setTimeout(() => {
+        const tempEl = document.getElementById('weather-temp');
+        const condEl = document.getElementById('weather-cond');
 
-      // Actualizar Texto de Condición
-      document.getElementById('weather-cond').textContent = getWeatherStatusText(code);
+        if (tempEl) tempEl.textContent = `${temp}°C`;
+        if (condEl) condEl.textContent = getWeatherStatusText(code);
+      }, 800); // <-- Cambia a 2000 si quieres que dure 2 segundos completos
     }
   } catch (error) {
     console.error("Error al cargar datos del clima:", error);
