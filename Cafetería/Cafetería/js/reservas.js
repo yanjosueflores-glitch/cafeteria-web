@@ -14,49 +14,113 @@
         });
 
 
-document.getElementById("formReserva")
-.addEventListener("submit", function(e){
+// Array temporal que guarda los items de la comanda mientras se llena el formulario
+let ordenActual = [];
+
+// Cargamos las reservas guardadas anteriormente (o un array vacío si no hay ninguna)
+let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+
+// Dibuja la lista de items de la comanda que se van agregando
+function mostrarOrdenActual() {
+    let lista = document.getElementById("listaOrden");
+    lista.innerHTML = "";
+
+    ordenActual.forEach(function(item, index) {
+        let li = document.createElement("li");
+        li.className = "list-group-item d-flex justify-content-between align-items-center";
+        li.innerHTML = `
+            ${item}
+            <button type="button" class="btn btn-sm btn-outline-danger btn-quitar-item" data-index="${index}">✕</button>
+        `;
+        lista.appendChild(li);
+    });
+}
+
+// Botón "Añadir" de la comanda personalizada
+document.getElementById("btnAgregarOrden").addEventListener("click", function() {
+    let input = document.getElementById("inputOrden");
+    let texto = input.value.trim();
+
+    if (texto === "") return;
+
+    ordenActual.push(texto);
+    mostrarOrdenActual();
+
+    input.value = "";
+    input.focus();
+});
+
+// Quitar un item de la comanda antes de enviar la reserva
+document.getElementById("listaOrden").addEventListener("click", function(e) {
+    if (e.target.classList.contains("btn-quitar-item")) {
+        let index = e.target.dataset.index;
+        ordenActual.splice(index, 1);
+        mostrarOrdenActual();
+    }
+});
+
+// Dibuja la tabla completa de reservas registradas
+function mostrarReservas() {
+    let tbody = document.querySelector("#tablaReservas tbody");
+    tbody.innerHTML = "";
+
+    reservas.forEach(function(r) {
+        let ordenTexto = r.orden.length > 0
+            ? r.orden.join(", ")
+            : "—";
+
+        let fila = `
+            <tr>
+                <td>${r.nombre}</td>
+                <td>${r.correo}</td>
+                <td>${r.fecha}</td>
+                <td>${r.hora}</td>
+                <td>${r.personas}</td>
+                <td>${ordenTexto}</td>
+            </tr>
+        `;
+
+        tbody.innerHTML += fila;
+    });
+}
+
+// Envío del formulario de reserva
+document.getElementById("formReserva").addEventListener("submit", function(e) {
 
     e.preventDefault();
 
-    let nombre =
-    document.getElementById("nombre").value;
+    let nombre = document.getElementById("nombre").value;
+    let correo = document.getElementById("correo").value;
+    let fecha = document.getElementById("fecha").value;
+    let hora = document.getElementById("hora").value;
+    let personas = document.getElementById("personas").value;
 
-    let correo =
-    document.getElementById("correo").value;
+    let nuevaReserva = {
+        nombre: nombre,
+        correo: correo,
+        fecha: fecha,
+        hora: hora,
+        personas: personas,
+        orden: ordenActual
+    };
 
-    let fecha =
-    document.getElementById("fecha").value;
+    // Agregamos la reserva al array y la guardamos en localStorage
+    reservas.push(nuevaReserva);
+    localStorage.setItem("reservas", JSON.stringify(reservas));
 
-    let hora =
-    document.getElementById("hora").value;
+    // Volvemos a dibujar la tabla completa
+    mostrarReservas();
 
-    let personas =
-    document.getElementById("personas").value;
-
-    let fila = `
-        <tr>
-            <td>${nombre}</td>
-            <td>${correo}</td>
-            <td>${fecha}</td>
-            <td>${hora}</td>
-            <td>${personas}</td>
-        </tr>
-    `;
-
-    document.querySelector(
-        "#tablaReservas tbody"
-    ).innerHTML += fila;
-
-    console.log(nombre);
-    console.log(correo);
-    console.log(fecha);
-    console.log(hora);
-    console.log(personas);
+    // Reiniciamos la comanda temporal para la siguiente reserva
+    ordenActual = [];
+    mostrarOrdenActual();
 
     this.reset();
 
 });
+
+// Mostramos las reservas guardadas apenas se carga la página
+mostrarReservas();
 
 
 // relaliza el funcionamiento de preder y apagar el modo oscuro y claro, ademas de guardar la preferencia del usuario en localStorage
