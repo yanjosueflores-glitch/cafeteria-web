@@ -39,116 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-//reloj digital
-
-function actualizarReloj() {
-    const ahora = new Date();
-    
-    let horas = String(ahora.getHours()).padStart(2, '0');
-    let minutos = String(ahora.getMinutes()).padStart(2, '0');
-    let segundos = String(ahora.getSeconds()).padStart(2, '0');
-
-    const reloj = document.getElementById('reloj-digital');
-    if (reloj) {
-        reloj.textContent = `${horas}:${minutos}:${segundos}`;
-    }
-}
-
-actualizarReloj();
-setInterval(actualizarReloj, 1000);
-
-
-actualizarReloj();
-setInterval(actualizarReloj, 1000);
-
-
-function actualizarReloj() {
-    const ahora = new Date();
-    
-    const horas = String(ahora.getHours()).padStart(2, '0');
-    const minutos = String(ahora.getMinutes()).padStart(2, '0');
-    const segundos = String(ahora.getSeconds()).padStart(2, '0');
-
-    const elemHoras = document.getElementById('horas');
-    const elemMinutos = document.getElementById('minutos');
-    const elemSegundos = document.getElementById('segundos');
-
-    if (elemHoras && elemMinutos && elemSegundos) {
-        elemHoras.textContent = horas;
-        elemMinutos.textContent = minutos;
-        elemSegundos.textContent = segundos;
-    }
-}
-  //abierto y cerrado de la cafeteria
-actualizarReloj();
-setInterval(actualizarReloj, 1000);
-
-
-actualizarReloj();
-setInterval(actualizarReloj, 1000);
-
-function actualizarRelojYEstado() {
-    const ahora = new Date();
-    const horas = ahora.getHours();
-    const minutos = ahora.getMinutes();
-    const segundos = ahora.getSeconds();
-
-    // 1. Actualizar números del reloj
-    document.getElementById('horas').textContent = String(horas).padStart(2, '0');
-    document.getElementById('minutos').textContent = String(minutos).padStart(2, '0');
-    document.getElementById('segundos').textContent = String(segundos).padStart(2, '0');
-
-    // 2. Definir Horario de Atención (Ejemplo: 08:00 a 22:00)
-    const horaApertura = 8;  // 8:00 AM
-    const horaCierre = 22;   // 10:00 PM
-
-    const dotElement = document.getElementById('status-dot');
-    const textElement = document.getElementById('status-text');
-
-    // 3. Evaluar si la cafetería está abierta o cerrada
-    if (horas >= horaApertura && horas < horaCierre) {
-        // ABIERTO
-        dotElement.className = 'dot abierto';
-        textElement.textContent = 'ABIERTO';
-        textElement.style.color = '#2ecc71';
-    } else {
-        // CERRADO
-        dotElement.className = 'dot cerrado';
-        textElement.textContent = 'CERRADO';
-        textElement.style.color = '#e74c3c';
-    }
-}
-
-// Ejecutar la función cada segundo
-setInterval(actualizarRelojYEstado, 1000);
-
-// Ejecutar una vez al cargar la página
-actualizarRelojYEstado();
-
-// Clima
-// Obtener clima en tiempo real (Coordenadas de Lima por defecto)
-async function getWeatherData(lat = -12.0464, lon = -77.0428) {
-  try {
-    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
-    const data = await response.json();
-
-    if (data.current_weather) {
-      const temp = Math.round(data.current_weather.temperature);
-      const code = data.current_weather.weathercode;
-
-      // Espera 1.5 segundos mostrando "Cargando..." antes de poner el clima real
-      setTimeout(() => {
-        const tempEl = document.getElementById('weather-temp');
-        const condEl = document.getElementById('weather-cond');
-
-        if (tempEl) tempEl.textContent = `${temp}°C`;
-        if (condEl) condEl.textContent = getWeatherStatusText(code);
-      }, 800); // <-- Cambia a 2000 si quieres que dure 2 segundos completos
-    }
-  } catch (error) {
-    console.error("Error al cargar datos del clima:", error);
-  }
-}
 
 // Convertir código de la API a texto
 function getWeatherStatusText(code) {
@@ -219,3 +109,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+// Definimos la duración inicial de la oferta (ejemplo: 1 hora, 45 minutos, 30 segundos)
+  let totalTimeInSeconds = (1 * 3600) + (45 * 60) + 30;
+
+  function updateCountdown() {
+    const hoursElement = document.getElementById('hours');
+    const minutesElement = document.getElementById('minutes');
+    const secondsElement = document.getElementById('seconds');
+
+    if (totalTimeInSeconds <= 0) {
+      // Si llega a cero, reiniciamos la oferta a 2 horas para mantener la escasez activa
+      totalTimeInSeconds = 2 * 3600;
+    }
+
+    const hours = Math.floor(totalTimeInSeconds / 3600);
+    const minutes = Math.floor((totalTimeInSeconds % 3600) / 60);
+    const seconds = totalTimeInSeconds % 60;
+
+    // Formato con dos dígitos (ej. 01, 05, 09)
+    hoursElement.textContent = String(hours).padStart(2, '0');
+    minutesElement.textContent = String(minutes).padStart(2, '0');
+    secondsElement.textContent = String(seconds).padStart(2, '0');
+
+    totalTimeInSeconds--;
+  }
+
+  // Ejecutamos cada 1 segundo (1000 ms)
+  setInterval(updateCountdown, 1000);
+  updateCountdown(); // Ejecutar inmediatamente al cargar la página
