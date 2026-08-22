@@ -747,41 +747,47 @@ footer{
     
 }
 
-.formulario{
-    width: 50%;
-    max-width: 700px;
-    margin: 50px auto;
-    background: rgba(255, 255, 255, 0.077);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.30);
-    border: 3px solid #d4a359; /* <-- Añade esta línea para el borde grueso */
+.formulario {
+  width: 50%;
+  max-width: 700px;
+  margin: 50px auto;
+  background: rgba(255, 255, 255, 0.077);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.30);
+  border: none; /* En modo claro/normal NO tiene borde */
 }
 
-.formulario h2{
-    text-align: center;
-    margin-bottom: 25px;
-    color:#1b1210;
+/* El borde dorado se activa únicamente cuando se activa el modo oscuro */
+body.dark .formulario,
+body.dark-mode .formulario {
+  border: 3px solid #d4a359;
 }
 
-.formulario form{
-    display:flex;
-    flex-direction: column;
+.formulario h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #1b1210;
 }
 
-.formulario button{
-    background: #5d4037;
-    border-radius: 12px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: .3s;
+.formulario form {
+  display: flex;
+  flex-direction: column;
 }
 
-.formulario button:hover{
-    background: #7a5448;
-    transform: translateY(-2px);
+.formulario button {
+  background: #5d4037;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.formulario button:hover {
+  background: #7a5448;
+  transform: translateY(-2px);
 }
 
 .form-floating > label {
@@ -790,8 +796,8 @@ footer{
 
 .form-floating input,
 .form-floating textarea,
-.form-floating select{
-    padding: 1rem 0.75rem !important;
+.form-floating select {
+  padding: 1rem 0.75rem !important;
 }
 
 .form-control,
@@ -809,18 +815,18 @@ footer{
   opacity: 1;
 }
 
-.btn{
-    display:inline-block;
-    margin-top:15px;
-    padding:10px 20px;
-    background:#4d7079;
-    color:rgb(255, 255, 255);
-    text-decoration:none;
-    border-radius:5px;
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #4d7079;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  border-radius: 5px;
 }
 
-.btn:hover{
-    background:#bea9a2;
+.btn:hover {
+  background: #bea9a2;
 }
 
 /* ==========================================
@@ -830,30 +836,30 @@ footer{
   width: 100%;
   border-collapse: collapse;
   margin-top: 25px;
-  background-color: #ffffff; /* <-- CAMBIA AQUÍ: Fondo de toda la tabla (blanco, crema, etc.) */
+  background-color: #ffffff; /* CAMBIA AQUÍ: Fondo general de la tabla */
   border-radius: 8px;
   overflow: hidden;
 }
 
 #tablaReservas td {
-  background-color: #ffffff; /* <-- CAMBIA AQUÍ: Fondo de las celdas normales */
-  color: #000000 !important; /* <-- CAMBIA AQUÍ: Color del texto de los registros (Negro) */
+  background-color: #ffffff; /* CAMBIA AQUÍ: Fondo de las celdas */
+  color: #000000 !important; /* CAMBIA AQUÍ: Color de letra en celdas (Negro) */
   padding: 12px;
   text-align: center;
-  border: 1px solid #d1c7bd; /* Color de las líneas divisorias de las celdas */
+  border: 1px solid #d1c7bd;
 }
 
 #tablaReservas th {
-  background-color: #3b2a1d; /* <-- CAMBIA AQUÍ: Color de fondo de la barra de títulos */
-  color: #ffffff !important; /* <-- CAMBIA AQUÍ: Color del texto de los títulos */
+  background-color: #3b2a1d; /* CAMBIA AQUÍ: Fondo de títulos (Café oscuro) */
+  color: #ffffff !important; /* CAMBIA AQUÍ: Color de letra en títulos (Blanco) */
   padding: 12px;
   font-weight: bold;
   text-align: center;
-  border: 1px solid #5a402d; /* Color de las líneas divisorias de los títulos */
+  border: 1px solid #5a402d;
 }
 
-#tablaReservas tbody tr:nth-child(even) {
-    background-color: #ebe3d5; /* Fondo alterno para las filas */
+#tablaReservas tbody tr:nth-child(even) td {
+  background-color: #ebe3d5; /* CAMBIA AQUÍ: Color alterno para filas */
 }
 
 .productos{
