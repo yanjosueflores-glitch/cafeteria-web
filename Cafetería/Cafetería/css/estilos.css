@@ -56,7 +56,7 @@ header {
   height: 160px !important;       /* Altura vertical fija y amplia */
   min-height: 120px !important;
   padding: 0 45px !important;     /* Espacio lateral */
-  background-color: #0b1a0e !important;
+  background-color: #121d17 !important;
   position: sticky !important;
   top: 0 !important;
   width: 100% !important;
@@ -176,6 +176,149 @@ header > a img.prendido {
   transform-origin: bottom left;
   box-shadow: 0 2px 8px rgba(212, 175, 55, 0.6);
 }
+
+#panel-carrito {
+  position: fixed;
+  top: 0;
+  right: -380px;
+  width: 340px;
+  height: 100vh;
+  background-color: #BFB88F;
+  box-shadow: -6px 0 20px rgba(0,0,0,0.35);
+  padding: 2.5rem 1.8rem;
+  z-index: 1000;
+  transition: right 0.35s ease;
+  overflow-y: auto;
+  color: #f3efe6;
+  border-left: 1px solid rgba(212, 163, 89, 0.25);
+}
+
+#panel-carrito.visible {
+  right: 0;
+}
+
+#panel-carrito h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #322e28;
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.5px;
+}
+
+.item-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.9rem;
+}
+
+.item-carrito button {
+  background: rgba(212, 163, 89, 0.12);
+  border: 1px solid rgba(212, 163, 89, 0.4);
+  color: #d4a359;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+  transition: background 0.2s ease;
+}
+
+.item-carrito button:hover {
+  background: #d4a359;
+  color: #10201a;
+}
+
+#resumen-carrito {
+  margin-top: 1.8rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(212, 163, 89, 0.3);
+  font-size: 1.05rem;
+  display: flex;
+  justify-content: space-between;
+  color: #28251f;
+}
+
+#panel-carrito button:not(.item-carrito button) {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+#panel-carrito button:nth-of-type(1) {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #f3efe6;
+}
+
+#panel-carrito button:nth-of-type(1):hover {
+  border-color: #d4a359;
+  color: #d4a359;
+}
+
+#panel-carrito button:nth-of-type(2) {
+  background-color: #d4a359;
+  color: #152922;
+}
+
+#panel-carrito button:nth-of-type(2):hover {
+  background-color: #e6ca65;
+}
+#btn-carrito {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+#btn-carrito .bi-basket3-fill {
+  font-size: 24px;      
+  color: #f3efe6;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+#btn-carrito:hover .bi-basket3-fill {
+  color: #d4a359;
+  transform: scale(1.08);
+}
+
+#contador-carrito {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background-color: #d4a359;
+  color: #1b1b1b;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+
+
+
+
+
+
+
 
 /* ==========================================
    TIPOGRAFÍA Y BANNER
@@ -1446,8 +1589,8 @@ header {
 
 /* --- BOTÓN CIRCULAR MODO OSCURO / DÍA --- */
 .btn-theme {
-  width: 42px;
-  height: 42px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 2px solid #cfac3a; 
   background-color: #1b261b; 
@@ -1758,7 +1901,7 @@ body.dark-mode .next {
 
 /* --- BANNER DE PROMOCIÓN SUPERIOR --- */
 .promo-banner {
-  background-color: #120c08;
+  background-color: #12121c;
   /* Fondo café oscuro elegante con patrón sutil si se desea */
   background-image: radial-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 0);
   background-size: 12px 12px;

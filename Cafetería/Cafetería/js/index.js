@@ -185,3 +185,6 @@ function actualizarReloj() {
   // Ejecutamos cada 1 segundo (1000 ms)
   setInterval(updateCountdown, 1000);
   updateCountdown(); // Ejecutar inmediatamente al cargar la página
+
+
+ 

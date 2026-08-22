@@ -77,6 +77,14 @@
         </svg>
       </button>
     </li>
+
+
+               <li class="item-carrito">
+                <button id="btn-carrito" class="btn-carrito" onclick="toggleCarrito()" aria-label="Ver carrito">
+                <i class="bi bi-basket3-fill"></i>
+                <span id="contador-carrito">0</span>
+                </button>
+               </li>
     
     
             </ul>
@@ -84,6 +92,21 @@
         </nav>
 
  </header>
+
+   <div id="panel-carrito">
+    <h2>Pedido actual</h2>
+
+    <div id="carrito-items">
+      <!-- El JS inserta aquí cada producto dinámicamente -->
+    </div>
+
+    <div id="resumen-carrito">
+      <strong>Total: <span id="total-carrito">S/ 0.00</span></strong>
+    </div>
+
+    <button onclick="vaciarCarrito()">Vaciar carrito</button>
+    <button onclick="toggleCarrito()">Cerrar</button>
+  </div>
 
  <section class="promociones">
 
@@ -343,6 +366,7 @@
 
 </footer>
  <script src="js/carta&promociones.js"></script>
+ <script src="js/carrito.js"></script>
 </body>
 
 </html>

@@ -72,14 +72,44 @@
           <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 17a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm10-8a1 1 0 0 1-1 1h-2a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1zM5 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1zm14.95-6.95a1 1 0 0 1 0 1.41l-1.42 1.42a1 1 0 1 1-1.41-1.41l1.42-1.42a1 1 0 0 1 1.41 0zm-14.14 14.14a1 1 0 0 1 0 1.41l-1.42 1.42a1 1 0 0 1-1.41-1.41l1.42-1.42a1 1 0 0 1 1.41 0zm14.14 0a1 1 0 0 1-1.41 0l-1.42-1.42a1 1 0 0 1 1.41-1.41l1.42 1.42a1 1 0 0 1 0 1.41zM6.34 6.34a1 1 0 0 1-1.41 0L3.51 4.93a1 1 0 1 1 1.41-1.41l1.42 1.42a1 1 0 0 1 0 1.41z"/>
         </svg>
       </button>
+
+
     </li>
 
+
+                     <li class="item-carrito">
+                <button id="btn-carrito" class="btn-carrito" onclick="toggleCarrito()" aria-label="Ver carrito">
+                <i class="bi bi-basket3-fill"></i>
+                <span id="contador-carrito">0</span>
+                </button>
+               </li>
     
     
             </ul>
         </nav>
 
     </header>
+
+         <!-- ===== PANEL DEL CARRITO  ===== -->
+
+  <div id="panel-carrito">
+    <h2>Pedido actual</h2>
+
+    <div id="carrito-items">
+      <!-- El JS inserta aquí cada producto dinámicamente -->
+    </div>
+
+    <div id="resumen-carrito">
+      <strong>Total: <span id="total-carrito">S/ 0.00</span></strong>
+    </div>
+
+    <button onclick="vaciarCarrito()">Vaciar carrito</button>
+    <button onclick="toggleCarrito()">Cerrar</button>
+  </div>
+
+
+
+
 
     <section class="nosotros">
 
@@ -177,6 +207,7 @@
 
     </footer>
  <script src="js/nosotros.js"></script>
+ <script src="js/carrito.js"></script>
 </body>
 
 </html>
