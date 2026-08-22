@@ -1845,6 +1845,12 @@ HA */
 
 
 /* --- BANNER DE PROMOCIÓN SUPERIOR --- */
+body.dark .promo-badge,
+body.dark-mode .promo-badge {
+  border: 2px solid #d4a359; /* Borde dorado a juego con el diseño */
+  box-shadow: 0 0 10px rgba(212, 163, 89, 0.4); /* Opcional: brillo sutil */
+}
+
 .promo-banner {
   background-color: #120c08;
  
