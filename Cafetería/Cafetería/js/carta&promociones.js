@@ -124,7 +124,7 @@ function filtrarProductos(categoria) {
 }
 
 
-// Función para filtrar productos por texto en tiempo real
+// Función para buscar productos por texto en tiempo real
 function buscarPorTexto() {
   const input = document.getElementById('searchInput');
   const texto = input.value.toLowerCase().trim();
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
+// Función para convertir moneda
 
 function convertirMoneda() {
   const inputMonto = document.getElementById("monto").value;

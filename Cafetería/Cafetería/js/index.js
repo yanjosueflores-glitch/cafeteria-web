@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-  //reloj digital
+  //cuenta regresiva de la oferta limitada
 
 function actualizarReloj() {
     const ahora = new Date();
@@ -187,6 +187,9 @@ function actualizarReloj() {
   updateCountdown(); // Ejecutar inmediatamente al cargar la página
 
 
+  //app para mostrar el clima actual 
+
+  
  const API_KEY = 'TU_API_KEY_AQUI'; // Consigue tu clave gratuita en openweathermap.org
 const CIUDAD = 'Lima,PE';
 
