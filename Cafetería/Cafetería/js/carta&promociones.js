@@ -14,13 +14,98 @@
         });
 
 
+<<<<<<< HEAD
+=======
+function agregarPedido(boton, nombre, precio) {
+    let tarjeta = boton.parentElement;
+    let cantidadInput = tarjeta.querySelector(".cantidad");
+    let cantidad = parseInt(cantidadInput.value);
+
+    // Validación básica por si ponen 0 o números negativos
+    if (isNaN(cantidad) || cantidad <= 0) return;
+
+    let subtotal = precio * cantidad;
+
+    // Actualizamos acumuladores globales
+    total += subtotal;
+    cantidadTotal += cantidad;
+
+    let lista = document.getElementById("listaPedido");
+    let item = document.createElement("div");
+    item.classList.add("itemPedido");
+
+    // Guardamos los datos de ESTE ítem dentro del propio elemento HTML
+    item.dataset.subtotal = subtotal;
+    item.dataset.cantidad = cantidad;
+
+    // Insertamos el texto + el botón de eliminar ("❌")
+    item.innerHTML = `
+        <span>${nombre} x ${cantidad}</span>
+        <div>
+            <span style="margin-right: 10px;">S/ ${subtotal.toFixed(2)}</span>
+            <button onclick="eliminarItem(this)" style="background:none; border:none; color:red; cursor:pointer; font-weight:bold;">❌</button>
+        </div>
+    `;
+
+    lista.appendChild(item);
+
+    // Actualizamos los textos en pantalla
+    actualizarTotales();
+
+    // Reseteamos el input a 1 tras agregar
+    cantidadInput.value = 1;
+}
+
+// 1. ELIMINAR UN SOLO PRODUCTO
+function eliminarItem(botonEliminar) {
+   
+    let item = botonEliminar.closest(".itemPedido");
+
+  
+    let subtotalItem = parseFloat(item.dataset.subtotal);
+    let cantidadItem = parseInt(item.dataset.cantidad);
+
+    total -= subtotalItem;
+    cantidadTotal -= cantidadItem;
+
+   
+    if (total < 0) total = 0;
+    if (cantidadTotal < 0) cantidadTotal = 0;
+
+
+    item.remove();
+    actualizarTotales();
+}
+
+
+function vaciarTodo() {
+    let lista = document.getElementById("listaPedido");
+   
+    lista.innerHTML = "";
+
+   
+    total = 0;
+    cantidadTotal = 0;
+
+    actualizarTotales();
+}
+
+
+function actualizarTotales() {
+    document.getElementById("cantidadProductos").innerText =
+        "Productos agregados: " + cantidadTotal;
+
+    document.getElementById("totalPedido").innerText =
+        "Total: S/ " + total.toFixed(2);
+}
+>>>>>>> 2a2e29144573fd5178c2b8e6dd71971eb5c8d4d1
 
 
 function filtrarProductos(categoria) {
     const productos = document.querySelectorAll('.producto');
     const botones = document.querySelectorAll('.btn-filtro');
 
-    // Cambia la clase activa en el botón presionado
+  
     botones.forEach(btn => btn.classList.remove('active'));
     if (event) {
         event.target.classList.add('active');
@@ -136,7 +221,7 @@ function convertirMoneda() {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Obtiene el nombre del archivo de la URL actual (ej: "carta.html")
+    
     const currentPage = window.location.pathname.split("/").pop();
     
     // Selecciona todos los enlaces dentro del menú
@@ -171,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const minutes = Math.floor((totalTimeInSeconds % 3600) / 60);
     const seconds = totalTimeInSeconds % 60;
 
-    // Formato con dos dígitos (ej. 01, 05, 09)
+   
     hoursElement.textContent = String(hours).padStart(2, '0');
     minutesElement.textContent = String(minutes).padStart(2, '0');
     secondsElement.textContent = String(seconds).padStart(2, '0');
@@ -179,6 +264,6 @@ document.addEventListener("DOMContentLoaded", () => {
     totalTimeInSeconds--;
   }
 
-  // Ejecutamos cada 1 segundo (1000 ms)
+
   setInterval(updateCountdown, 1000);
-  updateCountdown(); // Ejecutar inmediatamente al cargar la página
+  updateCountdown();
