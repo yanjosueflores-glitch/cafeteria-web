@@ -68,8 +68,8 @@ header nav {
   flex: 1;
   display: flex;
   align-items: center;
-  margin-left: 20px !important; /* Reducido de 45px a 20px */
-  min-width: 0;                 /* Evita desbordamiento flex */
+  margin-left: 20px !important; 
+  min-width: 0;                
 }
 
 header > a {
@@ -122,7 +122,7 @@ header > a img.prendido {
 .menu {
   display: flex;
   align-items: center;
-  gap: 14px !important;         /* Reducido para dar espacio al clima */
+  gap: 14px !important;         
   list-style: none;
   margin: 0;
   padding: 0;
@@ -566,17 +566,17 @@ h2, h4 {
 /* Modificamos .tarjeta para que sirva para la nueva tarjeta-imagen */
 .tarjeta {
     flex: 1;
-    height: 220px;              /* Le damos altura fija para la imagen */
-    border-radius: 10px;        /* Mantenemos tu border-radius original */
+    height: 220px;              
+    border-radius: 10px;       
     box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
     position: relative;
-    overflow: hidden;           /* Corta la imagen para que respete las esquinas redondeadas */
-    display: block;             /* Necesario si .tarjeta ahora es un enlace <a> */
-    border: 2px solid transparent; /* Marco invisible para evitar saltos */
+    overflow: hidden;         
+    display: block;    
+    border: 2px solid transparent; 
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Imagen dentro de la tarjeta */
+
 .tarjeta img {
     width: 100%;
     height: 100%;
@@ -824,7 +824,7 @@ footer{
 }
 
 .productos {
-  /* Imagen de fondo de madera */
+
   background-image: url('../img/baner8.jpg');
   
   
@@ -1760,13 +1760,12 @@ body.dark-mode .next {
   font-size: 24px;
 }
 
-
-/* Contenedor horizontal que pone el conversor a la DERECHA */
+HA */
 .fila-herramientas {
   display: flex;
-  flex-direction: row; /* Alineación horizontal */
+  flex-direction: row; 
   justify-content: space-between;
-  align-items: center; /* Alinea verticalmente al centro */
+  align-items: center; 
   gap: 15px;
   width: 100%;
   max-width: 1100px;
@@ -1775,7 +1774,7 @@ body.dark-mode .next {
 }
 
 
-/* 2. Conversor Compacto (A la Derecha) */
+
 .card-conversor-derecha {
   background-color: #3b2319;
   border: 1px solid #c8a261;
@@ -1783,7 +1782,7 @@ body.dark-mode .next {
   padding: 8px 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   color: #c5a4a4;
-  white-space: nowrap; /* Evita saltos de línea indeseados */
+  white-space: nowrap; 
 }
 
 .titulo-conversor {
@@ -1848,7 +1847,7 @@ body.dark-mode .next {
 /* --- BANNER DE PROMOCIÓN SUPERIOR --- */
 .promo-banner {
   background-color: #120c08;
-  /* Fondo café oscuro elegante con patrón sutil si se desea */
+ 
   background-image: radial-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 0);
   background-size: 12px 12px;
   border-bottom: 1px solid rgba(212, 175, 55, 0.3);
@@ -1867,7 +1866,7 @@ body.dark-mode .next {
   flex-wrap: wrap;
 }
 
-/* Insignia / Badge Metálico Dorado */
+
 .promo-badge {
   background: linear-gradient(135deg, #b8860b, #e6ca65, #996515);
   color: #dacbcb;
@@ -1880,7 +1879,7 @@ body.dark-mode .next {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* Texto Informativo */
+
 .promo-text {
   margin: 0;
   font-size: 14px;
@@ -1933,7 +1932,7 @@ body.dark-mode .next {
   font-size: 16px;
 }
 
-/* Botón Neón Dorado (CTA) */
+
 .promo-btn {
   background: transparent;
   color: #fff6df;
@@ -1964,7 +1963,7 @@ body.dark-mode .next {
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.3s ease;
-  /* Aplicar animación */
+
   animation: parpadeoBotonDorado 1.8s infinite ease-in-out;
 }
 .promo-btn {
@@ -1999,10 +1998,10 @@ body.dark-mode .next {
     left: -60%;
   }
   20% {
-    left: 140%; /* Pasa rápido de un lado a otro */
+    left: 140%; 
   }
   100% {
-    left: 140%; /* Pausa hasta el siguiente ciclo */
+    left: 140%; 
   }
 }
 
@@ -2015,11 +2014,10 @@ body.dark-mode .next {
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.3s ease;
-  /* Aplicar animación */
   animation: parpadeoBotonDorado 1.8s infinite ease-in-out;
 }
 
-/* Al pasar el mouse encima, se intensifica */
+
 .promo-btn:hover {
   background-color: #d4af37;
   color: #111;
@@ -2032,7 +2030,7 @@ body.dark-mode .next {
     border-color: #d4af37;
   }
   50% {
-    /* Resplandor más vivo e intenso en el medio del ciclo */
+
     box-shadow: 0 0 12px rgba(255, 215, 0, 0.8), inset 0 0 6px rgba(255, 215, 0, 0.4);
     border-color: #ffd700;
   }

@@ -58,44 +58,39 @@ function agregarPedido(boton, nombre, precio) {
 
 // 1. ELIMINAR UN SOLO PRODUCTO
 function eliminarItem(botonEliminar) {
-    // Obtenemos el contenedor div.itemPedido
+   
     let item = botonEliminar.closest(".itemPedido");
 
-    // Recuperamos cuánto valía este ítem individual
+  
     let subtotalItem = parseFloat(item.dataset.subtotal);
     let cantidadItem = parseInt(item.dataset.cantidad);
 
-    // Descontamos del total general
     total -= subtotalItem;
     cantidadTotal -= cantidadItem;
 
-    // Evitamos posibles decimales negativos por imprecisión
+   
     if (total < 0) total = 0;
     if (cantidadTotal < 0) cantidadTotal = 0;
 
-    // Eliminamos el HTML de la lista
-    item.remove();
 
-    // Refrescamos pantallas
+    item.remove();
     actualizarTotales();
 }
 
-// 2. ELIMINAR TODOS LOS PRODUCTOS A LA VEZ
+
 function vaciarTodo() {
     let lista = document.getElementById("listaPedido");
-    
-    // Dejamos el contenedor vacío
+   
     lista.innerHTML = "";
 
-    // Reiniciamos contadores
+   
     total = 0;
     cantidadTotal = 0;
 
-    // Refrescamos pantallas
     actualizarTotales();
 }
 
-// Función auxiliar para actualizar los <h3> del resumen
+
 function actualizarTotales() {
     document.getElementById("cantidadProductos").innerText =
         "Productos agregados: " + cantidadTotal;
@@ -109,7 +104,7 @@ function filtrarProductos(categoria) {
     const productos = document.querySelectorAll('.producto');
     const botones = document.querySelectorAll('.btn-filtro');
 
-    // Cambia la clase activa en el botón presionado
+  
     botones.forEach(btn => btn.classList.remove('active'));
     if (event) {
         event.target.classList.add('active');
@@ -225,7 +220,7 @@ function convertirMoneda() {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Obtiene el nombre del archivo de la URL actual (ej: "carta.html")
+    
     const currentPage = window.location.pathname.split("/").pop();
     
     // Selecciona todos los enlaces dentro del menú
@@ -260,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const minutes = Math.floor((totalTimeInSeconds % 3600) / 60);
     const seconds = totalTimeInSeconds % 60;
 
-    // Formato con dos dígitos (ej. 01, 05, 09)
+   
     hoursElement.textContent = String(hours).padStart(2, '0');
     minutesElement.textContent = String(minutes).padStart(2, '0');
     secondsElement.textContent = String(seconds).padStart(2, '0');
@@ -268,6 +263,6 @@ document.addEventListener("DOMContentLoaded", () => {
     totalTimeInSeconds--;
   }
 
-  // Ejecutamos cada 1 segundo (1000 ms)
+
   setInterval(updateCountdown, 1000);
-  updateCountdown(); // Ejecutar inmediatamente al cargar la página
+  updateCountdown();

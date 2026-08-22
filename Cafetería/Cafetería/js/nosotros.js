@@ -97,13 +97,11 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     // Obtiene el nombre del archivo de la URL actual (ej: "carta.html")
     const currentPage = window.location.pathname.split("/").pop();
-    
-    // Selecciona todos los enlaces dentro del menú
+   
     const menuLinks = document.querySelectorAll(".menu li a");
 
     menuLinks.forEach(link => {
-        // Compara el valor href del enlace con el nombre del archivo actual
-        // Si coinciden, añade la clase 'active'
+      
         if (link.getAttribute("href") === currentPage) {
             link.classList.add("active");
         }
@@ -118,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const secondsElement = document.getElementById('seconds');
 
     if (totalTimeInSeconds <= 0) {
-      // Si llega a cero, reiniciamos la oferta a 2 horas para mantener la escasez activa
+     
       totalTimeInSeconds = 2 * 3600;
     }
 
@@ -126,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const minutes = Math.floor((totalTimeInSeconds % 3600) / 60);
     const seconds = totalTimeInSeconds % 60;
 
-    // Formato con dos dígitos (ej. 01, 05, 09)
+    
     hoursElement.textContent = String(hours).padStart(2, '0');
     minutesElement.textContent = String(minutes).padStart(2, '0');
     secondsElement.textContent = String(seconds).padStart(2, '0');
@@ -134,6 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
     totalTimeInSeconds--;
   }
 
-  // Ejecutamos cada 1 segundo (1000 ms)
+  
   setInterval(updateCountdown, 1000);
-  updateCountdown(); // Ejecutar inmediatamente al cargar la página
+  updateCountdown(); 
