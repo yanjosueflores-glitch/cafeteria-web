@@ -9,6 +9,7 @@
    
     <title>Promociones - Cafetería Mis Cielos</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
@@ -107,204 +108,297 @@
     <button onclick="toggleCarrito()">Cerrar</button>
   </div>
 
- <section class="promociones">
+ <section class="promocionesoferta">
 
-    <h2>Promociones Especiales</h2>
+        <section class="apple-carousel-seccion">
+            <h2>Promociones Destacadas</h2>
 
-    <div class="contenedor-promociones">
+            <div class="apple-carousel-wrapper">
+                <button class="carousel-flecha carousel-flecha-izq" id="flechaIzq">&#10094;</button>
 
-        <div class="promo">
+                <div class="apple-carousel" id="appleCarousel">
+                <div class="apple-card" style="background-image: url('img2/carru1.jpg')">
+                    <span class="apple-card-categoria">Promoción</span>
+                    <h3>2x1 en tu café favorito</h3>
+                </div>
 
-            <img src="img/combo1.png" alt="Promoción">
+                <div class="apple-card" style="background-image: url('img2/carru2.jpg')">
+                    <span class="apple-card-categoria">Combo</span>
+                    <h3>Desayuno + postre de regalo</h3>
+                </div>
 
-            <h3>Combo Desayuno</h3>
+                <div class="apple-card" style="background-image: url('img2/carru3.jpg')">
+                    <span class="apple-card-categoria">Especial</span>
+                    <h3>Descuento en bebidas frías</h3>
+                </div>
 
-            <p>
-                Café + Croissant
-            </p>
 
-            <div class="cantidad-box">
-            <label for="cantidad1">Cantidad</label>
+                </div>
 
-            <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad"
-                    id="promo1">
+                <button class="carousel-flecha carousel-flecha-der" id="flechaDer">&#10095;</button>
             </div>
-
-            <h4>S/ 12.90</h4>
-
-            <button onclick="agregarPedido(this, 'Combo Desayuno',12.9, 'promo1')">
-                Agregar al Pedido
-            </button>
-
-        </div>
-
-        <div class="promo">
-
-            <img src="img/combo2.png" alt="Promoción">
-
-            <h3>Dúo Cappuccino</h3>
-
-            <p>
-                2 Cappuccinos por precio especial
-            </p>
-
-            <div class="cantidad-box">
-            <label for="cantidad2">Cantidad</label>
-
-            <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad"
-                    id="promo2">
-            </div>
-
-            <h4>S/ 18.00</h4>
-
-            <button onclick="agregarPedido(this, 'Dúo Cappuccino',18, 'promo2')">
-                Agregar al Pedido
-            </button>
-
-        </div>
-
-        <div class="promo">
-
-            <img src="img/combo3.png" alt="Promoción">
-
-            <h3>Hora Express Max</h3>
-
-            <p>
-                20% de descuento en cafés
-            </p>
-
-            <div class="cantidad-box">
-            <label for="cantidad3">Cantidad</label>
-
-            <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad"
-                    id="promo3">
-            </div>
-
-            <h4>20% OFF</h4>
-
-            <button onclick="agregarPedido(this, 'Hora Express Max',20, 'promo3')">
-                Agregar al Pedido
-            </button>
-
-        </div>
-
-        <div class="promo">
-
-            <img src="img/combo4.png" alt="Promoción">
-
-            <h3>Combo Familiar</h3>
-
-            <p>
-                4 bebidas + 4 postres
-            </p>
-
-            <div class="cantidad-box">
-            <label for="cantidad4">Cantidad</label>
-
-            <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad"
-                    id="promo4">
-            </div>
-
-            <h4>S/ 45.00</h4>
-
-            <button onclick="agregarPedido(this, 'Combo Familiar',45, 'promo4')">
-                Agregar al Pedido
-            </button>
-
-        </div>
-
-        <div class="promo">
-
-            <img src="img/combo5.png" alt="Promoción">
-
-            <h3>Brownie Lovers</h3>
-
-            <p>
-                Brownie + Latte
-            </p>
-
-            <div class="cantidad-box">
-            <label for="cantidad5">Cantidad</label>
-
-            <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad"
-                    id="promo5">
-            </div>
-
-            <h4>S/ 15.00</h4>
-
-            <button onclick="agregarPedido(this, 'Brownie Lovers',15, 'promo5')">
-                Agregar al Pedido
-            </button>
-        </div>
-
-        <div class="promo">
-
-            <img src="img/combo6.png" alt="Promoción">
-
-            <h3>Promo Universitaria</h3>
-
-            <p>
-                Presenta carnet y obtén descuento
-            </p>
-
-            <div class="cantidad-box">
-            <label for="cantidad6">Cantidad</label>
-
-            <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad"
-                    id="promo6">
-            </div>
-
-            <h4>15% OFF</h4>
-
-            <button onclick="agregarPedido(this, 'Promo Universitaria',15, 'promo6')">
-                Agregar al Pedido
-            </button>
-
-        </div>
-
-    </div>
-
+        </section>
  </section>
 
- <section class="pedido">
+ <section class="Favoritos">
 
-    <h2>Resumen del Pedido</h2>
+    <h2>Nuestros favoritos</h2>
+    <p>Lo que nos hace especiales</p>
 
-    <div id="listaPedido"></div>
+    <div class="container">
 
-     <h3 id="cantidadProductos">
-    Paquetes Combo Agregados: 0
-    </h3>
+    <div class="row g-4">
 
-    <h3 id="totalPedido">
+        <!-- PROMOCIÓN 1 -->
+        <div class="col-md-6">
 
-        Total: S/ 0.00
+            <div class="card p-3">
 
-    </h3>
+                <div class="d-flex align-items-center gap-3">
+
+                    <img src="img2/promo1.jpg"
+                         class="rounded"
+                         width="115"
+                         height="115"
+                         alt="Desayuno">
+
+                    <div class="flex-grow-1">
+
+                        <!-- Nombre + precio -->
+                        <div class="d-flex align-items-center">
+
+                            <h5 class="mb-0">
+                                Desayuno Waffle
+                            </h5>
+
+                            <div class="flex-grow-1 border-top border-secondary border-dotted mx-2">
+                            </div>
+
+                            <strong>S/18.50</strong>
+
+                        </div>
+
+                        <p class="mt-3 mb-0">
+                            Waffles acompañados de bollería, frutas y una bebida caliente.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROMOCIÓN 2 -->
+        <div class="col-md-6">
+
+            <div class="card p-3">
+
+                <div class="d-flex align-items-center gap-3">
+
+                    <img src="img2/promo2.jpg"
+                         class="rounded"
+                         width="115"
+                         height="115"
+                         alt="Desayuno">
+
+                    <div class="flex-grow-1">
+
+                        <div class="d-flex align-items-center">
+
+                            <h5 class="mb-0">
+                                Desayuno Sandwich
+                            </h5>
+
+                            <div class="flex-grow-1 border-top mx-2"></div>
+
+                            <strong>S/26.00</strong>
+
+                        </div>
+
+                        <p class="mt-3 mb-0">
+                            Sandwich acompañado de una bebida caliente, ideal para comenzar el día.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROMOCIÓN 3 -->
+        <div class="col-md-6">
+
+            <div class="card p-3">
+
+                <div class="d-flex align-items-center gap-3">
+
+                    <img src="img2/promo3.jpg"
+                         class="rounded"
+                         width="115"
+                         height="115"
+                         alt="Desayuno">
+
+                    <div class="flex-grow-1">
+
+                        <div class="d-flex align-items-center">
+
+                            <h5 class="mb-0">
+                                Desayuno Americano
+                            </h5>
+
+                            <div class="flex-grow-1 border-top mx-2"></div>
+
+                            <strong>S/26.00</strong>
+
+                        </div>
+
+                        <p class="mt-3 mb-0">
+                            Waffles recién preparados acompañados de huevos, tocino y vegetales.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+        <!-- PROMOCIÓN 4 -->
+        <div class="col-md-6">
+
+            <div class="card p-3">
+
+                <div class="d-flex align-items-center gap-3">
+
+                    <img src="img2/promo4.jpg"
+                         class="rounded"
+                         width="115"
+                         height="115"
+                         alt="Desayuno">
+
+                    <div class="flex-grow-1">
+
+                        <div class="d-flex align-items-center">
+
+                            <h5 class="mb-0">
+                                Desayuno Ejecutivo
+                            </h5>
+
+                            <div class="flex-grow-1 border-top mx-2"></div>
+
+                            <strong>S/26.00</strong>
+
+                        </div>
+
+                        <p class="mt-3 mb-0">
+                            Plato especial acompañado de una bebida caliente para disfrutar a cualquier hora.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROMOCIÓN 5 -->
+        <div class="col-md-6">
+
+            <div class="card p-3">
+
+                <div class="d-flex align-items-center gap-3">
+
+                    <img src="img2/promo5.jpg"
+                         class="rounded"
+                         width="115"
+                         height="115"
+                         alt="Desayuno">
+
+                    <div class="flex-grow-1">
+
+                        <div class="d-flex align-items-center">
+
+                            <h5 class="mb-0">
+                                Desayuno Tradicional
+                            </h5>
+
+                            <div class="flex-grow-1 border-top mx-2"></div>
+
+                            <strong>S/26.00</strong>
+
+                        </div>
+
+                        <p class="mt-3 mb-0">
+                            Delicioso desayuno acompañado de una bebida caliente y una selección especial de la casa.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROMOCIÓN 6 -->
+        <div class="col-md-6">
+
+            <div class="card p-3">
+
+                <div class="d-flex align-items-center gap-3">
+
+                    <img src="img2/promo6.jpg"
+                         class="rounded"
+                         width="115"
+                         height="115"
+                         alt="Desayuno">
+
+                    <div class="flex-grow-1">
+
+                        <div class="d-flex align-items-center">
+
+                            <h5 class="mb-0">
+                                Café y Cheesecake
+                            </h5>
+
+                            <div class="flex-grow-1 border-top mx-2"></div>
+
+                            <strong>S/26.00</strong>
+
+                        </div>
+
+                        <p class="mt-3 mb-0">
+                            Una porción de cheesecake acompañada de café recién preparado.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
 
  </section>
 
@@ -365,7 +459,9 @@
 
 </footer>
  <script src="js/carta&promociones.js"></script>
+ <script src="js/notificacion.js"></script>
  <script src="js/carrito.js"></script>
+ <script src="js/carruselPromos.js"></script>
 </body>
 
 </html>

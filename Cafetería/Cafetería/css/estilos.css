@@ -2177,3 +2177,265 @@ body.dark-mode .promo-badge {
     border-color: #d4af37;
   }
 }
+
+.notificacion-carrito {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #f5f0e6;   /* beige suave */
+  color: #4a3f35;              /* texto marrón oscuro para contraste */
+  padding: 14px 22px;
+  border-radius: 8px;
+  border: 1px solid #e0d5c1;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 2000;
+  font-weight: 500;
+}
+
+.notificacion-carrito.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.apple-carousel-seccion {
+  padding: 60px 40px;
+  background-color: #ccd2cd;
+}
+
+.apple-carousel-seccion h2 {
+  color: #2b2923;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.apple-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.apple-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  scrollbar-width: none;
+}
+
+.apple-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.apple-card {
+  position: relative;
+  min-width: 320px;
+  height: 420px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  transition: transform 0.35s ease;
+}
+
+.apple-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 10%, rgba(0,0,0,0.1) 60%);
+}
+
+.apple-card:hover {
+  transform: translateY(-8px);
+}
+
+.apple-card-categoria,
+.apple-card h3 {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.apple-card-categoria {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #d4a359;
+  margin-bottom: 8px;
+}
+
+.apple-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.carousel-flecha {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  z-index: 5;
+  transition: background 0.25s ease;
+  flex-shrink: 0;
+}
+
+.carousel-flecha:hover {
+  background: #d4a359;
+  color: #10201a;
+}
+
+.carousel-flecha-izq { margin-right: 15px; }
+.carousel-flecha-der { margin-left: 15px; }
+
+.apple-carousel-seccion {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.apple-carousel-seccion h2 {
+    margin-bottom: 5px;
+}
+
+.apple-carousel-seccion > p {
+    margin-bottom: 30px;
+}
+
+/* Centra todo el bloque del carrusel */
+.apple-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+.promociones-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.promo-card {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid #c9d1d3;
+    border-radius: 18px;
+
+    padding: 20px;
+
+    min-height: 155px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    transition: 0.3s;
+}
+
+.promo-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+
+.promo-img {
+    width: 115px;
+    height: 115px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+}
+
+
+
+.promo-header {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+
+.promo-header h5 {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    color: #4b3a32;
+
+    white-space: nowrap;
+}
+
+
+
+.linea-puntos {
+    flex: 1;
+
+    border-top: 1px dotted #aaa;
+
+    min-width: 20px;
+}
+
+
+
+.promo-header strong {
+    color: #264b5a;
+
+    font-size: 18px;
+
+    white-space: nowrap;
+}
+
+
+
+.promo-card p {
+    margin-top: 15px;
+    margin-bottom: 0;
+
+    color: #888;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+
+.container {
+    padding-bottom: 80px;
+}
+
+.Favoritos > h2,
+.Favoritos > p {
+    text-align: center;
+}
+
+.Favoritos > p {
+    margin-bottom: 30px;
+}
+
+.Favoritos h2{
+  padding-top: 60px;
+}

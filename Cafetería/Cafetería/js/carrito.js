@@ -34,6 +34,7 @@ function agregarAlCarrito(id) {
   }
   guardarCarrito();
   renderizarCarrito();
+  mostrarNotificacion(`${producto.nombre} agregado al carrito`);
 }
 
 // 5 Quitar o disminuir cantidad
