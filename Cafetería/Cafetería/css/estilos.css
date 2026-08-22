@@ -177,6 +177,17 @@ header > a img.prendido {
   box-shadow: 0 2px 8px rgba(212, 175, 55, 0.6);
 }
 
+.bloque-fila:not(:last-child) {
+  border-bottom: 1px solid rgba(140, 88, 53, 0.25);
+  padding-bottom: 50px; /* Espacio interno sin separar los fondos */
+  margin-bottom: 0;     /* Elimina el hueco blanco */
+}
+
+body.dark .bloque-fila:not(:last-child),
+body.dark-mode .bloque-fila:not(:last-child) {
+  border-bottom: 1px solid rgba(212, 163, 89, 0.25);
+}
+
 /* ==========================================
    TIPOGRAFÍA Y BANNER
    ========================================== */
@@ -608,17 +619,13 @@ footer{
     width: 50%;
     max-width: 700px;
     margin: 50px auto;
-
     background: rgba(255, 255, 255, 0.077);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-
-    
     border-radius: 20px;
-
     padding: 40px;
-
     box-shadow: 0 8px 30px rgba(0,0,0,0.30);
+    border: 3px solid #d4a359; /* <-- Añade esta línea para el borde grueso */
 }
 
 .formulario h2{
@@ -631,8 +638,6 @@ footer{
     display:flex;
     flex-direction: column;
 }
-
-
 
 .formulario button{
     background: #5d4037;
@@ -647,17 +652,29 @@ footer{
     transform: translateY(-2px);
 }
 
-
-
-.form-floating label{
-    margin: 0 !important;
-    font-weight: normal !important;
+.form-floating > label {
+  color: #555555 !important; /* Gris oscuro */
 }
 
 .form-floating input,
 .form-floating textarea,
 .form-floating select{
     padding: 1rem 0.75rem !important;
+}
+
+.form-control,
+.form-select {
+  color: #212529 !important; /* Negro suave */
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  color: #777777 !important; /* Gris medio */
+}
+
+#inputOrden::placeholder {
+  color: #6c757d !important; /* Gris */
+  opacity: 1;
 }
 
 .btn{
@@ -672,6 +689,39 @@ footer{
 
 .btn:hover{
     background:#bea9a2;
+}
+
+/* ==========================================
+   TABLA DE RESERVAS REGISTRADAS
+   ========================================== */
+#tablaReservas {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+  background-color: #ffffff; /* <-- CAMBIA AQUÍ: Fondo de toda la tabla (blanco, crema, etc.) */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#tablaReservas td {
+  background-color: #ffffff; /* <-- CAMBIA AQUÍ: Fondo de las celdas normales */
+  color: #000000 !important; /* <-- CAMBIA AQUÍ: Color del texto de los registros (Negro) */
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #d1c7bd; /* Color de las líneas divisorias de las celdas */
+}
+
+#tablaReservas th {
+  background-color: #3b2a1d; /* <-- CAMBIA AQUÍ: Color de fondo de la barra de títulos */
+  color: #ffffff !important; /* <-- CAMBIA AQUÍ: Color del texto de los títulos */
+  padding: 12px;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #5a402d; /* Color de las líneas divisorias de los títulos */
+}
+
+#tablaReservas tbody tr:nth-child(even) {
+    background-color: #ebe3d5; /* Fondo alterno para las filas */
 }
 
 .productos{
@@ -1069,48 +1119,77 @@ td{
 
 }
 
-.comentarios{
+.comentarios {
+  width: 90%;
+  max-width: 900px;
+  margin: 50px auto 40px auto;
+  text-align: center;
+  /* Línea divisoria superior en modo claro (café suave) */
+  border-top: 1px solid rgba(140, 88, 53, 0.25);
+  padding-top: 50px; /* Espacio entre la línea y el título */
+}
 
-    width: 90%;
-
-    margin: auto;
-
-    padding:40px ;
-
+.comentarios h2 {
+  margin-bottom: 30px;
 }
 
 .comentario{
-
     background:rgb(252, 252, 252);
-
     padding:15px;
-
     margin: 0 auto 20px;
-
     max-width: 500px;
-
     border-radius:10px;
-
     box-shadow:0px 0px 10px rgba(26, 2, 2, 0.1);
-
 }
 
 .comentario h3{
-
     color:#5d4037;
-
     margin-bottom:10px;
-
 }
 
-footer{
-    background-color:#121d17;
-    
-    
+#listaComentarios {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra las tarjetas horizontalmente */
+  gap: 20px;           /* Espacio entre cada comentario */
 }
 
+.comentario-card,
+#listaComentarios > div {
+  width: fit-content;
+  min-width: 280px;            /* Tamaño mínimo cuando el texto sea corto */
+  max-width: 100%;             /* Límite máximo horizontal */
+  padding: 18px 24px;
+  /* Borde dorado suave a juego */
+  border: 2px solid #d4a359;
+  border-radius: 14px;
+  /* Fondo semitransparente con efecto de desenfoque */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: left;            /* Texto alineado dentro de la tarjeta */
+  word-wrap: break-word;       /* Evita desbordamientos con palabras largas */
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
 
+.comentario-card:hover,
+#listaComentarios > div:hover {
+  transform: translateY(-2px);
+  border-color: #f1c40f;
+}
 
+body:not(.dark):not(.dark-mode) .comentario-card,
+body:not(.dark):not(.dark-mode) #listaComentarios > div {
+  border-color: #8c5835;
+  background: rgba(255, 255, 255, 0.85);
+  color: #212529;
+}
+
+body.dark .comentarios,
+body.dark-mode .comentarios {
+  border-top: 1px solid rgba(212, 163, 89, 0.25);
+}
 
 .footer-contenedor{
     display: flex;
@@ -1327,6 +1406,16 @@ footer hr {
             }
         }
 
+        .fila-nosotros:not(:last-child) {
+          border-bottom: 1px solid rgba(140, 88, 53, 0.25);
+          padding-bottom: 50px; /* Espacio interno sin separar los fondos */
+          margin-bottom: 0;     /* Elimina el hueco blanco */
+        }
+
+        body.dark .fila-nosotros:not(:last-child),
+        body.dark-mode .fila-nosotros:not(:last-child) {
+          border-bottom: 1px solid rgba(212, 163, 89, 0.25);
+        }
 
    /* --- ESTILOS DEL MENÚ Y NAVEGACIÓN --- */
 header {
