@@ -14,8 +14,8 @@
         });
 
 
-<<<<<<< HEAD
-=======
+
+
 function agregarPedido(boton, nombre, precio) {
     let tarjeta = boton.parentElement;
     let cantidadInput = tarjeta.querySelector(".cantidad");
@@ -98,7 +98,7 @@ function actualizarTotales() {
     document.getElementById("totalPedido").innerText =
         "Total: S/ " + total.toFixed(2);
 }
->>>>>>> 2a2e29144573fd5178c2b8e6dd71971eb5c8d4d1
+
 
 
 function filtrarProductos(categoria) {

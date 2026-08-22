@@ -177,7 +177,6 @@ header > a img.prendido {
   box-shadow: 0 2px 8px rgba(212, 175, 55, 0.6);
 }
 
-<<<<<<< HEAD
 #panel-carrito {
   position: fixed;
   top: 0;
@@ -321,19 +320,6 @@ header > a img.prendido {
 
 
 
-=======
-.bloque-fila:not(:last-child) {
-  border-bottom: 1px solid rgba(140, 88, 53, 0.25);
-  padding-bottom: 50px; /* Espacio interno sin separar los fondos */
-  margin-bottom: 0;     /* Elimina el hueco blanco */
-}
-
-body.dark .bloque-fila:not(:last-child),
-body.dark-mode .bloque-fila:not(:last-child) {
-  border-bottom: 1px solid rgba(212, 163, 89, 0.25);
-}
-
->>>>>>> 2a2e29144573fd5178c2b8e6dd71971eb5c8d4d1
 /* ==========================================
    TIPOGRAFÍA Y BANNER
    ========================================== */
@@ -1998,13 +1984,8 @@ body.dark-mode .promo-badge {
 }
 
 .promo-banner {
-<<<<<<< HEAD
   background-color: #12121c;
   /* Fondo café oscuro elegante con patrón sutil si se desea */
-=======
-  background-color: #120c08;
- 
->>>>>>> 2a2e29144573fd5178c2b8e6dd71971eb5c8d4d1
   background-image: radial-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 0);
   background-size: 12px 12px;
   border-bottom: 1px solid rgba(212, 175, 55, 0.3);
