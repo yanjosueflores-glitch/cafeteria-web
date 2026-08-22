@@ -150,3 +150,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(updateCountdown, 1000);
   updateCountdown(); 
+
+
+  
+  // Ejecutamos cada 1 segundo (1000 ms)
+  setInterval(updateCountdown, 1000);
+  updateCountdown(); // Ejecutar inmediatamente al cargar la página
+
+
+ const API_KEY = 'TU_API_KEY_AQUI'; // Consigue tu clave gratuita en openweathermap.org
+const CIUDAD = 'Lima,PE';
+
+async function obtenerClimaActual() {
+  try {
+    const res = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${CIUDAD}&units=metric&lang=es&appid=${API_KEY}`
+    );
+    const data = await res.json();
+    
+    const temp = Math.round(data.main.temp);
+    const descripcionRaw = data.weather[0].description;
+    const iconCode = data.weather[0].icon; 
+    const esNoche = iconCode.endsWith('n'); // Detecta si en Lima ya oscureció
+
+    // Formatear texto en español correcto
+    let estadoTexto = descripcionRaw.charAt(0).toUpperCase() + descripcionRaw.slice(1);
+    
+    // Ajustar texto si es de noche y el reporte dice "cielo claro"
+    if (esNoche && estadoTexto.toLowerCase().includes('claro')) {
+      estadoTexto = 'Despejado';
+    }
+
+    // Actualizar texto en HTML
+    document.getElementById('weather-text').textContent = `${temp}°C - ${estadoTexto}`;
+
+    // Cambiar ícono dinámicamente desde OpenWeatherMap
+    const iconImg = document.getElementById('weather-icon');
+    if (iconImg) {
+      iconImg.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    }
+
+  } catch (error) {
+    console.error('Error al consultar el clima:', error);
+    // Si falla la conexión, muestra un estado nocturno por defecto
+    document.getElementById('weather-text').textContent = '18°C - Nublado';
+  }
+}
+
+// Llama a la función al cargar la página
+obtenerClimaActual();
+
+// Opcional: Actualiza el clima automáticamente cada 15 minutos (900,000 ms)
+setInterval(obtenerClimaActual, 900000);
