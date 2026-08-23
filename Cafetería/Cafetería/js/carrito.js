@@ -10,6 +10,16 @@
   { id: 8, nombre: "Frappé de Café", precio: 11.00, imagen: "prod7.png" },
   { id: 9, nombre: "Té Helado", precio: 7.50, imagen: "prod8.png" },
   { id: 10, nombre: "Malteada de Fresa", precio: 13.00, imagen: "prod9.png" },
+
+  { id: 11, nombre: "2x1 en tu café favorito", precio: 15.90 },
+  { id: 12, nombre: "Desayuno + postre de regalo", precio: 15.00 },
+  { id: 13, nombre: "Descuento en bebidas frías", precio: 12.00 },
+  { id: 14, nombre: "Desayuno Waffle", precio: 18.50 },
+  { id: 15, nombre: "Desayuno Sandwich", precio: 26.00 },
+  { id: 16, nombre: "Desayuno Americano", precio: 26.00 },
+  { id: 17, nombre: "Desayuno Ejecutivo", precio: 26.00 },
+  { id: 18, nombre: "Desayuno Tradicional", precio: 26.00 },
+  { id: 19, nombre: "Café y Cheesecake", precio: 26.00 },
 ];
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
